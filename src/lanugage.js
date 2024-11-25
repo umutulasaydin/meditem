@@ -1,5 +1,4 @@
 function changeLanguage(lang) {
-    console.log(lang)
     localStorage.setItem("language", lang);
     const currentLangElements = document.querySelectorAll(".current-lang");
     currentLangElements.forEach((element) => {
