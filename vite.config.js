@@ -16,6 +16,7 @@ const uniPlugin = () => ({
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './test',
   root: './src',
   plugins: [
     uniPlugin(),

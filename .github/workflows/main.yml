@@ -26,12 +26,12 @@ jobs:
           # Add the private key from GitHub Secrets
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
 
-          # Add the server to known_hosts to avoid SSH warnings
+          echo "Add the server to known hosts"
           mkdir -p ~/.ssh
           ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
-
+          echo "Dependiencies are installing"
           npm install
+          echo "Building the project"
           npm run build
-
-          # SCP to copy files to the server
-          scp -r ./dist $SERVER_USER@$SERVER_IP:$SERVER_PATH
+          # Deploy the project
+          scp -r ./dist/* $SERVER_USER@$SERVER_IP:$SERVER_PATH
