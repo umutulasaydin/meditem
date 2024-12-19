@@ -1,7 +1,17 @@
 
+const pageHandlers = {
+    "index.html": generateBlogSlides,
+    "blog.html": generateBlogPages,
+    "blog-details.html": generateBlogDetail
+}
+
 function changeLanguage(lang) {
-    localStorage.setItem("language", lang);
-    generateBlogSlides(blogs[lang]);
+    
+    pageName = window.location.pathname.split("/").pop();
+    if (pageHandlers[pageName]) {
+        console.log(pageHandlers[pageName])
+        pageHandlers[pageName](blogs[lang]);
+    }
     const currentLangElements = document.querySelectorAll(".current-lang");
     currentLangElements.forEach((element) => {
         element.textContent = lang.charAt(0).toUpperCase() + lang.slice(1).toLowerCase();;
@@ -24,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function generateBlogSlides(blogs) {
 
     // Select the container where slides will be added
-    
+
     const container = document.getElementById("swiper");
 
     if (!container) {
@@ -50,16 +60,16 @@ function generateBlogSlides(blogs) {
                 <figure class="featured-image m-0 rounded ratio ratio-4x3 rounded-1-5 uc-transition-toggle overflow-hidden">
                     <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
                         src="${blogs[blog].image}" alt="${blogs[blog].title}">
-                    <a href="${blogs[blog].url}" class="position-cover" data-caption="${blogs[blog].title}"></a>
+                    <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
                 </figure>
                 <div class="panel vstack gap-1">
-                    <a class="text-none" href="${blogs[blog].url}">
+                    <a class="text-none" href="blog-details.html?id=${blog}">
                         <h3 class="post-title h5 xl:h4 m-0 ltr:pe-4 rtl:ps-4">
                             <span>${blogs[blog].title}</span>
                         </h3>
                     </a>
                     <p class="post-excrept fs-7 xl:fs-6 opacity-70">${contentExcerpt}...</p>
-                    <a href="${blogs[blog].url}" class="uc-link dark:text-secondary fs-7 xl:fs-6 fw-bold hstack gap-1 sm:mt-1 xl:mt-2">
+                    <a href="blog-details.html?id=${blog}" class="uc-link dark:text-secondary fs-7 xl:fs-6 fw-bold hstack gap-1 sm:mt-1 xl:mt-2">
                         <span data-key="buton_5"></span>
                         <i class="position-relative icon unicon-arrow-up-right fw-bold rtl:-rotate-90 translate-y-px"></i>
                     </a>
@@ -72,6 +82,124 @@ function generateBlogSlides(blogs) {
     });
 }
 
+function generateBlogPages(blogs) {
+
+    // Select the container where slides will be added
+
+    const container = document.getElementById("blog-wrapper");
+
+    if (!container) {
+        console.error(`Container with selector wrapper not found.`);
+        return;
+    }
+
+    container.innerHTML = "";
+    first = true;
+
+    // Iterate through the blogs array and generate slides
+    Object.keys(blogs).forEach(blog => {
+        // Create a new slide element
+
+        const contentExcerpt = typeof blogs[blog].content === "string"
+            ? blogs[blog].content.substring(0, 150) + "..."
+            : "Content not available";
+
+
+        const blog_cont = document.createElement("div");
+        if (first) {
+            blog_cont.className = "col-12"
+
+            blog_cont.innerHTML = `
+            <article class="post type-post panel rounded-3 p-3 bg-secondary dark:bg-gray-800">
+                <div class="panel row child-cols-12 md:child-cols-6 items-center g-3">
+                    <div>
+                        <figure class="featured-image m-0 rounded ratio ratio-4x3 rounded lg:rounded-2 uc-transition-toggle overflow-hidden">
+                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" src="${blogs[blog].image}" alt="${blogs[blog].title}">
+                            <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
+                        </figure>
+                    </div>
+                    <div>
+                        <div class="vstack items-center gap-2 lg:gap-3">
+                            <a class="post-category text-primary fw-normal text-none fw-bold fs-7 bg-primary text-white py-narrow px-1 rounded">${blogs[blog].tag}</a>
+                            <h3 class="h4 xl:h2 m-0 text-center m-0 lg:w-500px lg:m-auto">
+                                <a class="text-none" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
+                            </h3>
+                            <ul class="post-meta nav-x ft-tertiary justify-center fs-7 gap-1">
+                                <li>
+                                    <div class="hstack gap-narrow ft-tertiary">
+                                        <div class="text-none fw-bold text-dark dark:text-white">${blogs[blog].writer}</div>
+                                    </div>
+                                </li>
+                                <li class="opacity-50">•</li>
+                                <li>
+                                    <div class="post-date hstack gap-narrow">
+                                        <span>${blogs[blog].date}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="fs-6 lg:fs-5 lg:w-500px lg:mx-auto text-center md:d-none lg:d-block">${contentExcerpt}</p>
+                            <a class="btn btn-text text-primary border-bottom d-inline-flex fs-7 lg:fs-6 sm:mt-2" href="blog-details.html?id=${blog}" data-key="blog_continue"></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            `
+            first = false;
+        }
+
+        else {
+            blog_cont.innerHTML= `
+                <article class="post type-post panel vstack gap-3 rounded-3 p-2 pb-3 bg-secondary dark:bg-gray-800">
+                    <a class="position-absolute top-0 ltr:start-0 rtl:end-0 m-3 fs-7 fw-bold text-none z-1 bg-primary text-white py-narrow px-1"  style="border-radius: 8px">${blogs[blog].tag}</a>
+                    <figure class="featured-image m-0 rounded ratio ratio-3x2 rounded-2 uc-transition-toggle overflow-hidden">
+                        <img class="media-cover image uc-transition-scale-up uc-transition-opaque" src="${blogs[blog].image}" alt="${blogs[blog].title}">
+                        <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
+                    </figure>
+                    <header class="panel vstack items-center gap-1 lg:gap-2 px-2">
+                        <h3 class="h5 xl:h4 m-0 text-center m-0">
+                            <a class="text-none" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
+                        </h3>
+                        <ul class="post-meta nav-x ft-tertiary justify-center gap-1 fs-7 text-gray-400 dark:text-gray-300 d-none lg:d-flex">
+                            <li>
+                                <div class="hstack gap-narrow ft-tertiary">
+                                    <a class="text-none fw-bold text-dark dark:text-white">${blogs[blog].writer}</a>
+                                </div>
+                            </li>
+                            <li class="opacity-50">•</li>
+                            <li>
+                                <div class="post-date hstack gap-narrow">
+                                    <span>${blogs[blog].date}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </header>
+                    <a class="btn btn-text text-primary border-bottom d-inline-flex fs-7 lg:fs-6 sm:mt-2" href="blog-details.html?id=${blog}" data-key="blog_continue"></a>
+                </article>
+            `
+        }
+
+
+
+
+        // Append the slide to the container
+        container.appendChild(blog_cont);
+    });
+}
+
+function generateBlogDetail(blogs) {
+    id = new URLSearchParams(window.location.search).get("id");
+    if (blogs[id] === undefined) {
+        window.location.href = "404.html";
+    }
+    title = document.getElementById('title')
+    title.textContent = blogs[id].title
+
+    image = document.getElementById('image')
+    image.innerHTML = `<img class="media-cover image uc-transition-scale-up uc-transition-opaque" src="${blogs[id].image}" alt="${blogs[id].title}">`
+
+    content = document.getElementById('content')
+    content.textContent = blogs[id].content
+}
 
 const translations = {
     tr: {
@@ -111,7 +239,7 @@ const translations = {
         marka_6_icerik: "Hasta izleme ve yaşam destek ekipmanlarında global standartlarda çözümler sunar.",
         baslik_4: "Blog Yazılarımız",
         buton_5: "Blogu Oku",
-        icerik_4: "Röportajlar, ipuçları, kılavuzlar, sektördeki en iyi uygulamalar ve haberler.",
+        icerik_4: "Röportajlar, sektördeki en iyi uygulamalar ve haberler.",
         buton_4: "Tüm Yazıları Gör",
         hakkinda: "MEDITEM Health Solutions: Sağlıkta Yenilikçi Çözümler",
         hakkinda_icerik_1: "2024 yılında kurulan MEDITEM Health Solutions, sağlık sektöründe uzun yıllara dayanan deneyimimizle, yenilikçi çözümleri bir araya getiren bir firma olarak öne çıkmaktadır. Genel Cerrahi, Jinekoloji, Pediatri, Üroloji ve Plastik Cerrahi gibi birçok tıbbi uzmanlık alanında, hasta bakımını iyileştirmeyi ve sağlık profesyonellerinin ihtiyaçlarını karşılamayı amaçlayan ürünler sunuyoruz.",
@@ -122,6 +250,11 @@ const translations = {
         hakkinda_header_2: "Vizyonumuz",
         hakkinda_icerik_5: "MEDITEM Health Solutions, sağlık teknolojileri alanında lider bir inovasyon gücü olmayı ve sektördeki tüm paydaşlar için değer yaratmayı amaçlamaktadır. Geliştirdiğimiz çözümlerle, sağlık profesyonellerine güvenli, etkili ve verimli araçlar sunarak, hastaların yaşam kalitesini artırmayı hedefliyoruz. Sağlık hizmetlerinin dijital dönüşümünü yönlendiren bir öncü olarak, sürekli gelişen bir sektör için güçlü, sürdürülebilir ve etkili çözümler sunmayı vizyon edinmiştir.",
         hakkinda_header_3: "Değerlerimiz",
+        blog_header: "Blog",
+        blog_continue: "Okumaya devam edin",
+        header_404: "Sayfa Bulunamadı",
+        content_404: "Aradığınız sayfa maalesef mevcut değil. Lütfen tekrar deneyin veya ana sayfaya dönün.",
+        redirect_404: "Ana Sayfaya Dön",
     },
     en: {
         footer_1: "Meditem © 2024, All rights reserved.",
@@ -136,6 +269,7 @@ const translations = {
         buton_1: "Firmamızı Keşfedin",
         baslik_2: "Sağlık Sektörü İçin İleri Teknolojik Çözümler",
         icerik_1: "Tıbbi teknolojileri daha erişilebilir hale getirmeye odaklanıyoruz ve nihai amacımız, sağlık hizmetlerinin verimliliğini arttırmak ve hasta sonuçlarını iyileştirmektir.",
+        icerik_4: "Interviews, industry best practices and news.",
     },
     de: {
         anaSayfa: "Ana Sayfa3",
@@ -211,7 +345,10 @@ Sürdürülebilir Geleceğe Bir Adım Daha
 Meditem Health Solutions olarak, geleceğin sağlık çözümleri kadar çevre dostu teknolojilerin de savunucusuyuz. Elektrikli araç kullanımımız, bu anlayışımızın bir yansımasıdır. Nature Communications gibi bilimsel yayınların da ortaya koyduğu üzere, sürdürülebilir ulaşım, gezegenimizin geleceği için hayati bir öneme sahiptir. Bizler, çevreye duyarlı bu yaklaşımı benimseyerek sadece bugünü değil, geleceği de iyileştirmeyi hedefliyoruz.
 Daha sağlıklı bir dünya için teknoloji ve çevre dostu çözümleri bir araya getiren Meditem Health Solutions, sorumluluklarının bilincinde bir şekilde ilerlemeye devam ediyor.`,
             url: "/blog-details.html",
-            image: "./assets/images/blog/img-01.jpg"
+            image: "./assets/images/blog/img-01.jpg",
+            date: "Ara 18, 2024",
+            tag: "Elektrikli Araç",
+            writer: "Mert Nazmi Temizel"
         },
         blog_2: {
             title: "Geleceğin Sağlık Sektörüne Yön Verecek 5 Teknoloji",
@@ -228,9 +365,12 @@ Genomik araştırmalar, bireylerin genetik yapısına dayalı kişiselleştirilm
 TeleTıp, sağlık hizmetlerine erişimi kolaylaştıran bir diğer yenilikçi teknoloji. Hastalar, uzaktan doktorlarına danışarak zaman ve maliyet tasarrufu sağlıyor. Pandemi döneminde büyük bir ivme kazanan bu teknoloji, özellikle kırsal bölgelerde yaşayan bireyler için büyük bir çözüm sunuyor. TeleTıp, sadece danışmanlık hizmetleriyle sınırlı kalmayarak, uzaktan izleme cihazlarıyla entegre çalışarak daha kapsamlı bir sağlık hizmeti sunuyor.
 Gelecekte bu teknolojilerin daha da gelişmesi ve yaygınlaşmasıyla, sağlık sektöründe büyük değişimlerin gerçekleşmesi bekleniyor. Her bir yenilik, hem hasta hem de sağlık profesyonelleri için hayatı kolaylaştırmayı ve sağlık sistemlerini daha verimli hale getirmeyi hedefliyor.`,
             url: "/blog-details.html",
-            image: "./assets/images/blog/img-02.jpg"
+            image: "./assets/images/blog/img-02.jpg",
+            date: "Ara 18, 2024",
+            tag: "Teknoloji",
+            writer: "Mert Nazmi Temizel"
         },
-        blog_3 : {
+        blog_3: {
             title: "Sağlık Sektöründe Otomasyon ve Yapay Zekanın Rolü",
             content: `Günümüzde sağlık sektörü, teknolojik yeniliklerin öncülüğünde büyük bir dönüşüm geçiriyor. Otomasyon ve yapay zeka (YZ), bu değişimin temel itici güçleri arasında yer alıyor. Bu iki teknoloji, hasta bakımından idari süreçlere, tanı koymadan tedaviye kadar her alanda sağlık hizmetlerini yeniden tanımlıyor. Araştırmalar, otomasyonun ve yapay zekanın, hasta sonuçlarını iyileştirirken maliyetleri önemli ölçüde düşürdüğünü gösteriyor (Kaynak: Harvard Business Review).
 Otomasyonun Sağlık Sektörüne Katkıları
@@ -261,9 +401,12 @@ Otomasyon ve yapay zeka teknolojileri, sağlık sektöründe hâlâ keşfedilmey
 
 SonuçOtomasyon ve yapay zeka, sağlık hizmetlerinde devrim yaratmaya devam ediyor. Ancak bu teknolojilerin tam potansiyeline ulaşabilmesi için dikkatli bir entegrasyon süreci, uygun düzenlemeler ve sürekli eğitim şart. Etik bir yaklaşımla kullanıldığında, bu teknolojiler sadece sağlık hizmetlerini değil, tüm insan yaşamını iyileştirme potansiyeline sahiptir.`,
             url: "/blog-details.html",
-            image: "./assets/images/blog/img-03.jpg"
+            image: "./assets/images/blog/img-03.jpg",
+            date: "Ara 18, 2024",
+            tag: "Yapay Zeka",
+            writer: "Mert Nazmi Temizel"
         },
-        blog_4 : {
+        blog_4: {
             title: "Nanoteknolojinin Sağlık Sektörüne Etkileri: Geleceğin Tıbbını Şekillendiren Çözümler",
             content: `Nanoteknoloji, atom ve molekül düzeyinde yenilikçi teknolojilerle yaşamın her alanında olduğu gibi sağlık sektöründe de çığır açıyor. Bu teknoloji, yalnızca teşhis ve tedavi süreçlerini geliştirmekle kalmıyor, aynı zamanda daha az invaziv yöntemlerle hastaların yaşam kalitesini artırıyor. Özellikle kişiselleştirilmiş tıp, nano-ilaçlar, doku mühendisliği ve akıllı cihazlar alanında önemli ilerlemeler sağlanmıştır.
 Nanoteknoloji ile Geliştirilen Tıbbi Malzemeler ve Tedavi Yaklaşımları
@@ -297,8 +440,11 @@ Kaynaklar:
 	•	Johns Hopkins University Research
 	•	FDA Nanotechnology Reports
 	•	Harvard Medical School Innovations`,
-    url: "/blog-details.html",
-    image: "./assets/images/blog/img-04.jpg"
+            url: "/blog-details.html",
+            image: "./assets/images/blog/img-04.jpg",
+            date: "Ara 18, 2024",
+            tag: "Nanoteknoloji",
+            writer: "Mert Nazmi Temizel"
         }
     },
     en: {
