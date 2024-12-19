@@ -9,7 +9,6 @@
     <meta name="theme-color" content="#000000">
 
 
-
     <!-- preload head styles -->
     <link rel="preload" href="./assets/css/unicons.min.css" as="style">
     <link rel="preload" href="./assets/css/swiper-bundle.min.css" as="style">
@@ -62,6 +61,9 @@
 
 
 
+
+
+
     <!--  Menu panel -->
     <div id="uc-menu-panel" data-uc-offcanvas="overlay: true;">
         <div class="uc-offcanvas-bar bg-white text-dark dark:bg-gray-900 dark:text-white">
@@ -88,8 +90,10 @@
                 </ul>
                 <ul class="social-icons nav-x mt-4">
                     <li>
-                        <a href="https://instagram.com/meditemhealth" target="_blank"><i class="unicon-logo-instagram icon-2"></i></a>
-                        <a href="https://linkedin.com/company/meditem-health" target="_blank"><i class="unicon-logo-linkedin icon-2"></i></a>
+                        <a href="https://instagram.com/meditemhealth" target="_blank"><i
+                                class="unicon-logo-instagram icon-2"></i></a>
+                        <a href="https://linkedin.com/company/meditem-health" target="_blank"><i
+                                class="unicon-logo-linkedin icon-2"></i></a>
                         <a href="https://wa.me/+905388185451" target="_blank">
                             <img src="./assets/images/common/icons/whatsapp.svg" class="icon-2 d-block dark:d-none"
                                 alt="Whatsapp" />
@@ -165,6 +169,7 @@
 
 
 
+
     <!--  Bottom Actions Sticky -->
     <div class="backtotop-wrap position-fixed bottom-0 end-0 z-99 m-2 vstack">
         <div class="darkmode-trigger cstack w-40px h-40px rounded-circle text-none bg-gray-100 dark:bg-gray-700 dark:text-white"
@@ -181,21 +186,19 @@
     </div>
 
     <!-- Header start -->
-    <header class="uc-header header-default uc-navbar-sticky-wrap z-999 " style="--uc-nav-height: 80px"
+    <header class="uc-header header-default uc-navbar-sticky-wrap z-999" style="--uc-nav-height: 80px"
         data-uc-sticky="start: 100vh; show-on-up: true; animation: uc-animation-slide-top; sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent; end: !*;">
-        <nav class="uc-navbar-container uc-navbar-float ft-tertiary z-1"
-            data-anime="translateY: [-40, 0]; opacity: [0, 1]; easing: easeOutExpo; duration: 750; delay: 0;">
+        <nav class="uc-navbar-container ft-tertiary z-1">
             <div class="container max-w-xl">
                 <div class="uc-navbar min-h-64px lg:min-h-80px text-gray-900 dark:text-white"
-                    data-uc-navbar="mode: click; animation: uc-animation-slide-top-small; duration: 150;">
+                    data-uc-navbar=" animation: uc-animation-slide-top-small; duration: 150;">
                     <div class="uc-navbar-left">
                         <div class="uc-logo text-dark dark:text-white">
                             <a class="panel text-none" href="index.html" style="width: 140px">
                                 <img class="" src="./assets/images/logo.png" alt="Meditem">
                             </a>
                         </div>
-                        <ul
-                            class="uc-navbar-nav gap-3 xl:gap-4 d-none lg:d-flex fw-medium ltr:ms-2 ltr:xl:ms-4 rtl:me-2 rtl:xl:me-4">
+                        <ul class="uc-navbar-nav gap-3 xl:gap-4 d-none lg:d-flex fw-medium ms-2">
                             <li><a href="index.html" data-key="anaSayfa"></a></li>
                             <li><a href="page-about.html" data-key="hakkimizda"></a></li>
                             <li><a href="integrations.html" data-key="urunler"></a></li>
@@ -263,95 +266,148 @@
     <!-- Header end -->
 
     <!-- Wrapper start -->
-    <div id="wrapper" class="wrap mt-5">
+    <div id="wrapper" class="wrap">
 
-        <!-- Section start -->
-        <div id="hero_header" class="hero-header section panel overflow-hidden">
-            <div class="section-outer panel pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9">
-                <div class="container max-w-xl">
-                    <div class="section-inner panel mt-2 sm:mt-4 lg:mt-0"
-                        data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                        <div class="vstack items-center gap-4 mb-4 sm:mb-6 lg:mb-8 max-w-850px mx-auto text-center">
-                            <h1 class="h2 sm:h1 lg:display-6 xl:display-5 m-0" data-key="hakkinda"></h1>
-                            <p class="fs-6 md:fs-5 text-dark dark:text-white text-opacity-70"
-                                data-key="hakkinda_icerik_1"></p>
-                            <p class="fs-6 md:fs-5 text-dark dark:text-white text-opacity-70"
-                                data-key="hakkinda_icerik_2"></p>
-                            <p class="fs-6 md:fs-5 text-dark dark:text-white text-opacity-70"
-                                data-key="hakkinda_icerik_3"></p>
+        <div class="section py-4 lg:py-6 xl:py-8">
+            <div class="container max-w-xl">
+                <div class="panel vstack gap-4 lg:gap-6 xl:gap-8">
+                    <header class="shop-header panel vstack justify-center gap-2 lg:gap-4 text-center">
+                        <div class="panel">
+                            <h1 class="h3 lg:h1 m-0">Markalar</h1>
                         </div>
-                        <div class="panel row child-cols-12 col-match g-1 sm:g-2">
 
-                            <div class="col-8">
-                                <div class="h-100">
-                                    <figure class="panel h-100 m-0 rounded sm:rounded-2 overflow-hidden">
-                                        <canvas class="h-100 w-100"></canvas>
-                                        <img class="media-cover image" src="./assets/images/template/hero-about-02.jpg"
-                                            alt="About image">
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section end -->
-
-
-        <!-- Section start -->
-        <div hidden id="about_us" class="about-us section panel overflow-hidden"
-            data-anime="onview: -100; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 250;">
-            <div class="section-outer panel py-6 xl:py-9 bg-secondary dark:bg-gray-800">
-                <div class="container max-w-lg">
-                    <div class="section-inner panel">
-                        <div class="panel vstack text-center"
-                            data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                            <h2 class="h3 lg:h2 mb-4" data-key="hakkinda_header_1"></h2>
-                            <p class="fs-5 xl:fs-4 text-dark dark:text-white text-opacity-70" data-key="hakkinda_icerik_4"></p>
-                            <h2 class="h3 lg:h2 mb-4 mt-4" data-key="hakkinda_header_2"></h2>
-                            <p class="fs-5 xl:fs-4 text-dark dark:text-white text-opacity-70" data-key="hakkinda_icerik_5"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section end -->
-
-        <!-- Section start -->
-        <div id="about_values" class="about-values section panel overflow-hidden">
-            <div class="section-outer panel py-6 xl:py-9">
-                <div class="container max-w-lg">
-                    <div class="section-inner panel">
-                        <div class="panel vstack gap-4 sm:gap-6 xl:gap-8">
-                            <h2 class="h4 sm:h3 lg:h2 m-0 text-center" data-anime="onview: -100; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;" data-key="hakkinda_header_3"></h2>
-                            <div class="row child-cols-12 sm:child-cols-6 g-2 lg:g-4 justify-between" data-anime="onview: -100; targets: > *; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                                <div>
-                                    <div class="panel vstack gap-2 p-4 lg:py-6 rounded-2 bg-secondary dark:bg-gray-800 justify-center items-center">
-                                        <img class="w-64px lg:w-80px" src="./assets/images/common/goal.png" alt="goal-icon">
-                                        <h5 class="h5 lg:h4 m-0" data-key="hakkinda_header_1"></h5>
-                                        <p class="fs-6 opacity-70 dark:opacity-80" data-key="hakkinda_icerik_4"></p>
+                    </header>
+                    <div class="shop-lisiting row child-cols-6 lg:child-cols-4 col-match gy-4 lg:gy-8 gx-2 lg:gx-6">
+                        <div>
+                            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                                <div class="vstack gap-2">
+                                    <div class="panel">
+                                        <figure
+                                            class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain"
+                                                src="./assets/images/marka_logolar/Lagis.png" alt="Lagis">
+                                            <a href="products.html?id=1" class="position-cover"
+                                                data-caption="Lagis"></a>
+                                        </figure>
+                                    </div>
+                                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                                href="products.html?id=1">Lagis</a></h5>
+                                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                            href="products.html?id=1" data-uc-toggle="" data-key="urun_detay"></a>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="panel vstack gap-2 p-4 lg:py-6 rounded-2 bg-secondary dark:bg-gray-800 justify-center items-center">
-                                        <img class="w-64px lg:w-80px d-block dark:d-none" src="./assets/images/common/cooperation.png" alt="cooperation-icon">
-                                        <h5 class="h5 lg:h4 m-0" data-key="hakkinda_header_2"></h5>
-                                        <p class="fs-6 opacity-70 dark:opacity-80" data-key="hakkinda_icerik_5"></p>
+                            </article>
+                        </div>
+                        <div>
+                            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                                <div class="vstack gap-2">
+                                    <div class="panel">
+                                        <figure
+                                            class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain"
+                                                src="./assets/images/marka_logolar/Vathin.png" alt="Vathin">
+                                            <a href="products.html?id=2" class="position-cover"
+                                                data-caption="Vathin"></a>
+                                        </figure>
+                                    </div>
+                                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                                href="products.html?id=2">Vathin</a></h5>
+                                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                            href="products.html?id=2" data-uc-toggle="" data-key="urun_detay"></a>
                                     </div>
                                 </div>
-                            </div>
+                            </article>
+                        </div>
+                        <div>
+                            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                                <div class="vstack gap-2">
+                                    <div class="panel">
+                                        <figure
+                                            class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain"
+                                                src="./assets/images/marka_logolar/HumanMed.png" alt="Human Med">
+                                            <a href="products.html?id=3" class="position-cover"
+                                                data-caption="HumanMed"></a>
+                                        </figure>
+                                    </div>
+                                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                                href="products.html?id=3">Human Med</a></h5>
+                                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                            href="products.html?id=3" data-uc-toggle="" data-key="urun_detay"></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div>
+                            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                                <div class="vstack gap-2">
+                                    <div class="panel">
+                                        <figure
+                                            class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain"
+                                                src="./assets/images/marka_logolar/Cousin Surgery.png" alt="Cousin Surgery">
+                                            <a href="products.html?id=4" class="position-cover"
+                                                data-caption="Cousin Surgery"></a>
+                                        </figure>
+                                    </div>
+                                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                                href="products.html?id=4">Cousin Surgery</a></h5>
+                                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                            href="products.html?id=4" data-uc-toggle="" data-key="urun_detay"></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div>
+                            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                                <div class="vstack gap-2">
+                                    <div class="panel">
+                                        <figure
+                                            class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain"
+                                                src="./assets/images/marka_logolar/Kavandish.png" alt="Kavandish System">
+                                            <a href="products.html?id=5" class="position-cover"
+                                                data-caption="Kavandish System"></a>
+                                        </figure>
+                                    </div>
+                                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                                href="products.html?id=5">Kavandish System</a></h5>
+                                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                            href="products.html?id=5" data-uc-toggle="" data-key="urun_detay"></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div>
+                            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                                <div class="vstack gap-2">
+                                    <div class="panel">
+                                        <figure
+                                            class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain"
+                                                src="./assets/images/marka_logolar/Comen.png" alt="Comen">
+                                            <a href="products.html?id=6" class="position-cover"
+                                                data-caption="Comen"></a>
+                                        </figure>
+                                    </div>
+                                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                                href="products.html?id=6">Comen</a></h5>
+                                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                            href="products.html?id=6" data-uc-toggle="" data-key="urun_detay"></a>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Section end -->
-
-
     </div>
 
     <!-- Wrapper end -->

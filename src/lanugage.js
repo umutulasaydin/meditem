@@ -1,20 +1,16 @@
 
-const pageHandlers = {
-    "index.html": generateBlogSlides,
-    "blog.html": generateBlogPages,
-    "blog-details.html": generateBlogDetail
-}
+
 
 function changeLanguage(lang) {
-    
+
     pageName = window.location.pathname.split("/").pop();
     if (pageHandlers[pageName]) {
         console.log(pageHandlers[pageName])
-        pageHandlers[pageName](blogs[lang]);
+        pageHandlers[pageName](handleItem[pageName][lang]);
     }
     const currentLangElements = document.querySelectorAll(".current-lang");
     currentLangElements.forEach((element) => {
-        element.textContent = lang.charAt(0).toUpperCase() + lang.slice(1).toLowerCase();;
+        element.textContent = lang.charAt(0).toUpperCase() + lang.slice(1).toUpperCase();;
     });
     const elements = document.querySelectorAll("[data-key]");
     elements.forEach((element) => {
@@ -148,7 +144,7 @@ function generateBlogPages(blogs) {
         }
 
         else {
-            blog_cont.innerHTML= `
+            blog_cont.innerHTML = `
                 <article class="post type-post panel vstack gap-3 rounded-3 p-2 pb-3 bg-secondary dark:bg-gray-800">
                     <a class="position-absolute top-0 ltr:start-0 rtl:end-0 m-3 fs-7 fw-bold text-none z-1 bg-primary text-white py-narrow px-1"  style="border-radius: 8px">${blogs[blog].tag}</a>
                     <figure class="featured-image m-0 rounded ratio ratio-3x2 rounded-2 uc-transition-toggle overflow-hidden">
@@ -199,6 +195,65 @@ function generateBlogDetail(blogs) {
 
     content = document.getElementById('content')
     content.textContent = blogs[id].content
+}
+
+function generateProducts(products) {
+    id = new URLSearchParams(window.location.search).get("id");
+    exist = false
+
+    const container = document.getElementById("products");
+    
+
+    if (!container) {
+        console.error(`Container with selector products not found.`);
+        return;
+    }
+
+    header = document.getElementById("header")
+    
+    const title = Object.values(markas).find(marka => marka.id === parseInt(id,10))?.name
+    if (title) {
+        header.textContent = title;
+    }
+    else {
+        header.setAttribute("data-key", "tum");
+    }
+    
+
+    container.innerHTML = "";
+    
+    Object.keys(products).forEach(product => {
+
+        if (products[product].marka_id === parseInt(id,10) ||  parseInt(id,10) === 0) {
+            product_cont = document.createElement("div");
+            product_cont.innerHTML = `
+                <article class="product type-product panel">
+                    <div class="vstack gap-2">
+                        <div class="panel">
+                            <figure
+                                class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
+                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                    src="${products[product].image}" alt="${products[product].title}">
+                                <a href="product-detail.html?id=${products[product].id}" class="position-cover"
+                                    data-caption="${products[product].title}"></a>
+                            </figure>
+                        </div>
+                        <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                            <h5 class="h6 md:h5 m-0"><a class="text-none" href="product-detail.html?id=${products[product].id}">${products[product].title}</a></h5>
+                            <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                                href="product-detail.html?id=${products[product].id}" #uc-cart-panel" data-uc-toggle="" data-key="urun_ayrinti"></a>
+                        </div>
+                    </div>
+                </article>
+            `
+            exist = true
+            container.appendChild(product_cont);
+        }
+    }
+    )
+    if (!exist) {
+        window.location.href = "404.html";
+    }
 }
 
 const translations = {
@@ -255,6 +310,9 @@ const translations = {
         header_404: "Sayfa Bulunamadı",
         content_404: "Aradığınız sayfa maalesef mevcut değil. Lütfen tekrar deneyin veya ana sayfaya dönün.",
         redirect_404: "Ana Sayfaya Dön",
+        urun_detay: "Ürünleri Gör",
+        urun_ayrinti: "Ürün Detayını Göster",
+        tum: "Tüm"
     },
     en: {
         footer_1: "Meditem © 2024, All rights reserved.",
@@ -344,7 +402,6 @@ Elektrikli araç kullanımımızla:
 Sürdürülebilir Geleceğe Bir Adım Daha
 Meditem Health Solutions olarak, geleceğin sağlık çözümleri kadar çevre dostu teknolojilerin de savunucusuyuz. Elektrikli araç kullanımımız, bu anlayışımızın bir yansımasıdır. Nature Communications gibi bilimsel yayınların da ortaya koyduğu üzere, sürdürülebilir ulaşım, gezegenimizin geleceği için hayati bir öneme sahiptir. Bizler, çevreye duyarlı bu yaklaşımı benimseyerek sadece bugünü değil, geleceği de iyileştirmeyi hedefliyoruz.
 Daha sağlıklı bir dünya için teknoloji ve çevre dostu çözümleri bir araya getiren Meditem Health Solutions, sorumluluklarının bilincinde bir şekilde ilerlemeye devam ediyor.`,
-            url: "/blog-details.html",
             image: "./assets/images/blog/img-01.jpg",
             date: "Ara 18, 2024",
             tag: "Elektrikli Araç",
@@ -364,7 +421,6 @@ Genomik araştırmalar, bireylerin genetik yapısına dayalı kişiselleştirilm
 5. TeleTıp ve Uzaktan Sağlık Hizmetleri
 TeleTıp, sağlık hizmetlerine erişimi kolaylaştıran bir diğer yenilikçi teknoloji. Hastalar, uzaktan doktorlarına danışarak zaman ve maliyet tasarrufu sağlıyor. Pandemi döneminde büyük bir ivme kazanan bu teknoloji, özellikle kırsal bölgelerde yaşayan bireyler için büyük bir çözüm sunuyor. TeleTıp, sadece danışmanlık hizmetleriyle sınırlı kalmayarak, uzaktan izleme cihazlarıyla entegre çalışarak daha kapsamlı bir sağlık hizmeti sunuyor.
 Gelecekte bu teknolojilerin daha da gelişmesi ve yaygınlaşmasıyla, sağlık sektöründe büyük değişimlerin gerçekleşmesi bekleniyor. Her bir yenilik, hem hasta hem de sağlık profesyonelleri için hayatı kolaylaştırmayı ve sağlık sistemlerini daha verimli hale getirmeyi hedefliyor.`,
-            url: "/blog-details.html",
             image: "./assets/images/blog/img-02.jpg",
             date: "Ara 18, 2024",
             tag: "Teknoloji",
@@ -400,7 +456,6 @@ Otomasyon ve yapay zeka teknolojileri, sağlık sektöründe hâlâ keşfedilmey
 	•	Erişilebilirlik ve Eşitlik: Otomasyon, kaliteli sağlık hizmetlerinin dünya genelinde daha erişilebilir olmasını sağlayacak. Özellikle kırsal bölgelerde yaşayan hastalar, bu teknolojiler sayesinde uzman sağlık hizmetlerine daha kolay erişebilecek.
 
 SonuçOtomasyon ve yapay zeka, sağlık hizmetlerinde devrim yaratmaya devam ediyor. Ancak bu teknolojilerin tam potansiyeline ulaşabilmesi için dikkatli bir entegrasyon süreci, uygun düzenlemeler ve sürekli eğitim şart. Etik bir yaklaşımla kullanıldığında, bu teknolojiler sadece sağlık hizmetlerini değil, tüm insan yaşamını iyileştirme potansiyeline sahiptir.`,
-            url: "/blog-details.html",
             image: "./assets/images/blog/img-03.jpg",
             date: "Ara 18, 2024",
             tag: "Yapay Zeka",
@@ -440,7 +495,6 @@ Kaynaklar:
 	•	Johns Hopkins University Research
 	•	FDA Nanotechnology Reports
 	•	Harvard Medical School Innovations`,
-            url: "/blog-details.html",
             image: "./assets/images/blog/img-04.jpg",
             date: "Ara 18, 2024",
             tag: "Nanoteknoloji",
@@ -462,4 +516,78 @@ Kaynaklar:
     ar: {
 
     }
+}
+
+const products = {
+    tr: {
+        product_1: {
+            id: 1,
+            marka_id: 1,
+            title: "Nano Mask",
+            image: "./assets/images/common/products/img-01.jpg",
+
+        },
+        product_2: {
+            id: 2,
+            marka_id: 2,
+            title: "Nano Mask Farklı Şirket",
+            image: "./assets/images/common/products/img-02.jpg",
+
+        }
+    },
+    en: {
+
+    },
+    de: {
+
+    },
+    fr: {
+
+    },
+    ch: {
+
+    },
+    ar: {
+
+    }
+}
+
+const markas = {
+    marka_1: {
+        id:1,
+        name: "Lagis"
+    },
+    marka_2: {
+        id:2,
+        name: "Vathin"
+    },
+    marka_3: {
+        id:3,
+        name: "Human Med"
+    },
+    marka_4: {
+        id:4,
+        name: "Cousin Surgery"
+    },
+    marka_5: {
+        id:5,
+        name: "Kavandish System"
+    },
+    marka_6: {
+        id:6,
+        name: "Comen"
+    }
+}
+
+const pageHandlers = {
+    "index.html": generateBlogSlides,
+    "blog.html": generateBlogPages,
+    "blog-details.html": generateBlogDetail,
+    "products.html": generateProducts,
+}
+const handleItem = {
+    "index.html": blogs,
+    "blog.html": blogs,
+    "blog-details.html": blogs,
+    "products.html": products,
 }
