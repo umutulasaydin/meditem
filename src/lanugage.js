@@ -225,6 +225,7 @@ function generateProducts(products) {
     Object.keys(products).forEach(product => {
 
         if (products[product].marka_id === parseInt(id,10) ||  parseInt(id,10) === 0) {
+            const marka = Object.values(markas).find(marka => marka.id === products[product].marka_id)?.name
             product_cont = document.createElement("div");
             product_cont.innerHTML = `
                 <article class="product type-product panel">
@@ -240,6 +241,7 @@ function generateProducts(products) {
                         </div>
                         <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
                             <h5 class="h6 md:h5 m-0"><a class="text-none" href="product-detail.html?id=${products[product].id}">${products[product].title}</a></h5>
+                            <h5 class="h7 md:h6 m-0">${marka}</h5>
                             <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
                                 href="product-detail.html?id=${products[product].id}" #uc-cart-panel" data-uc-toggle="" data-key="urun_ayrinti"></a>
                         </div>
