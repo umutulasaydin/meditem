@@ -5,8 +5,13 @@ function changeLanguage(lang) {
 
     pageName = window.location.pathname.split("/").pop();
     if (pageHandlers[pageName]) {
-        console.log(pageHandlers[pageName])
-        pageHandlers[pageName](handleItem[pageName][lang]);
+        if (handleItem[pageName] === undefined) {
+            pageHandlers[pageName]();
+        }
+        else {
+            pageHandlers[pageName](handleItem[pageName][lang]);
+        }
+        
     }
     const currentLangElements = document.querySelectorAll(".current-lang");
     currentLangElements.forEach((element) => {
@@ -15,9 +20,15 @@ function changeLanguage(lang) {
     const elements = document.querySelectorAll("[data-key]");
     elements.forEach((element) => {
         const key = element.getAttribute("data-key");
-        if (translations[lang][key]) {
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            if (translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        }
+        else if (translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
+        
     });
 }
 
@@ -198,6 +209,7 @@ function generateBlogDetail(blogs) {
 }
 
 function generateProducts(products) {
+    sendMail()
     id = new URLSearchParams(window.location.search).get("id");
     exist = false
 
@@ -225,25 +237,20 @@ function generateProducts(products) {
     Object.keys(products).forEach(product => {
 
         if (products[product].marka_id === parseInt(id,10) ||  parseInt(id,10) === 0) {
-            const marka = Object.values(markas).find(marka => marka.id === products[product].marka_id)?.name
             product_cont = document.createElement("div");
             product_cont.innerHTML = `
                 <article class="product type-product panel">
-                    <div class="vstack gap-2">
+                    <div class="vstack gap-2 border">
                         <div class="panel">
                             <figure
                                 class="featured-image m-0 rounded ratio ratio-3x4 overflow-hidden uc-transition-toggle overflow-hidden">
-                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit: contain;"
                                     src="${products[product].image}" alt="${products[product].title}">
-                                <a href="product-detail.html?id=${products[product].id}" class="position-cover"
-                                    data-caption="${products[product].title}"></a>
                             </figure>
                         </div>
-                        <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
-                            <h5 class="h6 md:h5 m-0"><a class="text-none" href="product-detail.html?id=${products[product].id}">${products[product].title}</a></h5>
-                            <h5 class="h7 md:h6 m-0">${marka}</h5>
-                            <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
-                                href="product-detail.html?id=${products[product].id}" #uc-cart-panel" data-uc-toggle="" data-key="urun_ayrinti"></a>
+                        <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1" style="margin-bottom: 20px">
+                            <h5 class="h6 md:h5 m-0">${products[product].title}</h5>
+            
                         </div>
                     </div>
                 </article>
@@ -256,6 +263,30 @@ function generateProducts(products) {
     if (!exist) {
         window.location.href = "404.html";
     }
+}
+
+function sendMail(){
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        // Extract form data
+        const formData = {
+            name: document.querySelector('[data-key="form_1"]').value,
+            mail: document.querySelector('[data-key="form_2"]').value,
+            subject: document.querySelector('[data-key="form_3"]').value,
+            content: document.querySelector('[data-key="form_4"]').value,
+        };
+    
+        // Perform validation (optional)
+        if (!formData.name || !formData.mail || !formData.content) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+    
+        // Example: Log form data (replace this with your desired action)
+        console.log('Form submitted:', formData);
+    
+    });
 }
 
 const translations = {
@@ -314,7 +345,23 @@ const translations = {
         redirect_404: "Ana Sayfaya Dön",
         urun_detay: "Ürünleri Gör",
         urun_ayrinti: "Ürün Detayını Göster",
-        tum: "Tüm"
+        tum: "Tüm",
+        contact_header: "Bize Ulaşın",
+        contact_option_1: "Adres",
+        contact_option_1_buton: "Haritada Gör",
+        contact_option_2: "Telefon",
+        contact_option_2_buton: "Bizi Arayın",
+        contact_option_3: "E-posta",
+        contact_option_3_buton: "E-posta Gönder",
+        mail_header: "Bize Yazın",
+        mail_header_content: "Aşağıdaki formu doldurarak bize ulaşabilirsiniz. Ekibimiz sizinle irtibata geçecektir.",
+        form_1: "Adınız",
+        form_2: "E-posta Adresiniz",
+        form_3: "Konu",
+        form_4: "Mesajınız",
+        form_5: "Gönder",
+        product_contact_content: "Ürünlerle ilgili detaylı bilgi için bizimle irtibata geçin."
+
     },
     en: {
         footer_1: "Meditem © 2024, All rights reserved.",
@@ -525,17 +572,106 @@ const products = {
         product_1: {
             id: 1,
             marka_id: 1,
-            title: "Nano Mask",
-            image: "./assets/images/common/products/img-01.jpg",
-
+            title: "Trokar",
+            image: "./assets/images/common/products/trokar.png",
         },
         product_2: {
             id: 2,
+            marka_id: 1,
+            title: "El Aletleri",
+            image: "./assets/images/common/products/el_aletleri.jpg",
+        },
+        product_3: {
+            id: 3,
+            marka_id: 1,
+            title: "Yara Koruyucu Ekartör",
+            image: "./assets/images/common/products/yara_koruyucu_ekartör.jpg",
+        },
+        product_4: {
+            id: 4,
+            marka_id: 1,
+            title: "Sakşın İrigasyon Sistemi",
+            image: "./assets/images/common/products/suction.jpg",
+        },
+        product_5: {
+            id: 5,
+            marka_id: 1,
+            title: "Bipolar Bıçaklı Forseps",
+            image: "./assets/images/common/products/bipolar.jpg",
+        },
+        product_6: {
+            id: 6,
+            marka_id: 1,
+            title: "Çok Girişli Port",
+            image: "./assets/images/common/products/port.jpeg",
+        },
+        product_7: {
+            id: 7,
+            marka_id: 1,
+            title: "Spesimen Torbası",
+            image: "./assets/images/common/products/spesimen.jpg",
+        },
+        product_8: {
+            id: 8,
             marka_id: 2,
-            title: "Nano Mask Farklı Şirket",
-            image: "./assets/images/common/products/img-02.jpg",
+            title: "Zero",
+            image: "./assets/images/common/products/zero.png",
+        },
+        product_9: {
+            id: 9,
+            marka_id: 2,
+            title: "Slim",
+            image: "./assets/images/common/products/slim.png",
+        },
+        product_10: {
+            id: 10,
+            marka_id: 2,
+            title: "Normal",
+            image: "./assets/images/common/products/normal.png",
+        },
+        product_11: {
+            id: 11,
+            marka_id: 2,
+            title: "Large",
+            image: "./assets/images/common/products/large.png",
+        },
+        product_12: {
+            id: 12,
+            marka_id: 2,
+            title: "Extra",
+            image: "./assets/images/common/products/extra.png",
+        },
+        product_13: {
+            id: 13,
+            marka_id: 1,
+            title: "İnsüflatör İğnesi",
+            image: "./assets/images/common/products/insüflatör.png",
+        },
+        product_14: {
+            id: 14,
+            marka_id: 3,
+            title: "body-jet Liposuction Cihazı",
+            image: "./assets/images/common/products/liposuction.png",
+        },
+        product_15: {
+            id: 15,
+            marka_id: 3,
+            title: "body-jet eco Liposuction Cihazı",
+            image: "./assets/images/common/products/liposuction_eco.png",
+        },
+        product_16: {
+            id: 16,
+            marka_id: 3,
+            title: "body-jet evo Liposuction Cihazı",
+            image: "./assets/images/common/products/liposuction_evo.png",
+        },
+        product_17: {
+            id: 17,
+            marka_id: 4,
+            title: "Mesh Ürün Grubu",
+            image: "./assets/images/common/products/mesh.png",
+        },
 
-        }
     },
     en: {
 
@@ -586,6 +722,7 @@ const pageHandlers = {
     "blog.html": generateBlogPages,
     "blog-details.html": generateBlogDetail,
     "products.html": generateProducts,
+    "page-contact.html": sendMail
 }
 const handleItem = {
     "index.html": blogs,

@@ -265,70 +265,52 @@
         <div id="hero_header" class="hero-header section panel overflow-hidden">
             <div class="section-outer panel pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9">
                 <div class="container max-w-xl">
-                    <div class="section-inner panel mt-2 sm:mt-4 lg:mt-0"
-                        data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                        <div
-                            class="vstack items-center gap-2 lg:gap-4 mb-4 sm:mb-6 lg:mb-8 max-w-750px mx-auto text-center">
-                            <h1 class="h2 sm:h1 lg:display-6 xl:display-5 m-0">Let's get in touch.</h1>
-                            <p class="fs-6 sm:fs-5 text-dark dark:text-white text-opacity-70">Feel free to reach out to
-                                us using the options below, and our dedicated team will respond to your inquiries
-                                promptly.</p>
-                        </div>
-                        <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800">
-                            <div class="panel row child-cols-12 lg:child-cols-6 g-0">
-                                <div class="order-1 lg:order-0">
-                                    <div class="panel overflow-hidden rounded-3 h-100 min-h-350px">
-                                        <figure class="panel h-100 m-0 rounded">
-                                            <canvas class="h-100 w-100"></canvas>
-                                            <img class="media-cover image"
-                                                src="./assets/images/template/hero-contact.jpg" alt="Hero image">
-                                        </figure>
-                                        <div class="position-cover text-white vstack justify-end p-4 lg:p-6 xl:p-9">
-                                            <div
-                                                class="position-cover bg-gradient-to-t from-black to-transparent opacity-50">
-                                            </div>
-                                            <div class="panel z-1">
-                                                <div class="vstack gap-3">
-                                                    <p class="fs-5 xl:fs-4 fw-medium">“This software simplifies the
-                                                        website building process, making it a breeze to manage our
-                                                        online presence.”</p>
-                                                    <div class="vstack gap-0">
-                                                        <p class="fs-6 lg:fs-5 fw-medium">David Larry</p>
-                                                        <span class="fs-7 opacity-80">Founder & CEO</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="section-inner panel">
+                        <div class="panel vstack gap-4 sm:gap-6 xl:gap-8">
+                            <h2 class="h2 sm:h1 lg:display-6 xl:display-5 m-0 text-center"
+                                data-anime="onview: -100; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;" data-key="contact_header"></h2>
+                            <div class="row child-cols-12 sm:child-cols-6 lg:child-cols-3 g-2 xl:g-3 justify-between col-match"
+                                data-anime="onview: -100; targets: > *; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
+                                <div>
+                                    <div
+                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
+                                        <i class="icon icon-4 unicon-location"></i>
+                                        <h5 class="h5 m-0" data-key="contact_option_1"></h5>
+                                        <p class="fs-6 opacity-70 dark:opacity-80">Aşık Veysel Mahallesi Atatürk Bulvarı No:18/K Ofis No:16 Parkcity Evleri Esenyurt/İstanbul</p>
+                                        <a href="https://www.google.com/maps?ll=41.063384,28.668268&z=18&t=m&hl=tr&gl=TR&mapclient=embed&cid=15947458675341876656" target="_blank" class="uc-link fw-bold hstack gap-narrow justify-center">
+                                            <span data-key="contact_option_1_buton"></span>
+                                            <i
+                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="order-0 lg:order-1">
-                                    <form class="vstack gap-2 p-3 sm:p-6 xl:p-8">
-                                        <p class="fs-6 text-dark dark:text-white text-opacity-70 mb-2">Have a question
-                                            or feedback? Fill out the form below, and we'll get back to you as soon as
-                                            possible.</p>
-                                        <div class="row child-cols-12 sm:child-cols-6 g-2">
-                                            <div>
-                                                <input
-                                                    class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
-                                                    type="text" placeholder="Full name" required>
-                                            </div>
-                                            <div>
-                                                <input
-                                                    class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
-                                                    type="email" placeholder="Your email" required>
-                                            </div>
-                                        </div>
-                                        <input
-                                            class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
-                                            type="text" placeholder="Subject">
-                                        <textarea
-                                            class="form-control min-h-150px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
-                                            placeholder="Your message.." required></textarea>
-                                        <button class="btn btn-primary btn-md text-white mt-2" type="submit">Send
-                                            message</button>
-                                        <p class="text-center">Or drop us a message via <a class="uc-link"
-                                                href="mailto:hello@lexend.co">email</a>.</p>
-                                    </form>
+                                <div>
+                                    <div
+                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
+                                        <i class="icon icon-4 unicon-phone"></i>
+                                        <h5 class="h5 m-0" data-key="contact_option_2"></h5>
+                                        <p class="fs-6 opacity-70 dark:opacity-80">+90 538 818 54 51</p>
+                                        <p class="text-secondary">.</p>
+                                        <a href="tel:+905388185451" target="_blank" class="uc-link fw-bold hstack gap-narrow justify-center">
+                                            <span data-key="contact_option_2_buton"></span>
+                                            <i
+                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
+                                        <i class="icon icon-4 unicon-email"></i>
+                                        <h5 class="h5 m-0" data-key="contact_option_3"></h5>
+                                        <p class="fs-6 opacity-70 dark:opacity-80">info@meditem.com</p>
+                                        <p class="text-secondary">.</p>
+                                        <a href="mailto:info@meditem.com" class="uc-link fw-bold hstack gap-narrow justify-center">
+                                            <span data-key="contact_option_3_buton"></span>
+                                            <i
+                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -343,87 +325,51 @@
         <div id="helpful-links" class="section panel overflow-hidden">
             <div class="section-outer panel pb-6 sm:pb-8 lg:pb-9">
                 <div class="container max-w-xl">
-                    <div class="section-inner panel">
-                        <div class="panel vstack gap-4 sm:gap-6 xl:gap-8">
-                            <h2 class="h4 sm:h3 lg:h2 m-0 text-center"
-                                data-anime="onview: -100; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 100;">
-                                Other ways to reach us</h2>
-                            <div class="row child-cols-12 sm:child-cols-6 lg:child-cols-3 g-2 xl:g-3 justify-between col-match"
-                                data-anime="onview: -100; targets: > *; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                                <div>
-                                    <div
-                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
-                                        <div class="cstack mb-2">
-                                            <img class="w-64px lg:w-80px d-block dark:d-none"
-                                                src="./assets/images/template/icon-location.svg" alt="location-icon">
-                                            <img class="w-64px lg:w-80px d-none dark:d-block"
-                                                src="./assets/images/template/icon-location-dark.svg"
-                                                alt="location-icon-dark">
+                    <div class="section-inner panel mt-2 sm:mt-4 lg:mt-0"
+                        data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
+                        <div
+                            class="vstack items-center gap-2 lg:gap-4 mb-4 sm:mb-6 lg:mb-8 max-w-750px mx-auto text-center">
+                            <h1 class="h2 sm:h1 lg:display-6 xl:display-5 m-0" data-key="mail_header"></h1>
+                            <p class="fs-6 sm:fs-5 text-dark dark:text-white text-opacity-70" data-key="mail_header_content"></p>
+                        </div>
+                        <div class="panel rounded-3 overflow-hidden bg-secondary dark:bg-gray-800">
+                            <div class="panel row child-cols-12 lg:child-cols-6 g-0">
+                                <div class="order-1 lg:order-0">
+                                    <div class="panel overflow-hidden rounded-3 h-100 min-h-350px">
+                                        <figure class="panel h-100 m-0 rounded">
+                                            <canvas class="h-100 w-100"></canvas>
+                                            <img class="media-cover image"
+                                                src="./assets/images/common/contact.JPG" alt="Contact image">
+                                        </figure>
+                                        <div class="position-cover text-white vstack justify-end p-4 lg:p-6 xl:p-9">
+                                            <div
+                                                class="position-cover bg-gradient-to-t from-black to-transparent opacity-50">
+                                            </div>
                                         </div>
-                                        <h5 class="h5 m-0">Visit us</h5>
-                                        <p class="fs-6 opacity-70 dark:opacity-80">Don Valley, Toronto, CA</p>
-                                        <a href="#" class="uc-link fw-bold hstack gap-narrow justify-center">
-                                            <span>View on maps</span>
-                                            <i
-                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
-                                        </a>
                                     </div>
                                 </div>
-                                <div>
-                                    <div
-                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
-                                        <div class="cstack mb-2">
-                                            <img class="w-64px lg:w-80px d-block dark:d-none"
-                                                src="./assets/images/template/icon-chat.svg" alt="chat-icon">
-                                            <img class="w-64px lg:w-80px d-none dark:d-block"
-                                                src="./assets/images/template/icon-chat-dark.svg" alt="chat-icon-dark">
+                                <div class="order-0 lg:order-1">
+                                    <form class="vstack gap-2 p-3 sm:p-6 xl:p-8" id="contact-form">
+                                        <div class="row child-cols-12 sm:child-cols-6 g-2">
+                                            <div>
+                                                <input
+                                                    class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
+                                                    type="text" required data-key="form_1">
+                                            </div>
+                                            <div>
+                                                <input
+                                                    class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
+                                                    type="email" required data-key="form_2">
+                                            </div>
                                         </div>
-                                        <h5 class="h5 m-0">Via chat</h5>
-                                        <p class="fs-6 opacity-70 dark:opacity-80">Get instant answers.</p>
-                                        <a href="#" class="uc-link fw-bold hstack gap-narrow justify-center">
-                                            <span>Let's chat</span>
-                                            <i
-                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div
-                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
-                                        <div class="cstack mb-2">
-                                            <img class="w-64px lg:w-80px d-block dark:d-none"
-                                                src="./assets/images/template/icon-internet.svg" alt="internet-icon">
-                                            <img class="w-64px lg:w-80px d-none dark:d-block"
-                                                src="./assets/images/template/icon-internet-dark.svg"
-                                                alt="internet-icon-dark">
-                                        </div>
-                                        <h5 class="h5 m-0">Report Issue</h5>
-                                        <p class="fs-6 opacity-70 dark:opacity-80">Get priority support.</p>
-                                        <a href="#" class="uc-link fw-bold hstack gap-narrow justify-center">
-                                            <span>Send report</span>
-                                            <i
-                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div
-                                        class="panel vstack gap-2 items-center text-center px-3 py-4 lg:py-6 xl:py-8 rounded-2 bg-secondary dark:bg-gray-800 lg:hover:-translate-y-2 duration-150 transition-all">
-                                        <div class="cstack mb-2">
-                                            <img class="w-64px lg:w-80px d-block dark:d-none"
-                                                src="./assets/images/template/icon-community.svg" alt="community-icon">
-                                            <img class="w-64px lg:w-80px d-none dark:d-block"
-                                                src="./assets/images/template/icon-community-dark.svg"
-                                                alt="community-icon-dark">
-                                        </div>
-                                        <h5 class="h5 m-0">Our community</h5>
-                                        <p class="fs-6 opacity-70 dark:opacity-80">Connect with users.</p>
-                                        <a href="#" class="uc-link fw-bold hstack gap-narrow justify-center">
-                                            <span>Join us now</span>
-                                            <i
-                                                class="position-relative icon icon-1 unicon-arrow-right rtl:rotate-180 translate-y-px"></i>
-                                        </a>
-                                    </div>
+                                        <input
+                                            class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
+                                            type="text"  data-key="form_3">
+                                        <textarea
+                                            class="form-control min-h-150px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white"
+                                            required data-key="form_4"></textarea>
+                                        <button class="btn btn-primary btn-md text-white mt-2" type="submit" data-key="form_5"></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -434,249 +380,7 @@
 
         <!-- Section end -->
 
-        <!-- Section start -->
-        <div id="faq" class="section panel overflow-hidden">
-            <div class="section-outer panel pb-7 sm:pb-8 xl:pb-9">
-                <div class="container max-w-lg">
-                    <div class="section-inner panel"
-                        data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                        <div class="panel">
-                            <h2 class="h4 sm:h3 lg:h2 m-0 text-center">Frequenlty asked questions:</h2>
-                            <div
-                                class="panel mt-4 sm:mt-6 lg:mt-8 p-3 sm:p-4 xl:p-6 lg:max-w-750px xl:w-auto m-auto rounded-2 bg-secondary dark:bg-gray-800">
-                                <ul class="gap-4" data-uc-accordion="targets: > li;">
-                                    <li class="uc-open">
-                                        <a class="uc-accordion-title fs-5 sm:fs-4" href="#">Do I need to know about how
-                                            to code?</a>
-                                        <div class="uc-accordion-content">
-                                            <p>Yes, you need to have a fair amount of knowledge in dealing with HTML/CSS
-                                                as well as JavaScript in order to be able to use Lexend.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="uc-accordion-title fs-5 sm:fs-4" href="#">Can I use it for commercial
-                                            projects?</a>
-                                        <div class="uc-accordion-content">
-                                            <p>Feel free to do so. Lexend does exist to evolve every commercial project.
-                                                You can also use it to build stunning websites for your own clients (we
-                                                won’t breathe a word).</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="uc-accordion-title fs-5 sm:fs-4" href="#">Can I use it for multiple
-                                            projects?</a>
-                                        <div class="uc-accordion-content">
-                                            <p>Definitely! Please use it however you like; we don’t limit it.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="uc-accordion-title fs-5 sm:fs-4" href="#">Can I use this to create and
-                                            sell a product?</a>
-                                        <div class="uc-accordion-content">
-                                            <p>Do not ever consider doing it.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="uc-accordion-title fs-5 sm:fs-4" href="#">What is your refund
-                                            policy?</a>
-                                        <div class="uc-accordion-content">
-                                            <p>We understand the importance of customer satisfaction and we strive to
-                                                provide the best products and services. However, please note that due to
-                                                the nature of our products and services, we do not offer refunds after a
-                                                purchase has been made.</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section end -->
-
-        <!-- Section start -->
-        <div id="clients_brands" class="clients-brands section panel overflow-hidden">
-            <div class="section-outer panel pb-8 sm:pb-9 xl:pb-9">
-                <h5 class="h6 sm:h5 text-center mb-4 sm:mb-6 xl:mb-8"
-                    data-anime="onview: -100; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 200;">
-                    Trusted by well-known brands.</h5>
-                <div class="block-panel panel"
-                    data-anime="onview: -100; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 250;">
-                    <div class="element-brands max-w-950px m-auto text-gray-900 dark:text-white">
-                        <div class="swiper" data-uc-swiper="items: 2; center: true; center-bounds: true;"
-                            data-uc-swiper-s="items: 4; center: false; center-bounds: false;"
-                            data-uc-swiper-m="items: 5; gap: 80;">
-                            <div class="swiper-wrapper items-center ease-linear">
-                                <div class="brand-item swiper-slide text-center">
-                                    <img class="brand-item-image h-40px" src="./assets/images/brands/brand-01.svg"
-                                        alt="Proline" data-uc-svg>
-                                </div>
-                                <div class="brand-item swiper-slide text-center">
-                                    <img class="brand-item-image h-40px" src="./assets/images/brands/brand-02.svg"
-                                        alt="Iceberg" data-uc-svg>
-                                </div>
-                                <div class="brand-item swiper-slide text-center">
-                                    <img class="brand-item-image h-40px" src="./assets/images/brands/brand-03.svg"
-                                        alt="PinPoint" data-uc-svg>
-                                </div>
-                                <div class="brand-item swiper-slide text-center">
-                                    <img class="brand-item-image h-40px" src="./assets/images/brands/brand-04.svg"
-                                        alt="Clues" data-uc-svg>
-                                </div>
-                                <div class="brand-item swiper-slide text-center">
-                                    <img class="brand-item-image h-40px" src="./assets/images/brands/brand-05.svg"
-                                        alt="Snowflake" data-uc-svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section end -->
-
-        <!-- Section start -->
-        <div id="blog_posts" class="section panel overflow-hidden gap-3 bg-secondary dark:bg-gray-800">
-            <div class="section-outer panel py-6 xl:py-9">
-                <div class="container max-w-xl">
-                    <div class="section-inner panel">
-                        <div class="panel vstack items-center gap-4 sm:gap-6 xl:gap-8"
-                            data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 200});">
-                            <h2 class="h3 lg:h2 xl:h1 max-w-400px lg:max-w-750px m-auto text-center">Gain valuable
-                                insights</h2>
-                            <div class="panel">
-                                <div
-                                    class="row child-cols-12 sm:child-cols-6 lg:child-cols-4 justify-center g-2 xl:g-4">
-                                    <div>
-                                        <article
-                                            class="post type-post panel vstack gap-3 rounded-3 p-2 pb-3 bg-white dark:bg-gray-800">
-                                            <a class="position-absolute top-0 ltr:start-0 rtl:end-0 m-3 fs-7 fw-bold text-none z-1 bg-primary text-white py-narrow px-1"
-                                                href="blog.html" style="border-radius: 8px">Strategy</a>
-                                            <figure
-                                                class="featured-image m-0 rounded ratio ratio-3x2 rounded-2 uc-transition-toggle overflow-hidden">
-                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                    src="./assets/images/blog/img-11.jpg"
-                                                    alt="Top 5 reasons to invest in marketing">
-                                                <a href="blog-details.html" class="position-cover"
-                                                    data-caption="Top 5 reasons to invest in marketing"></a>
-                                            </figure>
-                                            <header class="panel vstack items-center gap-1 lg:gap-2 px-2">
-                                                <h3 class="h5 xl:h4 m-0 text-center m-0">
-                                                    <a class="text-none" href="blog-details.html">Top 5 reasons to
-                                                        invest in marketing</a>
-                                                </h3>
-                                                <ul
-                                                    class="post-meta nav-x ft-tertiary justify-center gap-1 fs-7 text-gray-400 dark:text-gray-300 d-none lg:d-flex">
-                                                    <li>
-                                                        <div class="hstack gap-narrow ft-tertiary">
-                                                            <img src="./assets/images/avatars/02.png" alt="David"
-                                                                class="w-24px h-24px rounded-circle me-narrow">
-                                                            <a href="page-author.html"
-                                                                class="text-none fw-bold text-dark dark:text-white">David</a>
-                                                        </div>
-                                                    </li>
-                                                    <li class="opacity-50">•</li>
-                                                    <li>
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>Apr 3, 2024</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </header>
-                                        </article>
-                                    </div>
-                                    <div>
-                                        <article
-                                            class="post type-post panel vstack gap-3 rounded-3 p-2 pb-3 bg-white dark:bg-gray-800">
-                                            <a class="position-absolute top-0 ltr:start-0 rtl:end-0 m-3 fs-7 fw-bold text-none z-1 bg-primary text-white py-narrow px-1"
-                                                href="blog.html" style="border-radius: 8px">Marketing</a>
-                                            <figure
-                                                class="featured-image m-0 rounded ratio ratio-3x2 rounded-2 uc-transition-toggle overflow-hidden">
-                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                    src="./assets/images/blog/img-12.jpg"
-                                                    alt="How can marketing help your business?">
-                                                <a href="blog-details.html" class="position-cover"
-                                                    data-caption="How can marketing help your business?"></a>
-                                            </figure>
-                                            <header class="panel vstack items-center gap-1 lg:gap-2 px-2">
-                                                <h3 class="h5 xl:h4 m-0 text-center m-0">
-                                                    <a class="text-none" href="blog-details.html">How can marketing help
-                                                        your business?</a>
-                                                </h3>
-                                                <ul
-                                                    class="post-meta nav-x ft-tertiary justify-center gap-1 fs-7 text-gray-400 dark:text-gray-300 d-none lg:d-flex">
-                                                    <li>
-                                                        <div class="hstack gap-narrow ft-tertiary">
-                                                            <img src="./assets/images/avatars/06.png" alt="Allen"
-                                                                class="w-24px h-24px rounded-circle me-narrow">
-                                                            <a href="page-author.html"
-                                                                class="text-none fw-bold text-dark dark:text-white">Allen</a>
-                                                        </div>
-                                                    </li>
-                                                    <li class="opacity-50">•</li>
-                                                    <li>
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>Apr 3, 2024</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </header>
-                                        </article>
-                                    </div>
-                                    <div>
-                                        <article
-                                            class="post type-post panel vstack gap-3 rounded-3 p-2 pb-3 bg-white dark:bg-gray-800">
-                                            <a class="position-absolute top-0 ltr:start-0 rtl:end-0 m-3 fs-7 fw-bold text-none z-1 bg-primary text-white py-narrow px-1"
-                                                href="blog.html" style="border-radius: 8px">Business</a>
-                                            <figure
-                                                class="featured-image m-0 rounded ratio ratio-3x2 rounded-2 uc-transition-toggle overflow-hidden">
-                                                <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                                                    src="./assets/images/blog/img-13.jpg"
-                                                    alt="The ultimate guide to marketing success">
-                                                <a href="blog-details.html" class="position-cover"
-                                                    data-caption="The ultimate guide to marketing success"></a>
-                                            </figure>
-                                            <header class="panel vstack items-center gap-1 lg:gap-2 px-2">
-                                                <h3 class="h5 xl:h4 m-0 text-center m-0">
-                                                    <a class="text-none" href="blog-details.html">The ultimate guide to
-                                                        marketing success</a>
-                                                </h3>
-                                                <ul
-                                                    class="post-meta nav-x ft-tertiary justify-center gap-1 fs-7 text-gray-400 dark:text-gray-300 d-none lg:d-flex">
-                                                    <li>
-                                                        <div class="hstack gap-narrow ft-tertiary">
-                                                            <img src="./assets/images/avatars/01.png" alt="Kevin"
-                                                                class="w-24px h-24px rounded-circle me-narrow">
-                                                            <a href="page-author.html"
-                                                                class="text-none fw-bold text-dark dark:text-white">Kevin</a>
-                                                        </div>
-                                                    </li>
-                                                    <li class="opacity-50">•</li>
-                                                    <li>
-                                                        <div class="post-date hstack gap-narrow">
-                                                            <span>Apr 1, 2024</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </header>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="blog.html" class="uc-link fw-bold d-inline-flex items-center gap-narrow">
-                                <span>View more articles</span>
-                                <i class="icon icon-1 unicon-arrow-right rtl:rotate-180"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section end -->
+       
     </div>
 
     <!-- Wrapper end -->
@@ -698,8 +402,7 @@
                                     </div>
                                     <div class="justify-center items-center gap-2" style="display: flex;">
                                         <i class="icon icon-1 unicon-location"></i>
-                                        <span class="text-none">Aşık Veysel Mahallesi Atatürk Bulvarı No:18/K Ofis No:16
-                                            Parkcity Evleri Esenyurt/İstanbul</span>
+                                        <span class="text-none">Aşık Veysel Mahallesi Atatürk Bulvarı No:18/K   Ofis No:16 Parkcity Evleri Esenyurt/İstanbul</span>
                                     </div>
                                     <div class="justify-center items-center gap-2" style="display: flex;">
                                         <i class="icon icon-1 unicon-email"></i>
@@ -734,10 +437,7 @@
                             </div>
                             <div class="col-12 lg:col-4" style="display: block;">
                                 <h3 data-key="footer_link_3"></h3>
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.060255501399!2d28.66699384743078!3d41.063723923733924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b559edeb71fab3%3A0xdd50c12c05f95db0!2sParkcity%20Evleri!5e0!3m2!1str!2str!4v1734108878594!5m2!1str!2str"
-                                    width="333" height="333" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.060255501399!2d28.66699384743078!3d41.063723923733924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b559edeb71fab3%3A0xdd50c12c05f95db0!2sParkcity%20Evleri!5e0!3m2!1str!2str!4v1734108878594!5m2!1str!2str" width="333" height="333" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
@@ -751,12 +451,10 @@
                         <div class="hstack justify-center lg:justify-end gap-2 lg:gap-3">
                             <ul class="nav-x gap-2">
                                 <li>
-                                    <a href="https://instagram.com/meditemhealth" target="_blank"><i
-                                            class="icon icon-2 unicon-logo-linkedin"></i></a>
+                                    <a href="https://linkedin.com/company/meditem-health" target="_blank"><i class="icon icon-2 unicon-logo-linkedin"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://linkedin.com/company/meditem-health" target="_blank"><i
-                                            class="icon icon-2 unicon-logo-instagram"></i></a>
+                                    <a href="https://instagram.com/meditemhealth" target="_blank"><i class="icon icon-2 unicon-logo-instagram"></i></a>
                                 </li>
                                 <li>
                                     <a href="https://wa.me/+905388185451" target="_blank"><img class="icon icon-2"
@@ -765,7 +463,8 @@
                             </ul>
                             <div class="vr"></div>
                             <div class="d-inline-block">
-                                <a href="#" class="hstack gap-1 fw-medium text-white" style="text-decoration:none;">
+                                <a href="#" class="hstack gap-1 fw-medium text-white"
+                                    style="text-decoration:none;">
                                     <i class="icon icon-1 unicon-wikis"></i>
                                     <span class="current-lang"></span>
                                 </a>
@@ -818,6 +517,7 @@
             </div>
         </div>
     </footer>
+
 
     <!-- Footer end -->
 
