@@ -11,7 +11,7 @@ function changeLanguage(lang) {
         else {
             pageHandlers[pageName](handleItem[pageName][lang]);
         }
-        
+
     }
     const currentLangElements = document.querySelectorAll(".current-lang");
     currentLangElements.forEach((element) => {
@@ -28,7 +28,7 @@ function changeLanguage(lang) {
         else if (translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
-        
+
     });
 }
 
@@ -87,6 +87,67 @@ function generateBlogSlides(blogs) {
         // Append the slide to the container
         container.appendChild(slide);
     });
+
+    const int_container = document.getElementById("marka_integrations");
+
+    if (!int_container) {
+        console.error(`Container with selector integrations not found.`);
+        return;
+    }
+
+    const int_swiper = document.getElementById("marka-swiper");
+
+    if (!int_swiper) {
+        console.error(`Container with selector marka-swiper not found.`);
+        return;
+    }
+
+
+
+    int_container.innerHTML = "";
+    int_swiper.innerHTML = "";
+
+    Object.keys(markas).forEach(marka => {
+        int_cont = document.createElement("div");
+        int_cont.innerHTML = `
+            <div
+                class="panel vstack justify-between gap-4 p-3 rounded lg:rounded-2 bg-white text-dark">
+                <div class="vstack gap-3">
+                    <div class="hstack justify-between items-center">
+                        <div class="vstack">
+                            <h5 class="h5 m-0 text-dark">${markas[marka].name}</h5>
+                        </div>
+                        <img class="w-32px lg:w-40px"
+                            src="${markas[marka].image}" alt="${markas[marka].name}">
+                    </div>
+                    <p class="fs-6 opacity-70 dark:opacity-80" data-key="${markas[marka].data_key}"></p>
+                </div>
+                <a href="products.html?id=${markas[marka].id}"
+                    class="uc-link fw-bold fs-7 d-inline-flex items-center gap-narrow">
+                    <span data-key="buton_3"></span>
+                    <i class="icon icon-narrow unicon-arrow-right rtl:rotate-180"></i>
+                </a>
+            </div>
+        `
+
+        int_container.appendChild(int_cont);
+
+        int_swip = document.createElement("div");
+        int_swip.className = "brand-item swiper-slide text-center"
+        int_swip.innerHTML = `
+        <a href="products.html?id=${markas[marka].id}">
+            <img class="brand-item-image h-40px xl:h-48px"
+                src="${markas[marka].image}" alt="${markas[marka].name}"
+                data-uc-svg>
+        </a>
+        `
+
+        int_swiper.appendChild(int_swip);
+    }
+    )
+
+
+    
 }
 
 function generateBlogPages(blogs) {
@@ -214,7 +275,7 @@ function generateProducts(products) {
     exist = false
 
     const container = document.getElementById("products");
-    
+
 
     if (!container) {
         console.error(`Container with selector products not found.`);
@@ -222,21 +283,21 @@ function generateProducts(products) {
     }
 
     header = document.getElementById("header")
-    
-    const title = Object.values(markas).find(marka => marka.id === parseInt(id,10))?.name
+
+    const title = Object.values(markas).find(marka => marka.id === parseInt(id, 10))?.name
     if (title) {
         header.textContent = title;
     }
     else {
         header.setAttribute("data-key", "tum");
     }
-    
+
 
     container.innerHTML = "";
-    
+
     Object.keys(products).forEach(product => {
 
-        if (products[product].marka_id === parseInt(id,10) ||  parseInt(id,10) === 0) {
+        if (products[product].marka_id === parseInt(id, 10) || parseInt(id, 10) === 0) {
             product_cont = document.createElement("div");
             product_cont.innerHTML = `
                 <article class="product type-product panel">
@@ -265,28 +326,88 @@ function generateProducts(products) {
     }
 }
 
-function sendMail(){
+function sendMail() {
     document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
-    
+
         // Extract form data
         const formData = {
             name: document.querySelector('[data-key="form_1"]').value,
             mail: document.querySelector('[data-key="form_2"]').value,
             subject: document.querySelector('[data-key="form_3"]').value,
-            content: document.querySelector('[data-key="form_4"]').value,
+            message: document.querySelector('[data-key="form_4"]').value,
         };
-    
+
+
         // Perform validation (optional)
-        if (!formData.name || !formData.mail || !formData.content) {
+        if (!formData.name || !formData.mail || !formData.message || !formData.subject) {
             alert('Please fill in all required fields.');
             return;
         }
-    
-        // Example: Log form data (replace this with your desired action)
+
+        data = {
+            service_id: "service_65ddnpi",
+            template_id: "template_pcjx27m",
+            user_id: "B5JVr5Ao3MNmipzIQ",
+            template_params: {
+                'name': formData.name,
+                'mail': formData.mail,
+                'subject': formData.subject,
+                'message': formData.message
+            }
+        }
+
         console.log('Form submitted:', formData);
-    
+
+
+        $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json'
+        }).done(function() {
+            alert('Your request has been sent');
+        }).fail(function(error) {
+            alert('Oops... ' + JSON.stringify(error));
+        });
+
     });
+}
+
+function generateIntegrations() {
+    const container = document.getElementById("products");
+
+    if (!container) {
+        console.error(`Container with selector products not found.`);
+        return;
+    }
+
+    container.innerHTML = "";
+    Object.keys(markas).forEach(marka => {
+        product_cont = document.createElement("div");
+        product_cont.innerHTML = `
+            <article class="product type-product panel" style="background-color: #f0f0f0; border-radius: 10px;">
+                <div class="vstack gap-2" style="margin: 20px">
+                    <div class="panel">
+                        <figure
+                            class="featured-image m-0 rounded ratio ratio-1x1 overflow-hidden uc-transition-toggle overflow-hidden">
+                            <img class="media-cover image uc-transition-scale-up uc-transition-opaque" style="object-fit:contain; padding: 15px"
+                                src="${markas[marka].image}" alt="${markas[marka].name}">
+                            <a href="products.html?id=${markas[marka].id}" class="position-cover"
+                                data-caption="${markas[marka].name}"></a>
+                        </figure>
+                    </div>
+                    <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
+                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                                href="products.html?id=${markas[marka].id}">${markas[marka].name}</a></h5>
+                        <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
+                            href="products.html?id=${markas[marka].id}" data-uc-toggle="" data-key="urun_detay"></a>
+                    </div>
+                </div>
+            </article>
+            `
+        container.appendChild(product_cont);
+    }
+    )
 }
 
 const translations = {
@@ -329,14 +450,14 @@ const translations = {
         buton_5: "Blogu Oku",
         icerik_4: "Röportajlar, sektördeki en iyi uygulamalar ve haberler.",
         buton_4: "Tüm Yazıları Gör",
-        hakkinda: "MEDITEM Health Solutions: Sağlıkta Yenilikçi Çözümler",
-        hakkinda_icerik_1: "2024 yılında kurulan MEDITEM Health Solutions, sağlık sektöründe uzun yıllara dayanan deneyimimizle, yenilikçi çözümleri bir araya getiren bir firma olarak öne çıkmaktadır. Genel Cerrahi, Jinekoloji, Pediatri, Üroloji ve Plastik Cerrahi gibi birçok tıbbi uzmanlık alanında, hasta bakımını iyileştirmeyi ve sağlık profesyonellerinin ihtiyaçlarını karşılamayı amaçlayan ürünler sunuyoruz.",
+        hakkinda: "MEDITEM Health: Sağlıkta Yenilikçi Çözümler",
+        hakkinda_icerik_1: "2024 yılında kurulan MEDITEM Health, sağlık sektöründe uzun yıllara dayanan deneyimimizle, yenilikçi çözümleri bir araya getiren bir firma olarak öne çıkmaktadır. Genel Cerrahi, Jinekoloji, Pediatri, Üroloji ve Plastik Cerrahi gibi birçok tıbbi uzmanlık alanında, hasta bakımını iyileştirmeyi ve sağlık profesyonellerinin ihtiyaçlarını karşılamayı amaçlayan ürünler sunuyoruz.",
         hakkinda_icerik_2: "Sağlık teknolojisi sektöründeki geniş bilgi birikimimiz ve tecrübemizle, iş ortaklarımıza ve müşterilerimize en yüksek standartlarda hizmet sağlamaktayız. İleri teknolojiye olan bağlılığımız, verimli ve güvenilir çözümler üreterek hastaların ve sağlık çalışanlarının hayatlarını kolaylaştırmamıza olanak tanıyor.",
-        hakkinda_icerik_3: "MEDITEM Health Solutions olarak, sağlık teknolojileri alanında fark yaratan, sektörde lider bir firma olmayı hedefliyoruz. Sağlık sektörüne olan katkılarımızla, sadece bugünü değil, geleceği de şekillendirmeye kararlıyız.",
+        hakkinda_icerik_3: "MEDITEM Health olarak, sağlık teknolojileri alanında fark yaratan, sektörde lider bir firma olmayı hedefliyoruz. Sağlık sektörüne olan katkılarımızla, sadece bugünü değil, geleceği de şekillendirmeye kararlıyız.",
         hakkinda_header_1: "Misyonumuz",
-        hakkinda_icerik_4: "MEDITEM Health Solutions, sağlık sektöründe kaliteli, yenilikçi ve güvenilir çözümler sunarak, sağlık hizmetlerinin verimliliğini ve hasta bakımının kalitesini sürekli olarak iyileştirmeyi hedefler. Teknolojiye dayalı çözümlerimiz, sağlık profesyonellerinin iş süreçlerini optimize ederken, aynı zamanda hasta güvenliğini ve tedavi başarısını artırmayı amaçlar. Sektördeki derin tecrübemizle, sağlık alanındaki zorluklara etkili ve sürdürülebilir çözümler sunmayı taahhüt ediyoruz.",
+        hakkinda_icerik_4: "MEDITEM Health, sağlık sektöründe kaliteli, yenilikçi ve güvenilir çözümler sunarak, sağlık hizmetlerinin verimliliğini ve hasta bakımının kalitesini sürekli olarak iyileştirmeyi hedefler. Teknolojiye dayalı çözümlerimiz, sağlık profesyonellerinin iş süreçlerini optimize ederken, aynı zamanda hasta güvenliğini ve tedavi başarısını artırmayı amaçlar. Sektördeki derin tecrübemizle, sağlık alanındaki zorluklara etkili ve sürdürülebilir çözümler sunmayı taahhüt ediyoruz.",
         hakkinda_header_2: "Vizyonumuz",
-        hakkinda_icerik_5: "MEDITEM Health Solutions, sağlık teknolojileri alanında lider bir inovasyon gücü olmayı ve sektördeki tüm paydaşlar için değer yaratmayı amaçlamaktadır. Geliştirdiğimiz çözümlerle, sağlık profesyonellerine güvenli, etkili ve verimli araçlar sunarak, hastaların yaşam kalitesini artırmayı hedefliyoruz. Sağlık hizmetlerinin dijital dönüşümünü yönlendiren bir öncü olarak, sürekli gelişen bir sektör için güçlü, sürdürülebilir ve etkili çözümler sunmayı vizyon edinmiştir.",
+        hakkinda_icerik_5: "MEDITEM Health, sağlık teknolojileri alanında lider bir inovasyon gücü olmayı ve sektördeki tüm paydaşlar için değer yaratmayı amaçlamaktadır. Geliştirdiğimiz çözümlerle, sağlık profesyonellerine güvenli, etkili ve verimli araçlar sunarak, hastaların yaşam kalitesini artırmayı hedefliyoruz. Sağlık hizmetlerinin dijital dönüşümünü yönlendiren bir öncü olarak, sürekli gelişen bir sektör için güçlü, sürdürülebilir ve etkili çözümler sunmayı vizyon edinmiştir.",
         hakkinda_header_3: "Değerlerimiz",
         blog_header: "Blog",
         blog_continue: "Okumaya devam edin",
@@ -436,8 +557,8 @@ const translations = {
 const blogs = {
     tr: {
         blog_1: {
-            title: "Meditem Health Solutions ve Çevreye Duyarlı Gelecek: Elektrikli Araç Kullanımı",
-            content: `Günümüz dünyasında çevresel sorunlar, yalnızca bireylerin değil, kurumların da öncelikli sorumluluk alanlarından biri haline gelmiştir. Meditem Health Solutions olarak, yalnızca sağlık sektöründe öncü olmayı değil, aynı zamanda çevresel sorumluluklarımızı da yerine getirmeyi görev biliyoruz. Bu doğrultuda şirket araç filomuzda elektrikli araçlar (EV'ler)kullanarak, karbon ayak izimizi azaltma yolunda önemli bir adım atıyoruz.
+            title: "Meditem Health ve Çevreye Duyarlı Gelecek: Elektrikli Araç Kullanımı",
+            content: `Günümüz dünyasında çevresel sorunlar, yalnızca bireylerin değil, kurumların da öncelikli sorumluluk alanlarından biri haline gelmiştir. Meditem Health olarak, yalnızca sağlık sektöründe öncü olmayı değil, aynı zamanda çevresel sorumluluklarımızı da yerine getirmeyi görev biliyoruz. Bu doğrultuda şirket araç filomuzda elektrikli araçlar (EV'ler)kullanarak, karbon ayak izimizi azaltma yolunda önemli bir adım atıyoruz.
 Elektrikli araçların çevre üzerindeki etkisi, çeşitli bilimsel araştırmalarla açıkça ortaya konmuştur. Nature Communications dergisinde yayımlanan bir çalışmaya göre, elektrikli araç kullanımının yaygınlaşması, küresel sıcaklık artışını 2040 yılına kadar 0,5°C azaltabilir. Bu, gezegenimizin geleceği açısından hayati bir fark yaratabilir. Meditem olarak, bu tür çözümleri benimsemekle sadece sektörel değil, çevresel liderlikte de örnek olmayı amaçlıyoruz.
 Elektrikli Araçların Çevresel Önemi
 Dünya Sağlık Örgütü (WHO) verilerine göre, hava kirliliği her yıl milyonlarca insanın hayatını olumsuz etkiliyor ve fosil yakıtlı araçlar bu kirliliğin ana kaynaklarından birini oluşturuyor. Elektrikli araçlar ise sıfır emisyon ile çalışarak, çevre kirliliği sorununa yenilikçi bir çözüm sunuyor. Ayrıca, ABD Çevre Koruma Ajansı’nın (EPA) raporlarına göre, bir elektrikli araç yılda ortalama 4.6 metrik ton daha az karbon salınımına neden oluyor. Meditem olarak bu çevresel faydaları destekliyor ve şirket araç filomuzun tamamını elektrikli araçlardan oluşturmayı hedefliyoruz.
@@ -449,8 +570,8 @@ Elektrikli araç kullanımımızla:
 	•	Enerji tasarrufuna katkıda bulunuyoruz: Yenilenebilir enerji kaynaklarıyla uyumlu şarj istasyonları kurarak sürdürülebilirliği destekliyoruz.
 	•	Temiz ve sessiz bir çevre sağlıyoruz: Elektrikli araçlarımız, sessiz çalışarak gürültü kirliliğini azaltıyor.
 Sürdürülebilir Geleceğe Bir Adım Daha
-Meditem Health Solutions olarak, geleceğin sağlık çözümleri kadar çevre dostu teknolojilerin de savunucusuyuz. Elektrikli araç kullanımımız, bu anlayışımızın bir yansımasıdır. Nature Communications gibi bilimsel yayınların da ortaya koyduğu üzere, sürdürülebilir ulaşım, gezegenimizin geleceği için hayati bir öneme sahiptir. Bizler, çevreye duyarlı bu yaklaşımı benimseyerek sadece bugünü değil, geleceği de iyileştirmeyi hedefliyoruz.
-Daha sağlıklı bir dünya için teknoloji ve çevre dostu çözümleri bir araya getiren Meditem Health Solutions, sorumluluklarının bilincinde bir şekilde ilerlemeye devam ediyor.`,
+Meditem Health olarak, geleceğin sağlık çözümleri kadar çevre dostu teknolojilerin de savunucusuyuz. Elektrikli araç kullanımımız, bu anlayışımızın bir yansımasıdır. Nature Communications gibi bilimsel yayınların da ortaya koyduğu üzere, sürdürülebilir ulaşım, gezegenimizin geleceği için hayati bir öneme sahiptir. Bizler, çevreye duyarlı bu yaklaşımı benimseyerek sadece bugünü değil, geleceği de iyileştirmeyi hedefliyoruz.
+Daha sağlıklı bir dünya için teknoloji ve çevre dostu çözümleri bir araya getiren Meditem Health, sorumluluklarının bilincinde bir şekilde ilerlemeye devam ediyor.`,
             image: "./assets/images/blog/img-01.jpg",
             date: "Ara 18, 2024",
             tag: "Elektrikli Araç",
@@ -717,7 +838,7 @@ const products = {
             id: 25,
             marka_id: 5,
             title: "MEG-2 Damar Mühürleme Cihazı",
-            image: "./assets/images/common/products/mesh.png",
+            image: "./assets/images/common/products/meg2.png",
         },
         product_26: {
             id: 26,
@@ -794,28 +915,40 @@ const products = {
 
 const markas = {
     marka_1: {
-        id:1,
-        name: "Lagis"
+        id: 1,
+        name: "Lagis",
+        image: "./assets/images/marka_logolar/Lagis.png",
+        data_key: "marka_1_icerik"
     },
     marka_2: {
-        id:2,
-        name: "Vathin"
+        id: 2,
+        name: "Vathin",
+        image: "./assets/images/marka_logolar/Vathin.png",
+        data_key: "marka_2_icerik"
     },
     marka_3: {
-        id:3,
-        name: "Human Med"
+        id: 3,
+        name: "Human Med",
+        image: "./assets/images/marka_logolar/HumanMed.png",
+        data_key: "marka_3_icerik"
     },
     marka_4: {
-        id:4,
-        name: "Cousin Surgery"
+        id: 4,
+        name: "Cousin Surgery",
+        image: "./assets/images/marka_logolar/Cousin Surgery.png",
+        data_key: "marka_4_icerik"
     },
     marka_5: {
-        id:5,
-        name: "Kavandish System"
+        id: 5,
+        name: "Kavandish System",
+        image: "./assets/images/marka_logolar/Kavandish.png",
+        data_key: "marka_5_icerik"
     },
     marka_6: {
-        id:6,
-        name: "Comen"
+        id: 6,
+        name: "Comen",
+        image: "./assets/images/marka_logolar/Comen.png",
+        data_key: "marka_6_icerik"
     }
 }
 
@@ -824,7 +957,8 @@ const pageHandlers = {
     "blog.html": generateBlogPages,
     "blog-details.html": generateBlogDetail,
     "products.html": generateProducts,
-    "page-contact.html": sendMail
+    "page-contact.html": sendMail,
+    "integrations.html": generateIntegrations,
 }
 const handleItem = {
     "index.html": blogs,
