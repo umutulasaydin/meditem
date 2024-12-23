@@ -4,8 +4,8 @@
 function changeLanguage(lang) {
 
     pageName = window.location.pathname.split("/").pop();
-    console.log(pageName)
-    if (pageHandlers[pageName] || pageHandlers[pageName] === "") {
+
+    if (pageHandlers[pageName]) {
         if (handleItem[pageName] === undefined) {
             pageHandlers[pageName]();
         }
@@ -13,6 +13,9 @@ function changeLanguage(lang) {
             pageHandlers[pageName](handleItem[pageName][lang]);
         }
 
+    }
+    else {
+        generateBlogSlides(blogs[lang])
     }
     const currentLangElements = document.querySelectorAll(".current-lang");
     currentLangElements.forEach((element) => {
@@ -60,7 +63,6 @@ function generateBlogSlides(blogs) {
     int_swiper.innerHTML = "";
 
     Object.keys(markas).forEach(marka => {
-        console.log(marka)
         int_cont = document.createElement("div");
         int_cont.innerHTML = `
             <div
@@ -360,7 +362,6 @@ function sendMail() {
             }
         }
 
-        console.log('Form submitted:', formData);
 
 
         $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
