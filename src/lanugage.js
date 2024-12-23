@@ -4,7 +4,8 @@
 function changeLanguage(lang) {
 
     pageName = window.location.pathname.split("/").pop();
-    if (pageHandlers[pageName]) {
+    console.log(pageName)
+    if (pageHandlers[pageName] || pageHandlers[pageName] === "") {
         if (handleItem[pageName] === undefined) {
             pageHandlers[pageName]();
         }
@@ -39,6 +40,64 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function generateBlogSlides(blogs) {
+    const int_container = document.getElementById("marka_integrations");
+
+    if (!int_container) {
+        console.error(`Container with selector integrations not found.`);
+        return;
+    }
+
+    const int_swiper = document.getElementById("marka-swiper");
+
+    if (!int_swiper) {
+        console.error(`Container with selector marka-swiper not found.`);
+        return;
+    }
+
+
+
+    int_container.innerHTML = "";
+    int_swiper.innerHTML = "";
+
+    Object.keys(markas).forEach(marka => {
+        console.log(marka)
+        int_cont = document.createElement("div");
+        int_cont.innerHTML = `
+            <div
+                class="panel vstack justify-between gap-4 p-3 rounded lg:rounded-2 bg-white text-dark">
+                <div class="vstack gap-3">
+                    <div class="hstack justify-between items-center">
+                        <div class="vstack">
+                            <h5 class="h5 m-0 text-dark">${markas[marka].name}</h5>
+                        </div>
+                        <img class="w-32px lg:w-40px"
+                            src="${markas[marka].image}" alt="${markas[marka].name}">
+                    </div>
+                    <p class="fs-6 opacity-70 dark:opacity-80" data-key="${markas[marka].data_key}"></p>
+                </div>
+                <a href="products.html?id=${markas[marka].id}"
+                    class="uc-link fw-bold fs-7 d-inline-flex items-center gap-narrow">
+                    <span data-key="buton_3"></span>
+                    <i class="icon icon-narrow unicon-arrow-right rtl:rotate-180"></i>
+                </a>
+            </div>
+        `
+
+        int_container.appendChild(int_cont);
+
+        int_swip = document.createElement("div");
+        int_swip.className = "brand-item swiper-slide text-center"
+        int_swip.innerHTML = `
+        <a href="products.html?id=${markas[marka].id}">
+            <img class="brand-item-image h-40px xl:h-48px"
+                src="${markas[marka].image}" alt="${markas[marka].name}"
+                data-uc-svg>
+        </a>
+        `
+
+        int_swiper.appendChild(int_swip);
+    }
+    )
 
     // Select the container where slides will be added
 
@@ -88,63 +147,7 @@ function generateBlogSlides(blogs) {
         container.appendChild(slide);
     });
 
-    const int_container = document.getElementById("marka_integrations");
-
-    if (!int_container) {
-        console.error(`Container with selector integrations not found.`);
-        return;
-    }
-
-    const int_swiper = document.getElementById("marka-swiper");
-
-    if (!int_swiper) {
-        console.error(`Container with selector marka-swiper not found.`);
-        return;
-    }
-
-
-
-    int_container.innerHTML = "";
-    int_swiper.innerHTML = "";
-
-    Object.keys(markas).forEach(marka => {
-        int_cont = document.createElement("div");
-        int_cont.innerHTML = `
-            <div
-                class="panel vstack justify-between gap-4 p-3 rounded lg:rounded-2 bg-white text-dark">
-                <div class="vstack gap-3">
-                    <div class="hstack justify-between items-center">
-                        <div class="vstack">
-                            <h5 class="h5 m-0 text-dark">${markas[marka].name}</h5>
-                        </div>
-                        <img class="w-32px lg:w-40px"
-                            src="${markas[marka].image}" alt="${markas[marka].name}">
-                    </div>
-                    <p class="fs-6 opacity-70 dark:opacity-80" data-key="${markas[marka].data_key}"></p>
-                </div>
-                <a href="products.html?id=${markas[marka].id}"
-                    class="uc-link fw-bold fs-7 d-inline-flex items-center gap-narrow">
-                    <span data-key="buton_3"></span>
-                    <i class="icon icon-narrow unicon-arrow-right rtl:rotate-180"></i>
-                </a>
-            </div>
-        `
-
-        int_container.appendChild(int_cont);
-
-        int_swip = document.createElement("div");
-        int_swip.className = "brand-item swiper-slide text-center"
-        int_swip.innerHTML = `
-        <a href="products.html?id=${markas[marka].id}">
-            <img class="brand-item-image h-40px xl:h-48px"
-                src="${markas[marka].image}" alt="${markas[marka].name}"
-                data-uc-svg>
-        </a>
-        `
-
-        int_swiper.appendChild(int_swip);
-    }
-    )
+    
 
 
     
