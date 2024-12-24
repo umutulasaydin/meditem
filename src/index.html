@@ -292,9 +292,9 @@
                             </div>
                             <div class="panel"
                                 data-anime="translateY: [24, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: 200;"
-                                data-uc-lightbox="video-autoplay: true;" style="width: 80%; transform: translateX(10%)">
+                                data-uc-lightbox="video-autoplay: true;" style="display: flex; justify-content: center;">
                                 <figure
-                                    class="featured-image m-1 rounded ratio ratio-16x9 lg:rounded-2 overflow-hidden">
+                                    class="featured-image m-1 rounded ratio ratio-16x9 lg:rounded-2 overflow-hidden" style="width: 80%;">
                                     <img class="media-cover image" src="./assets/images/media/video_cover.jpg"
                                         alt="Meditem">
                                 </figure>
@@ -308,17 +308,10 @@
                             <div class="block-panel panel">
                                 <div class="element-brands text-black dark:text-white mask-x">
                                     <div class="swiper"
-                                        data-uc-swiper="items: 2.25; center: true; center-bounds: true; autoplay: 7000; loop: true; speed: 7000; autoplay-delay: -1; allowTouchMove: false; disableOnInteraction: true;"
-                                        data-uc-swiper-s="items: 4; center: false; center-bounds: false;"
+                                        data-uc-swiper="items: 2.25; center: true; center-bounds: true; autoplay: 7000; loop: true; speed: 7000; autoplay-delay: -1; allowTouchMove: true; disableOnInteraction: false;"
+                                        data-uc-swiper-s="items: 4; center: true; center-bounds: false;"
                                         data-uc-swiper-m="items: 5; gap: 80;">
                                         <div class="swiper-wrapper items-center ease-linear" id="marka-swiper">
-                                            <div class="brand-item swiper-slide text-center">
-                                                <a href="products.html?id=6">
-                                                    <img class="brand-item-image h-40px xl:h-48px"
-                                                        src="./assets/images/marka_logolar/Comen.png" alt="Comen"
-                                                        data-uc-svg>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -347,10 +340,10 @@
                         <div class="panel vstack gap-4 xl:gap-6">
                             <div class="panel px-3 rounded-2 bg-secondary dark:bg-gray-800">
                                 <ul class="main-features-nav hstack text-center overflow-auto"
-                                    data-uc-switcher="connect: .main-features-switcher; active: 0; animation: uc-animation-fade;">
-                                    <li><a class="h6 lg:h5 text-nowrap m-0" href="#" data-key="option_1"></a></li>
-                                    <li><a class="h6 lg:h5 text-nowrap m-0" href="#" data-key="option_2"></a></li>
-                                    <li><a class="h6 lg:h5 text-nowrap m-0" href="#" data-key="option_3"></a></li>
+                                    data-uc-switcher="connect: .main-features-switcher; active: 0; animation: uc-animation-fade">
+                                    <li><a class="h6 lg:h5 text-nowrap m-0 text-white" href="#" data-key="option_1"></a></li>
+                                    <li><a class="h6 lg:h5 text-nowrap m-0 text-white" href="#" data-key="option_2"></a></li>
+                                    <li><a class="h6 lg:h5 text-nowrap m-0 text-white" href="#" data-key="option_3"></a></li>
                                 </ul>
                             </div>
                             <div class="main-features-switcher uc-switcher overflow-hidden">
@@ -457,8 +450,8 @@
                         <div class="panel vstack items-center gap-4 sm:gap-6 xl:gap-8"
                             data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: spring(1, 80, 10, 0); duration: 450; delay: anime.stagger(100, {start: 100});">
                             <div class="panel vstack items-center gap-2 xl:gap-3 text-center">
-                                <h2 class="h3 lg:h2 xl:h1 m-0" data-key="baslik_3"></h2>
-                                <p class="fs-6 xl:fs-5 text-dark dark:text-white text-opacity-70" data-key="icerik_3">
+                                <h2 class="h3 lg:h2 xl:h1 m-0 text-white" data-key="baslik_3"></h2>
+                                <p class="fs-6 xl:fs-5 text-white dark:text-white text-opacity-70" data-key="icerik_3">
                                 </p>
                             </div>
                             <div class="row child-cols-12 sm:child-cols-6 lg:child-cols-4 col-match g-2 lg:g-4 justify-between"
@@ -467,7 +460,7 @@
 
                             </div>
                             <a href="integrations.html"
-                                class="uc-link fw-bold d-inline-flex items-center gap-narrow dark:text-white">
+                                class="uc-link fw-bold d-inline-flex items-center gap-narrow text-white">
                                 <span data-key="buton_2"></span>
                                 <i class="icon icon-1 unicon-arrow-right rtl:rotate-180"></i>
                             </a>

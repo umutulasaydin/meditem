@@ -17,7 +17,15 @@ function changeLanguage(lang) {
     else {
         generateBlogSlides(blogs[lang])
     }
+    localStorage.setItem("language", lang);
+    if (lang === "ar") {
+        document.documentElement.setAttribute("dir", "rtl");
+    }
+    else {
+        document.documentElement.setAttribute("dir", "ltr");
+    }
     const currentLangElements = document.querySelectorAll(".current-lang");
+    
     currentLangElements.forEach((element) => {
         element.textContent = lang.charAt(0).toUpperCase() + lang.slice(1).toUpperCase();;
     });
@@ -193,25 +201,19 @@ function generateBlogPages(blogs) {
                     </div>
                     <div>
                         <div class="vstack items-center gap-2 lg:gap-3">
-                            <a class="post-category text-primary fw-normal text-none fw-bold fs-7 bg-primary text-white py-narrow px-1 rounded">${blogs[blog].tag}</a>
+                            <a class="post-category text-white fw-normal text-none fw-bold fs-7 bg-primary text-white py-narrow px-1 rounded">${blogs[blog].tag}</a>
                             <h3 class="h4 xl:h2 m-0 text-center m-0 lg:w-500px lg:m-auto">
-                                <a class="text-none" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
+                                <a class="text-none text-white" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
                             </h3>
                             <ul class="post-meta nav-x ft-tertiary justify-center fs-7 gap-1">
                                 <li>
-                                    <div class="hstack gap-narrow ft-tertiary">
-                                        <div class="text-none fw-bold text-dark dark:text-white">${blogs[blog].writer}</div>
-                                    </div>
-                                </li>
-                                <li class="opacity-50">•</li>
-                                <li>
-                                    <div class="post-date hstack gap-narrow">
+                                    <div class="post-date hstack gap-narrow text-white">
                                         <span>${blogs[blog].date}</span>
                                     </div>
                                 </li>
                             </ul>
-                            <p class="fs-6 lg:fs-5 lg:w-500px lg:mx-auto text-center md:d-none lg:d-block">${contentExcerpt}</p>
-                            <a class="btn btn-text text-primary border-bottom d-inline-flex fs-7 lg:fs-6 sm:mt-2" href="blog-details.html?id=${blog}" data-key="blog_continue"></a>
+                            <p class="fs-6 lg:fs-5 lg:w-500px lg:mx-auto text-center text-white md:d-none lg:d-block">${contentExcerpt}</p>
+                            <a class="btn btn-text text-white border-bottom d-inline-flex fs-7 lg:fs-6 sm:mt-2" href="blog-details.html?id=${blog}" data-key="blog_continue"></a>
                         </div>
                     </div>
                 </div>
@@ -226,27 +228,21 @@ function generateBlogPages(blogs) {
                     <a class="position-absolute top-0 ltr:start-0 rtl:end-0 m-3 fs-7 fw-bold text-none z-1 bg-primary text-white py-narrow px-1"  style="border-radius: 8px">${blogs[blog].tag}</a>
                     <figure class="featured-image m-0 rounded ratio ratio-3x2 rounded-2 uc-transition-toggle overflow-hidden">
                         <img class="media-cover image uc-transition-scale-up uc-transition-opaque" src="${blogs[blog].image}" alt="${blogs[blog].title}">
-                        <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
+                        <a href="blog-details.html?id=${blog}" class="position-cover text-white" data-caption="${blogs[blog].title}"></a>
                     </figure>
                     <header class="panel vstack items-center gap-1 lg:gap-2 px-2">
                         <h3 class="h5 xl:h4 m-0 text-center m-0">
-                            <a class="text-none" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
+                            <a class="text-none text-white" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
                         </h3>
                         <ul class="post-meta nav-x ft-tertiary justify-center gap-1 fs-7 text-gray-400 dark:text-gray-300 d-none lg:d-flex">
                             <li>
-                                <div class="hstack gap-narrow ft-tertiary">
-                                    <a class="text-none fw-bold text-dark dark:text-white">${blogs[blog].writer}</a>
-                                </div>
-                            </li>
-                            <li class="opacity-50">•</li>
-                            <li>
-                                <div class="post-date hstack gap-narrow">
+                                <div class="post-date hstack gap-narrow text-white">
                                     <span>${blogs[blog].date}</span>
                                 </div>
                             </li>
                         </ul>
                     </header>
-                    <a class="btn btn-text text-primary border-bottom d-inline-flex fs-7 lg:fs-6 sm:mt-2" href="blog-details.html?id=${blog}" data-key="blog_continue"></a>
+                    <a class="btn btn-text text-white border-bottom d-inline-flex fs-7 lg:fs-6 sm:mt-2" href="blog-details.html?id=${blog}" data-key="blog_continue"></a>
                 </article>
             `
         }
@@ -305,7 +301,7 @@ function generateProducts(products) {
         if (products[product].marka_id === parseInt(id, 10) || parseInt(id, 10) === 0) {
             product_cont = document.createElement("div");
             product_cont.innerHTML = `
-                <article class="product type-product panel">
+                <article class="product type-product panel bg-white">
                     <div class="vstack gap-2 border">
                         <div class="panel">
                             <figure
@@ -315,7 +311,7 @@ function generateProducts(products) {
                             </figure>
                         </div>
                         <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1" style="margin-bottom: 20px">
-                            <h5 class="h6 md:h5 m-0">${products[product].title}</h5>
+                            <h5 class="h6 md:h5 m-0 text-black">${products[product].title}</h5>
             
                         </div>
                     </div>
@@ -401,7 +397,7 @@ function generateIntegrations() {
                         </figure>
                     </div>
                     <div class="content vstack items-center gap-1 fs-6 text-center xl:mt-1">
-                        <h5 class="h6 md:h5 m-0"><a class="text-none"
+                        <h5 class="h6 md:h5 m-0"><a class="text-none text-black"
                                 href="products.html?id=${markas[marka].id}">${markas[marka].name}</a></h5>
                         <a class="btn btn-text text-none text-primary border-bottom fs-7 lg:fs-6 mt-1 pb-narrow"
                             href="products.html?id=${markas[marka].id}" data-uc-toggle="" data-key="urun_detay"></a>
@@ -490,71 +486,363 @@ const translations = {
     },
     en: {
         footer_1: "Meditem © 2024, All rights reserved.",
-        anaSayfa: "Ana Sayfa2",
-        hakkimizda: "Hakkımızda",
-        urunler: "Ürünler",
+        footer_link_1: "Quick Links",
+        footer_link_2: "Companies",
+        footer_link_3: "Where Are We?",
+        anaSayfa: "Home",
+        hakkimizda: "About Us",
+        urunler: "Products",
         blog: "Blog",
-        iletisim: "İletişim",
-        tema: "Tema Seç:",
-        language: "Dil Seç:",
-        baslik_1: "Sağlıkta İleri Teknolojilerle Güvenli Çözümler",
-        buton_1: "Firmamızı Keşfedin",
-        baslik_2: "Sağlık Sektörü İçin İleri Teknolojik Çözümler",
-        icerik_1: "Tıbbi teknolojileri daha erişilebilir hale getirmeye odaklanıyoruz ve nihai amacımız, sağlık hizmetlerinin verimliliğini arttırmak ve hasta sonuçlarını iyileştirmektir.",
-        icerik_4: "Interviews, industry best practices and news.",
+        iletisim: "Contact",
+        tema: "Select Theme:",
+        language: "Select Language:",
+        baslik_1: "Secure Solutions with Advanced Technologies in Healthcare",
+        buton_1: "Discover Our Company",
+        baslik_2: "Advanced Technological Solutions for the Healthcare Sector",
+        icerik_1: "We focus on making medical technologies more accessible with the ultimate goal of improving healthcare efficiency and patient outcomes.",
+        option_1: "Sales",
+        option_2: "Technical Service",
+        option_3: "Project Management",
+        option_1_baslik: "Fast access to medical solutions",
+        option_1_icerik: "We offer innovative solutions in General Surgery, Gynecology, Urology, and Plastic Surgery. With a wide product portfolio catering to every need, we prioritize customer satisfaction through high-quality service. Our fast supply processes and expert team are ready to support your projects.",
+        option_2_baslik: "Your devices are always secure",
+        option_2_icerik: "We provide comprehensive and reliable technical service for your medical devices. From sensitive operations like board repairs to customized performance-enhancing solutions, we offer a wide range of support. Our experienced team ensures your devices operate at maximum performance and longevity.",
+        option_3_baslik: "Professional touch to your projects",
+        option_3_icerik: "We support you at every stage of your medical projects. From needs analysis to strategic planning and implementation, our expert team ensures maximum efficiency. With our industry knowledge and technical expertise, we bring your projects to life on time, budget-friendly, and with high quality.",
+        baslik_3: "Our Advanced Technology Products",
+        icerik_3: "Using the latest technology in the healthcare sector, we aim for excellence in healthcare services with high-quality and reliable products.",
+        buton_2: "Discover All Products of Our Companies",
+        buton_3: "View Products",
+        marka_1_icerik: "Offers innovative and reliable solutions for minimally invasive surgery.",
+        marka_2_icerik: "Enhances patient safety and efficiency with single-use bronchoscopy solutions.",
+        marka_3_icerik: "A leading brand in Plastic and Aesthetic Surgery with high-tech devices.",
+        marka_4_icerik: "Takes surgical success a step further with mesh solutions.",
+        marka_5_icerik: "The address of reliability and high performance in electrocautery devices.",
+        marka_6_icerik: "Provides global standard solutions in patient monitoring and life support equipment.",
+        baslik_4: "Our Blog Posts",
+        buton_5: "Read the Blog",
+        icerik_4: "Interviews, best practices in the industry, and news.",
+        buton_4: "View All Posts",
+        hakkinda: "MEDITEM Health: Innovative Solutions in Healthcare",
+        hakkinda_icerik_1: "Founded in 2024, MEDITEM Health stands out as a company combining innovative solutions in the healthcare sector with years of experience. We provide products aiming to improve patient care and meet the needs of healthcare professionals in various medical specialties such as General Surgery, Gynecology, Pediatrics, Urology, and Plastic Surgery.",
+        hakkinda_icerik_2: "With our extensive knowledge and experience in the healthcare technology sector, we provide services of the highest standards to our partners and clients. Our commitment to advanced technology allows us to produce efficient and reliable solutions that ease the lives of patients and healthcare professionals.",
+        hakkinda_icerik_3: "At MEDITEM Health, we aim to be a leading company making a difference in the healthcare technologies field. With our contributions to the healthcare sector, we are committed to shaping not only today but also the future.",
+        hakkinda_header_1: "Our Mission",
+        hakkinda_icerik_4: "MEDITEM Health aims to continuously improve the efficiency of healthcare services and the quality of patient care by providing high-quality, innovative, and reliable solutions in the healthcare sector. Our technology-driven solutions optimize the workflows of healthcare professionals while enhancing patient safety and treatment success. With our extensive experience, we commit to offering effective and sustainable solutions to challenges in the healthcare sector.",
+        hakkinda_header_2: "Our Vision",
+        hakkinda_icerik_5: "MEDITEM Health aims to be a leading innovation force in healthcare technologies and create value for all stakeholders in the sector. By developing solutions that provide safe, effective, and efficient tools for healthcare professionals, we strive to enhance patients' quality of life. As a pioneer driving the digital transformation of healthcare services, we aim to offer robust, sustainable, and effective solutions for an ever-evolving sector.",
+        hakkinda_header_3: "Our Values",
+        blog_header: "Blog",
+        blog_continue: "Continue Reading",
+        header_404: "Page Not Found",
+        content_404: "Unfortunately, the page you are looking for does not exist. Please try again or return to the homepage.",
+        redirect_404: "Return to Homepage",
+        urun_detay: "View Products",
+        urun_ayrinti: "View Product Details",
+        tum: "All",
+        contact_header: "Contact Us",
+        contact_option_1: "Address",
+        contact_option_1_buton: "View on Map",
+        contact_option_2: "Phone",
+        contact_option_2_buton: "Call Us",
+        contact_option_3: "Email",
+        contact_option_3_buton: "Send Email",
+        mail_header: "Write to Us",
+        mail_header_content: "You can contact us by filling out the form below. Our team will get in touch with you.",
+        form_1: "Your Name",
+        form_2: "Your Email Address",
+        form_3: "Subject",
+        form_4: "Your Message",
+        form_5: "Send",
+        product_contact_content: "Contact us for detailed information about the products."
     },
     de: {
-        anaSayfa: "Ana Sayfa3",
-        hakkimizda: "Hakkımızda",
-        urunler: "Ürünler",
+        footer_1: "Meditem © 2024, Alle Rechte vorbehalten.",
+        footer_link_1: "Schnellzugriffe",
+        footer_link_2: "Unternehmen",
+        footer_link_3: "Wo sind wir?",
+        anaSayfa: "Startseite",
+        hakkimizda: "Über uns",
+        urunler: "Produkte",
         blog: "Blog",
-        iletisim: "İletişim",
-        tema: "Tema Seç:",
-        language: "Dil Seç:",
-        baslik_1: "Sağlıkta İleri Teknolojilerle Güvenli Çözümler",
-        buton_1: "Firmamızı Keşfedin",
-        baslik_2: "Sağlık Sektörü İçin İleri Teknolojik Çözümler",
-        icerik_1: "Tıbbi teknolojileri daha erişilebilir hale getirmeye odaklanıyoruz ve nihai amacımız, sağlık hizmetlerinin verimliliğini arttırmak ve hasta sonuçlarını iyileştirmektir.",
+        iletisim: "Kontakt",
+        tema: "Thema auswählen:",
+        language: "Sprache auswählen:",
+        baslik_1: "Sichere Lösungen mit fortschrittlicher Technologie im Gesundheitswesen",
+        buton_1: "Entdecken Sie unser Unternehmen",
+        baslik_2: "Fortschrittliche technologische Lösungen für den Gesundheitssektor",
+        icerik_1: "Wir konzentrieren uns darauf, medizinische Technologien zugänglicher zu machen, mit dem Ziel, die Effizienz im Gesundheitswesen zu steigern und Patientenergebnisse zu verbessern.",
+        option_1: "Verkauf",
+        option_2: "Technischer Service",
+        option_3: "Projektmanagement",
+        option_1_baslik: "Schneller Zugang zu medizinischen Lösungen",
+        option_1_icerik: "Wir bieten innovative Lösungen in den Bereichen Allgemeinchirurgie, Gynäkologie, Urologie und Plastische Chirurgie. Mit einem breiten Produktportfolio, das jeden Bedarf abdeckt, stellen wir die Kundenzufriedenheit durch unseren qualitativ hochwertigen Service in den Vordergrund. Unsere schnellen Beschaffungsprozesse und unser Expertenteam sind bereit, Ihre Projekte zu unterstützen.",
+        option_2_baslik: "Ihre Geräte sind immer sicher",
+        option_2_icerik: "Wir bieten umfassenden und zuverlässigen technischen Service für Ihre medizinischen Geräte. Von sensiblen Reparaturen wie Platinenreparaturen bis hin zu maßgeschneiderten leistungssteigernden Lösungen bieten wir ein breites Spektrum an Unterstützung. Unser erfahrenes Team stellt sicher, dass Ihre Geräte mit maximaler Leistung und Langlebigkeit arbeiten.",
+        option_3_baslik: "Professionelle Unterstützung für Ihre Projekte",
+        option_3_icerik: "Wir stehen Ihnen in jeder Phase Ihrer medizinischen Projekte zur Seite. Von Bedarfsanalysen über strategische Planung bis hin zur Umsetzung sorgt unser Expertenteam für maximale Effizienz. Mit unserem Branchenwissen und unserer technischen Expertise realisieren wir Ihre Projekte termingerecht, kostengünstig und in hoher Qualität.",
+        baslik_3: "Unsere Produkte mit fortschrittlicher Technologie",
+        icerik_3: "Mit der neuesten Technologie im Gesundheitswesen streben wir Exzellenz in Gesundheitsdienstleistungen durch qualitativ hochwertige und zuverlässige Produkte an.",
+        buton_2: "Entdecken Sie alle Produkte unserer Unternehmen",
+        buton_3: "Produkte ansehen",
+        marka_1_icerik: "Bietet innovative und zuverlässige Lösungen für minimalinvasive Chirurgie.",
+        marka_2_icerik: "Erhöht die Patientensicherheit und Effizienz mit Einweg-Bronchoskopielösungen.",
+        marka_3_icerik: "Eine führende Marke in der Plastischen und Ästhetischen Chirurgie mit High-Tech-Geräten.",
+        marka_4_icerik: "Steigert den chirurgischen Erfolg mit Mesh-Lösungen.",
+        marka_5_icerik: "Die Adresse für Zuverlässigkeit und hohe Leistung bei Elektrokautergeräten.",
+        marka_6_icerik: "Bietet Lösungen nach globalen Standards in der Patientenüberwachung und lebenserhaltenden Ausrüstung.",
+        baslik_4: "Unsere Blogbeiträge",
+        buton_5: "Blog lesen",
+        icerik_4: "Interviews, Best Practices in der Branche und Neuigkeiten.",
+        buton_4: "Alle Beiträge anzeigen",
+        hakkinda: "MEDITEM Health: Innovative Lösungen im Gesundheitswesen",
+        hakkinda_icerik_1: "MEDITEM Health, gegründet im Jahr 2024, zeichnet sich durch die Kombination innovativer Lösungen im Gesundheitswesen mit langjähriger Erfahrung aus. Wir bieten Produkte an, die darauf abzielen, die Patientenversorgung zu verbessern und die Bedürfnisse von Gesundheitsfachkräften in verschiedenen medizinischen Fachgebieten wie Allgemeinchirurgie, Gynäkologie, Pädiatrie, Urologie und Plastische Chirurgie zu erfüllen.",
+        hakkinda_icerik_2: "Mit unserem umfassenden Wissen und unserer Erfahrung im Bereich der Gesundheitstechnologie bieten wir unseren Partnern und Kunden Dienstleistungen von höchstem Standard. Unser Engagement für fortschrittliche Technologie ermöglicht es uns, effiziente und zuverlässige Lösungen zu entwickeln, die das Leben von Patienten und Gesundheitsfachkräften erleichtern.",
+        hakkinda_icerik_3: "Bei MEDITEM Health streben wir danach, ein führendes Unternehmen zu sein, das einen Unterschied im Bereich der Gesundheitstechnologien macht. Mit unseren Beiträgen zum Gesundheitswesen sind wir entschlossen, nicht nur die Gegenwart, sondern auch die Zukunft zu gestalten.",
+        hakkinda_header_1: "Unsere Mission",
+        hakkinda_icerik_4: "MEDITEM Health hat sich zum Ziel gesetzt, die Effizienz der Gesundheitsdienste und die Qualität der Patientenversorgung durch hochwertige, innovative und zuverlässige Lösungen im Gesundheitswesen kontinuierlich zu verbessern. Unsere technologiegestützten Lösungen optimieren die Arbeitsabläufe von Gesundheitsfachkräften und erhöhen gleichzeitig die Patientensicherheit und den Behandlungserfolg. Mit unserer umfassenden Erfahrung verpflichten wir uns, effektive und nachhaltige Lösungen für Herausforderungen im Gesundheitswesen zu bieten.",
+        hakkinda_header_2: "Unsere Vision",
+        hakkinda_icerik_5: "MEDITEM Health strebt an, eine führende Innovationskraft im Bereich der Gesundheitstechnologien zu sein und für alle Akteure der Branche Mehrwert zu schaffen. Durch die Entwicklung von Lösungen, die sichere, effektive und effiziente Werkzeuge für Gesundheitsfachkräfte bieten, möchten wir die Lebensqualität der Patienten verbessern. Als Vorreiter der digitalen Transformation von Gesundheitsdiensten haben wir uns zum Ziel gesetzt, robuste, nachhaltige und effektive Lösungen für eine sich ständig weiterentwickelnde Branche anzubieten.",
+        hakkinda_header_3: "Unsere Werte",
+        blog_header: "Blog",
+        blog_continue: "Weiterlesen",
+        header_404: "Seite nicht gefunden",
+        content_404: "Die von Ihnen gesuchte Seite ist leider nicht verfügbar. Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.",
+        redirect_404: "Zur Startseite zurückkehren",
+        urun_detay: "Produkte ansehen",
+        urun_ayrinti: "Produktdetails anzeigen",
+        tum: "Alle",
+        contact_header: "Kontaktieren Sie uns",
+        contact_option_1: "Adresse",
+        contact_option_1_buton: "Auf der Karte anzeigen",
+        contact_option_2: "Telefon",
+        contact_option_2_buton: "Rufen Sie uns an",
+        contact_option_3: "E-Mail",
+        contact_option_3_buton: "E-Mail senden",
+        mail_header: "Schreiben Sie uns",
+        mail_header_content: "Sie können uns kontaktieren, indem Sie das folgende Formular ausfüllen. Unser Team wird sich mit Ihnen in Verbindung setzen.",
+        form_1: "Ihr Name",
+        form_2: "Ihre E-Mail-Adresse",
+        form_3: "Betreff",
+        form_4: "Ihre Nachricht",
+        form_5: "Senden",
+        product_contact_content: "Kontaktieren Sie uns für detaillierte Informationen zu den Produkten."
     },
     fr: {
-        anaSayfa: "Ana Sayfa4",
-        hakkimizda: "Hakkımızda",
-        urunler: "Ürünler",
+        footer_1: "Meditem © 2024, Tous droits réservés.",
+        footer_link_1: "Liens rapides",
+        footer_link_2: "Entreprises",
+        footer_link_3: "Où sommes-nous ?",
+        anaSayfa: "Accueil",
+        hakkimizda: "À propos de nous",
+        urunler: "Produits",
         blog: "Blog",
-        iletisim: "İletişim",
-        tema: "Tema Seç:",
-        language: "Dil Seç:",
-        baslik_1: "Sağlıkta İleri Teknolojilerle Güvenli Çözümler",
-        buton_1: "Firmamızı Keşfedin",
-        baslik_2: "Sağlık Sektörü İçin İleri Teknolojik Çözümler",
-        icerik_1: "Tıbbi teknolojileri daha erişilebilir hale getirmeye odaklanıyoruz ve nihai amacımız, sağlık hizmetlerinin verimliliğini arttırmak ve hasta sonuçlarını iyileştirmektir.",
+        iletisim: "Contact",
+        tema: "Choisir un thème :",
+        language: "Choisir une langue :",
+        baslik_1: "Des solutions sûres avec des technologies avancées en santé",
+        buton_1: "Découvrez notre entreprise",
+        baslik_2: "Solutions technologiques avancées pour le secteur de la santé",
+        icerik_1: "Nous nous concentrons sur la rendre les technologies médicales plus accessibles avec pour objectif d'améliorer l'efficacité des soins de santé et les résultats pour les patients.",
+        option_1: "Vente",
+        option_2: "Service technique",
+        option_3: "Gestion de projets",
+        option_1_baslik: "Accès rapide aux solutions médicales",
+        option_1_icerik: "Nous proposons des solutions innovantes dans les domaines de la chirurgie générale, de la gynécologie, de l'urologie et de la chirurgie plastique. Grâce à notre vaste portefeuille de produits, nous répondons à tous les besoins avec des dispositifs médicaux de qualité tout en mettant la satisfaction client au premier plan. Nos processus d'approvisionnement rapides et notre équipe d'experts sont prêts à soutenir vos projets.",
+        option_2_baslik: "Vos équipements toujours en sécurité",
+        option_2_icerik: "Nous offrons des services techniques complets et fiables pour vos équipements médicaux. Qu'il s'agisse de réparations délicates comme les circuits imprimés ou de solutions personnalisées pour améliorer les performances, nous couvrons un large éventail de besoins. Notre équipe expérimentée garantit que vos équipements fonctionnent avec des performances maximales et une durée de vie prolongée.",
+        option_3_baslik: "Une touche professionnelle pour vos projets",
+        option_3_icerik: "Nous vous accompagnons à chaque étape de vos projets médicaux. Analyse des besoins, planification stratégique et mise en œuvre, notre équipe d'experts assure une efficacité maximale. Avec notre expertise sectorielle et technique, nous réalisons vos projets dans les délais, de manière économique et avec une qualité supérieure.",
+        baslik_3: "Nos produits de haute technologie",
+        icerik_3: "En utilisant les technologies les plus récentes dans le domaine de la santé, nous visons l'excellence dans les services de santé avec des produits de qualité et fiables.",
+        buton_2: "Découvrez tous les produits de nos entreprises",
+        buton_3: "Voir les produits",
+        marka_1_icerik: "Offre des solutions innovantes et fiables pour la chirurgie mini-invasive.",
+        marka_2_icerik: "Augmente la sécurité des patients et l'efficacité grâce à des solutions de bronchoscopie à usage unique.",
+        marka_3_icerik: "Une marque leader dans la chirurgie plastique et esthétique avec des dispositifs de haute technologie.",
+        marka_4_icerik: "Améliore le succès chirurgical grâce à des solutions de maille.",
+        marka_5_icerik: "L'adresse de la fiabilité et de la haute performance pour les appareils électro-chirurgicaux.",
+        marka_6_icerik: "Propose des solutions conformes aux normes mondiales pour le suivi des patients et les équipements de maintien en vie.",
+        baslik_4: "Nos articles de blog",
+        buton_5: "Lire le blog",
+        icerik_4: "Interviews, meilleures pratiques du secteur et actualités.",
+        buton_4: "Voir tous les articles",
+        hakkinda: "MEDITEM Health : Solutions innovantes en santé",
+        hakkinda_icerik_1: "Fondée en 2024, MEDITEM Health se distingue par la combinaison de solutions innovantes en santé et de nombreuses années d'expérience. Nous offrons des produits conçus pour améliorer les soins aux patients et répondre aux besoins des professionnels de santé dans divers domaines médicaux tels que la chirurgie générale, la gynécologie, la pédiatrie, l'urologie et la chirurgie plastique.",
+        hakkinda_icerik_2: "Avec notre vaste savoir-faire et expérience dans le domaine de la technologie médicale, nous fournissons des services de la plus haute qualité à nos partenaires et clients. Notre engagement envers les technologies de pointe nous permet de développer des solutions efficaces et fiables, facilitant la vie des patients et des professionnels de santé.",
+        hakkinda_icerik_3: "Chez MEDITEM Health, nous nous efforçons de devenir un leader dans le domaine des technologies médicales. Avec nos contributions au secteur de la santé, nous sommes déterminés à façonner non seulement le présent, mais aussi l'avenir.",
+        hakkinda_header_1: "Notre mission",
+        hakkinda_icerik_4: "MEDITEM Health s'engage à améliorer en permanence l'efficacité des services de santé et la qualité des soins aux patients grâce à des solutions de haute qualité, innovantes et fiables. Nos solutions basées sur la technologie optimisent les processus des professionnels de santé tout en augmentant la sécurité des patients et le succès des traitements. Forts de notre vaste expérience, nous promettons de fournir des solutions efficaces et durables aux défis du secteur de la santé.",
+        hakkinda_header_2: "Notre vision",
+        hakkinda_icerik_5: "MEDITEM Health vise à devenir une force d'innovation leader dans le domaine des technologies de la santé, créant de la valeur pour toutes les parties prenantes du secteur. Grâce à nos solutions, nous offrons aux professionnels de santé des outils sûrs, efficaces et performants, améliorant ainsi la qualité de vie des patients. Pionniers de la transformation numérique des services de santé, nous nous engageons à offrir des solutions robustes, durables et efficaces pour un secteur en constante évolution.",
+        hakkinda_header_3: "Nos valeurs",
+        blog_header: "Blog",
+        blog_continue: "Lire la suite",
+        header_404: "Page introuvable",
+        content_404: "La page que vous recherchez n'est pas disponible. Veuillez réessayer ou retourner à la page d'accueil.",
+        redirect_404: "Retour à l'accueil",
+        urun_detay: "Voir les produits",
+        urun_ayrinti: "Afficher les détails du produit",
+        tum: "Tous",
+        contact_header: "Contactez-nous",
+        contact_option_1: "Adresse",
+        contact_option_1_buton: "Voir sur la carte",
+        contact_option_2: "Téléphone",
+        contact_option_2_buton: "Appelez-nous",
+        contact_option_3: "E-mail",
+        contact_option_3_buton: "Envoyez un e-mail",
+        mail_header: "Écrivez-nous",
+        mail_header_content: "Vous pouvez nous contacter en remplissant le formulaire ci-dessous. Notre équipe vous répondra rapidement.",
+        form_1: "Votre nom",
+        form_2: "Votre adresse e-mail",
+        form_3: "Sujet",
+        form_4: "Votre message",
+        form_5: "Envoyer",
+        product_contact_content: "Contactez-nous pour plus d'informations sur les produits."
     },
     ch: {
-        anaSayfa: "Ana Sayfa5",
-        hakkimizda: "Hakkımızda",
-        urunler: "Ürünler",
-        blog: "Blog",
-        iletisim: "İletişim",
-        tema: "Tema Seç:",
-        language: "Dil Seç:",
-        baslik_1: "Sağlıkta İleri Teknolojilerle Güvenli Çözümler",
-        buton_1: "Firmamızı Keşfedin",
-        baslik_2: "Sağlık Sektörü İçin İleri Teknolojik Çözümler",
-        icerik_1: "Tıbbi teknolojileri daha erişilebilir hale getirmeye odaklanıyoruz ve nihai amacımız, sağlık hizmetlerinin verimliliğini arttırmak ve hasta sonuçlarını iyileştirmektir.",
+        footer_1: "Meditem © 2024，版权所有。",
+        footer_link_1: "快速链接",
+        footer_link_2: "公司",
+        footer_link_3: "我们在哪里？",
+        anaSayfa: "首页",
+        hakkimizda: "关于我们",
+        urunler: "产品",
+        blog: "博客",
+        iletisim: "联系",
+        tema: "选择主题：",
+        language: "选择语言：",
+        baslik_1: "医疗技术领域的安全解决方案",
+        buton_1: "了解我们的公司",
+        baslik_2: "为医疗行业提供先进技术解决方案",
+        icerik_1: "我们致力于让医疗技术更易获得，最终目标是提高医疗服务效率并改善患者的治疗效果。",
+        option_1: "销售",
+        option_2: "技术服务",
+        option_3: "项目管理",
+        option_1_baslik: "快速访问医疗解决方案",
+        option_1_icerik: "我们在普通外科、妇产科、泌尿科和整形外科领域提供创新的解决方案。凭借广泛的产品组合，我们为所有需求提供高质量的医疗设备，同时以客户满意为首要任务。快速的供应流程和专业团队随时准备支持您的项目。",
+        option_2_baslik: "确保设备始终安全",
+        option_2_icerik: "我们为您的医疗设备提供全面可靠的技术服务。从电路板维修等精细操作到提高性能的定制解决方案，我们提供广泛的支持。经验丰富的团队确保您的设备以最佳性能运行并延长其使用寿命。",
+        option_3_baslik: "为您的项目提供专业支持",
+        option_3_icerik: "我们在医疗项目的每个阶段为您提供支持。从需求分析到战略规划和实施，我们的专家团队确保实现最大效率。凭借我们的行业知识和技术专业知识，我们确保您的项目按时、经济高效且高质量地完成。",
+        baslik_3: "我们的高科技产品",
+        icerik_3: "通过使用医疗领域的最新技术，我们以高质量、可靠的产品追求医疗服务的卓越。",
+        buton_2: "探索我们公司的所有产品",
+        buton_3: "查看产品",
+        marka_1_icerik: "为微创手术提供创新可靠的解决方案。",
+        marka_2_icerik: "通过一次性支气管镜解决方案提高患者安全性和效率。",
+        marka_3_icerik: "整形与美容外科领域的高科技设备领先品牌。",
+        marka_4_icerik: "通过网片解决方案提升手术成功率。",
+        marka_5_icerik: "在电外科设备中体现可靠性和高性能。",
+        marka_6_icerik: "在患者监护和生命支持设备领域提供符合全球标准的解决方案。",
+        baslik_4: "我们的博客文章",
+        buton_5: "阅读博客",
+        icerik_4: "访谈、行业最佳实践和新闻。",
+        buton_4: "查看所有文章",
+        hakkinda: "MEDITEM Health：创新医疗解决方案",
+        hakkinda_icerik_1: "成立于2024年的MEDITEM Health，凭借多年的医疗行业经验，结合创新解决方案脱颖而出。我们提供的产品旨在改善患者护理并满足医疗专业人员的需求，覆盖普通外科、妇产科、儿科、泌尿科和整形外科等多个医疗专业领域。",
+        hakkinda_icerik_2: "凭借在医疗技术领域的丰富知识和经验，我们为合作伙伴和客户提供最高标准的服务。我们对先进技术的承诺使我们能够开发高效、可靠的解决方案，从而改善患者和医疗专业人员的生活。",
+        hakkinda_icerik_3: "在MEDITEM Health，我们的目标是成为医疗技术领域的领导者。通过我们对医疗行业的贡献，我们决心不仅塑造今天，也塑造未来。",
+        hakkinda_header_1: "我们的使命",
+        hakkinda_icerik_4: "MEDITEM Health致力于通过提供高质量、创新和可靠的解决方案，不断提高医疗服务的效率和患者护理质量。我们的技术驱动解决方案在优化医疗专业人员工作流程的同时，还能提高患者的安全性和治疗成功率。凭借我们在行业中的深厚经验，我们承诺为医疗领域的挑战提供有效和可持续的解决方案。",
+        hakkinda_header_2: "我们的愿景",
+        hakkinda_icerik_5: "MEDITEM Health旨在成为医疗技术领域的创新领导者，为行业中的所有利益相关者创造价值。通过我们的解决方案，我们为医疗专业人员提供安全、高效和高性能的工具，从而改善患者的生活质量。作为医疗服务数字化转型的先驱，我们致力于为不断发展的行业提供强大、可持续和高效的解决方案。",
+        hakkinda_header_3: "我们的价值观",
+        blog_header: "博客",
+        blog_continue: "继续阅读",
+        header_404: "页面未找到",
+        content_404: "抱歉，您寻找的页面不存在。请重试或返回首页。",
+        redirect_404: "返回首页",
+        urun_detay: "查看产品",
+        urun_ayrinti: "查看产品详情",
+        tum: "全部",
+        contact_header: "联系我们",
+        contact_option_1: "地址",
+        contact_option_1_buton: "在地图上查看",
+        contact_option_2: "电话",
+        contact_option_2_buton: "给我们打电话",
+        contact_option_3: "电子邮件",
+        contact_option_3_buton: "发送电子邮件",
+        mail_header: "给我们写信",
+        mail_header_content: "您可以通过填写以下表单与我们联系。我们的团队会尽快与您联系。",
+        form_1: "您的姓名",
+        form_2: "您的电子邮件地址",
+        form_3: "主题",
+        form_4: "您的留言",
+        form_5: "发送",
+        product_contact_content: "如需了解产品的详细信息，请联系我们。"
     },
     ar: {
-        anaSayfa: "Ana Sayfa6",
-        hakkimizda: "Hakkımızda",
-        urunler: "Ürünler",
-        blog: "Blog",
-        iletisim: "İletişim",
-        tema: "Tema Seç:",
-        language: "Dil Seç:",
-        baslik_1: "Sağlıkta İleri Teknolojilerle Güvenli Çözümler",
-        buton_1: "Firmamızı Keşfedin",
-        baslik_2: "Sağlık Sektörü İçin İleri Teknolojik Çözümler",
-        icerik_1: "Tıbbi teknolojileri daha erişilebilir hale getirmeye odaklanıyoruz ve nihai amacımız, sağlık hizmetlerinin verimliliğini arttırmak ve hasta sonuçlarını iyileştirmektir.",
-
+        footer_1: "Meditem © 2024، جميع الحقوق محفوظة.",
+        footer_link_1: "روابط سريعة",
+        footer_link_2: "الشركات",
+        footer_link_3: "أين نحن؟",
+        anaSayfa: "الصفحة الرئيسية",
+        hakkimizda: "من نحن",
+        urunler: "المنتجات",
+        blog: "المدونة",
+        iletisim: "اتصل بنا",
+        tema: "اختر السمة:",
+        language: "اختر اللغة:",
+        baslik_1: "حلول آمنة بتقنيات متقدمة في المجال الطبي",
+        buton_1: "تعرف على شركتنا",
+        baslik_2: "حلول تكنولوجية متقدمة لقطاع الصحة",
+        icerik_1: "نركز على جعل التقنيات الطبية أكثر سهولة مع هدفنا النهائي المتمثل في تحسين كفاءة الخدمات الصحية وتحسين نتائج المرضى.",
+        option_1: "المبيعات",
+        option_2: "الخدمات التقنية",
+        option_3: "إدارة المشاريع",
+        option_1_baslik: "الوصول السريع إلى الحلول الطبية",
+        option_1_icerik: "نقدم حلولاً مبتكرة في مجالات الجراحة العامة، وأمراض النساء، والمسالك البولية، وجراحة التجميل. بفضل مجموعتنا الواسعة من المنتجات، نقدم أجهزة طبية تلبي جميع الاحتياجات، مع التركيز على رضا العملاء. فرقنا المتخصصة وسرعة عمليات التوريد جاهزة لدعم مشاريعك.",
+        option_2_baslik: "أجهزتك في أمان دائم",
+        option_2_icerik: "نقدم خدمات تقنية شاملة وموثوقة لأجهزتك الطبية. من إصلاح اللوحات الإلكترونية إلى حلول تحسين الأداء، نقدم مجموعة واسعة من الدعم. يضمن فريقنا المتمرس تشغيل أجهزتك بأقصى كفاءة وعمر طويل.",
+        option_3_baslik: "لمسة احترافية لمشاريعك",
+        option_3_icerik: "نقف بجانبك في كل مرحلة من مراحل مشاريعك الطبية. بدءًا من تحليل الاحتياجات إلى التخطيط الاستراتيجي وعمليات التنفيذ، يوفر فريقنا المتخصص أقصى كفاءة. بفضل معرفتنا العميقة في القطاع وخبراتنا التقنية، نضمن إتمام مشاريعك في الوقت المحدد وبميزانية موفرة وبجودة عالية.",
+        baslik_3: "منتجاتنا التقنية المتقدمة",
+        icerik_3: "من خلال استخدام أحدث التقنيات في المجال الطبي، نهدف إلى تحقيق التميز في الخدمات الصحية مع منتجات عالية الجودة وموثوقة.",
+        buton_2: "استكشاف جميع منتجات شركاتنا",
+        buton_3: "عرض المنتجات",
+        marka_1_icerik: "توفر حلولاً مبتكرة وموثوقة للجراحة طفيفة التوغل.",
+        marka_2_icerik: "تحسن أمان وكفاءة المرضى باستخدام حلول تنظير الشعب الهوائية للاستخدام الواحد.",
+        marka_3_icerik: "علامة رائدة في مجال الأجهزة عالية التقنية لجراحة التجميل والترميم.",
+        marka_4_icerik: "تأخذ نجاح العمليات الجراحية إلى مستوى جديد مع حلول الشبكات.",
+        marka_5_icerik: "العنوان للموثوقية والأداء العالي في أجهزة الكي الكهربائي.",
+        marka_6_icerik: "تقدم حلولًا بمعايير عالمية في مجال مراقبة المرضى وأجهزة دعم الحياة.",
+        baslik_4: "مقالات مدونتنا",
+        buton_5: "قراءة المدونة",
+        icerik_4: "مقابلات، أفضل الممارسات في القطاع، والأخبار.",
+        buton_4: "عرض جميع المقالات",
+        hakkinda: "MEDITEM Health: حلول مبتكرة في المجال الطبي",
+        hakkinda_icerik_1: "تأسست MEDITEM Health في عام 2024، وتبرز كشركة تجمع بين الحلول المبتكرة والخبرة الطويلة في القطاع الطبي. نحن نقدم منتجات تهدف إلى تحسين رعاية المرضى وتلبية احتياجات المهنيين الطبيين، تشمل مجالات الجراحة العامة، وأمراض النساء، وطب الأطفال، والمسالك البولية، وجراحة التجميل.",
+        hakkinda_icerik_2: "بفضل معرفتنا العميقة وخبرتنا في قطاع التكنولوجيا الطبية، نقدم خدمات بمعايير عالية لشركائنا وعملائنا. التزامنا بالتكنولوجيا المتقدمة يمكّننا من تقديم حلول فعالة وموثوقة لتحسين حياة المرضى والمهنيين الطبيين.",
+        hakkinda_icerik_3: "في MEDITEM Health، نهدف إلى أن نصبح شركة رائدة في قطاع التكنولوجيا الطبية. من خلال مساهماتنا في المجال الطبي، نحن ملتزمون بتشكيل الحاضر والمستقبل.",
+        hakkinda_header_1: "مهمتنا",
+        hakkinda_icerik_4: "تهدف MEDITEM Health إلى تحسين كفاءة الخدمات الصحية وجودة رعاية المرضى من خلال تقديم حلول مبتكرة وموثوقة. تعمل حلولنا التقنية على تحسين عمليات العمل للمهن الطبية وزيادة أمان المرضى ونجاح العلاج. بفضل خبرتنا العميقة في القطاع، نتعهد بتقديم حلول فعالة ومستدامة لتحديات المجال الطبي.",
+        hakkinda_header_2: "رؤيتنا",
+        hakkinda_icerik_5: "تسعى MEDITEM Health لأن تصبح قوة رائدة في الابتكار في مجال التكنولوجيا الطبية، وخلق قيمة لجميع أصحاب المصلحة في القطاع. من خلال حلولنا، نقدم أدوات آمنة وفعالة للمهن الطبية لتحسين جودة حياة المرضى. كمحرك للتحول الرقمي في الخدمات الصحية، نحن ملتزمون بتقديم حلول قوية ومستدامة وفعالة لقطاع دائم التطور.",
+        hakkinda_header_3: "قيمنا",
+        blog_header: "المدونة",
+        blog_continue: "تابع القراءة",
+        header_404: "الصفحة غير موجودة",
+        content_404: "عذرًا، الصفحة التي تبحث عنها غير موجودة. يرجى المحاولة مرة أخرى أو العودة إلى الصفحة الرئيسية.",
+        redirect_404: "العودة إلى الصفحة الرئيسية",
+        urun_detay: "عرض المنتجات",
+        urun_ayrinti: "عرض تفاصيل المنتج",
+        tum: "الكل",
+        contact_header: "اتصل بنا",
+        contact_option_1: "العنوان",
+        contact_option_1_buton: "عرض على الخريطة",
+        contact_option_2: "الهاتف",
+        contact_option_2_buton: "اتصل بنا",
+        contact_option_3: "البريد الإلكتروني",
+        contact_option_3_buton: "أرسل بريدًا إلكترونيًا",
+        mail_header: "اكتب لنا",
+        mail_header_content: "يمكنك التواصل معنا عن طريق ملء النموذج أدناه. سيتواصل فريقنا معك قريبًا.",
+        form_1: "اسمك",
+        form_2: "عنوان بريدك الإلكتروني",
+        form_3: "الموضوع",
+        form_4: "رسالتك",
+        form_5: "إرسال",
+        product_contact_content: "للحصول على مزيد من المعلومات التفصيلية حول المنتجات، يرجى التواصل معنا."
     }
 }
 
@@ -579,7 +867,6 @@ Daha sağlıklı bir dünya için teknoloji ve çevre dostu çözümleri bir ara
             image: "./assets/images/blog/img-01.jpg",
             date: "Ara 18, 2024",
             tag: "Elektrikli Araç",
-            writer: "Mert Nazmi Temizel"
         },
         blog_2: {
             title: "Geleceğin Sağlık Sektörüne Yön Verecek 5 Teknoloji",
@@ -598,7 +885,6 @@ Gelecekte bu teknolojilerin daha da gelişmesi ve yaygınlaşmasıyla, sağlık 
             image: "./assets/images/blog/img-02.jpg",
             date: "Ara 18, 2024",
             tag: "Teknoloji",
-            writer: "Mert Nazmi Temizel"
         },
         blog_3: {
             title: "Sağlık Sektöründe Otomasyon ve Yapay Zekanın Rolü",
@@ -633,7 +919,6 @@ SonuçOtomasyon ve yapay zeka, sağlık hizmetlerinde devrim yaratmaya devam edi
             image: "./assets/images/blog/img-03.jpg",
             date: "Ara 18, 2024",
             tag: "Yapay Zeka",
-            writer: "Mert Nazmi Temizel"
         },
         blog_4: {
             title: "Nanoteknolojinin Sağlık Sektörüne Etkileri: Geleceğin Tıbbını Şekillendiren Çözümler",
@@ -672,7 +957,6 @@ Kaynaklar:
             image: "./assets/images/blog/img-04.jpg",
             date: "Ara 18, 2024",
             tag: "Nanoteknoloji",
-            writer: "Mert Nazmi Temizel"
         }
     },
     en: {
@@ -688,8 +972,35 @@ Kaynaklar:
 
     },
     ar: {
-
+    "blog_1": {
+      "title": "مديتم هيلث ومستقبل مستدام للبيئة: استخدام السيارات الكهربائية",
+      "content": "في عالمنا الحالي، أصبحت القضايا البيئية من أولويات الأفراد والمؤسسات على حد سواء. كمديتم هيلث، نلتزم ليس فقط بالريادة في قطاع الصحة ولكن أيضًا بالوفاء بمسؤولياتنا البيئية. ومن هذا المنطلق، نعتمد السيارات الكهربائية (EVs) في أسطول سيارات الشركة كخطوة مهمة نحو تقليل بصمتنا الكربونية.\nأثبتت الدراسات العلمية تأثير السيارات الكهربائية على البيئة. وفقًا لدراسة نُشرت في مجلة Nature Communications، يمكن لاستخدام السيارات الكهربائية أن يقلل من ارتفاع درجات الحرارة العالمية بمقدار 0.5 درجة مئوية بحلول عام 2040، مما يساهم في صنع فرق حيوي لمستقبل كوكبنا. نهدف في مديتم إلى أن نكون مثالاً ليس فقط في القطاع ولكن أيضًا في القيادة البيئية.\n\n**أهمية السيارات الكهربائية للبيئة**\nوفقًا لمنظمة الصحة العالمية (WHO)، يؤثر تلوث الهواء سلبًا على ملايين الأشخاص سنويًا، وتُعتبر المركبات التي تعمل بالوقود الأحفوري أحد المصادر الرئيسية لهذا التلوث. تعمل السيارات الكهربائية بانبعاثات صفرية، مما يوفر حلاً مبتكرًا لمشكلة التلوث البيئي. بالإضافة إلى ذلك، وفقًا لتقارير وكالة حماية البيئة الأمريكية (EPA)، تقلل السيارة الكهربائية في المتوسط 4.6 طن متري من انبعاثات الكربون سنويًا. نحن في مديتم ندعم هذه الفوائد البيئية ونسعى لتحويل أسطول سياراتنا بالكامل إلى سيارات كهربائية.\n\n**استخدام السيارات الكهربائية في تركيا**\nأظهرت دراسة أجريت لتحسين جودة الهواء في المدن الكبرى في تركيا أن استخدام السيارات الكهربائية يمكن أن يقلل من تلوث الهواء بنسبة 30% (جامعة بوغازيتشي، 2023). تؤكد هذه النتائج العلمية مرة أخرى على أهمية خطواتنا نحو مستقبل مستدام. كشركة، نهدف إلى إحداث فرق ليس فقط من خلال خياراتنا الفردية ولكن أيضًا من خلال تعزيز الوعي البيئي في القطاع.\n\n**مساهمة مديتم في البيئة**\n- **تقليل الانبعاثات الكربونية:** تعمل سياراتنا بانبعاثات صفرية، مما يقلل من الأضرار البيئية إلى أدنى حد.\n- **المساهمة في توفير الطاقة:** ندعم الاستدامة من خلال إنشاء محطات شحن متوافقة مع مصادر الطاقة المتجددة.\n- **توفير بيئة نظيفة وهادئة:** تعمل سياراتنا الكهربائية بهدوء، مما يقلل من التلوث الضوضائي.\n\n**خطوة نحو مستقبل مستدام**\nكمديتم هيلث، نحن من المدافعين عن حلول الصحة المستقبلية والتقنيات الصديقة للبيئة. إن اعتمادنا على السيارات الكهربائية هو انعكاس لهذا الفهم. وكما ذكرت منشورات علمية مثل Nature Communications، فإن النقل المستدام له أهمية حيوية لمستقبل كوكبنا. نواصل التقدم بوعي بمسؤولياتنا نحو بيئة أكثر صحة وابتكارًا.",
+      "image": "./assets/images/blog/img-01.jpg",
+      "date": "18 ديسمبر 2024",
+      "tag": "السيارات الكهربائية"
+    },
+    "blog_2": {
+      "title": "5 تقنيات ستغير مستقبل قطاع الصحة",
+      "content": "يشهد قطاع الصحة تحولًا جذريًا بفضل التقدم التكنولوجي السريع. لا يقتصر الطب الحديث على علاج الأمراض فقط، بل يقدم أدوات متطورة لمنعها وجعل خدمات الصحة أكثر سهولة. تعمل التكنولوجيا على تحسين كفاءة الأنظمة الصحية وتوفير حلول مبتكرة لتحسين تجارب المرضى ودعم المهنيين الصحيين. في هذه المقالة، نستعرض خمس تقنيات لديها القدرة على إحداث ثورة في القطاع الصحي.",
+      "image": "./assets/images/blog/img-02.jpg",
+      "date": "18 ديسمبر 2024",
+      "tag": "التكنولوجيا"
+    },
+    "blog_3": {
+      "title": "دور الأتمتة والذكاء الاصطناعي في قطاع الصحة",
+      "content": "يشهد القطاع الصحي حاليًا تحولًا كبيرًا بفضل الابتكارات التكنولوجية. تلعب الأتمتة والذكاء الاصطناعي دورًا محوريًا في إعادة تعريف خدمات الصحة، بدءًا من رعاية المرضى وحتى العمليات الإدارية والتشخيص والعلاج.",
+      "image": "./assets/images/blog/img-03.jpg",
+      "date": "18 ديسمبر 2024",
+      "tag": "الذكاء الاصطناعي"
+    },
+    "blog_4": {
+      "title": "تأثيرات تقنية النانو على قطاع الصحة: حلول تشكل مستقبل الطب",
+      "content": "تقنية النانو تحدث تحولًا جذريًا في قطاع الصحة، حيث تقدم ابتكارات على مستوى الذرات والجزيئات لتحسين التشخيص والعلاج بطرق أقل غزوًا وأكثر كفاءة.",
+      "image": "./assets/images/blog/img-04.jpg",
+      "date": "18 ديسمبر 2024",
+      "tag": "تقنية النانو"
     }
+  }
 }
 
 const products = {
