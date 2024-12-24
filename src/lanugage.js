@@ -51,6 +51,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function generateBlogSlides(blogs) {
+
+    const container = document.getElementById("swiper");
+
+    if (!container) {
+        console.error(`Container with selector swiper not found.`);
+        return;
+    }
+
+    container.innerHTML = "";
+
+    // Iterate through the blogs array and generate slides
+    Object.keys(blogs).forEach(blog => {
+        // Create a new slide element
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+
+        const contentExcerpt = typeof blogs[blog].content === "string"
+            ? blogs[blog].content.substring(0, 150) + "..."
+            : "Content not available";
+
+        // Set the inner HTML of the slide
+        slide.innerHTML = `
+            <article class="post type-post panel overflow-hidden vstack gap-3">
+                <figure class="featured-image m-0 rounded ratio ratio-4x3 rounded-1-5 uc-transition-toggle overflow-hidden">
+                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
+                        src="${blogs[blog].image}" alt="${blogs[blog].title}">
+                    <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
+                </figure>
+                <div class="panel vstack gap-1">
+                    <a class="text-none" href="blog-details.html?id=${blog}">
+                        <h3 class="post-title h5 xl:h4 m-0 ltr:pe-4 rtl:ps-4">
+                            <span>${blogs[blog].title}</span>
+                        </h3>
+                    </a>
+                    <p class="post-excrept fs-7 xl:fs-6 opacity-70">${contentExcerpt}...</p>
+                    <a href="blog-details.html?id=${blog}" class="uc-link dark:text-secondary fs-7 xl:fs-6 fw-bold hstack gap-1 sm:mt-1 xl:mt-2">
+                        <span data-key="buton_5"></span>
+                        <i class="position-relative icon unicon-arrow-up-right fw-bold rtl:-rotate-90 translate-y-px"></i>
+                    </a>
+                </div>
+            </article>
+        `;
+
+        // Append the slide to the container
+        container.appendChild(slide);
+    });
+
+    
     const int_container = document.getElementById("marka_integrations");
 
     if (!int_container) {
@@ -111,51 +159,7 @@ function generateBlogSlides(blogs) {
 
     // Select the container where slides will be added
 
-    const container = document.getElementById("swiper");
-
-    if (!container) {
-        console.error(`Container with selector swiper not found.`);
-        return;
-    }
-
-    container.innerHTML = "";
-
-    // Iterate through the blogs array and generate slides
-    Object.keys(blogs).forEach(blog => {
-        // Create a new slide element
-        const slide = document.createElement("div");
-        slide.className = "swiper-slide";
-
-        const contentExcerpt = typeof blogs[blog].content === "string"
-            ? blogs[blog].content.substring(0, 150) + "..."
-            : "Content not available";
-
-        // Set the inner HTML of the slide
-        slide.innerHTML = `
-            <article class="post type-post panel overflow-hidden vstack gap-3">
-                <figure class="featured-image m-0 rounded ratio ratio-4x3 rounded-1-5 uc-transition-toggle overflow-hidden">
-                    <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
-                        src="${blogs[blog].image}" alt="${blogs[blog].title}">
-                    <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
-                </figure>
-                <div class="panel vstack gap-1">
-                    <a class="text-none" href="blog-details.html?id=${blog}">
-                        <h3 class="post-title h5 xl:h4 m-0 ltr:pe-4 rtl:ps-4">
-                            <span>${blogs[blog].title}</span>
-                        </h3>
-                    </a>
-                    <p class="post-excrept fs-7 xl:fs-6 opacity-70">${contentExcerpt}...</p>
-                    <a href="blog-details.html?id=${blog}" class="uc-link dark:text-secondary fs-7 xl:fs-6 fw-bold hstack gap-1 sm:mt-1 xl:mt-2">
-                        <span data-key="buton_5"></span>
-                        <i class="position-relative icon unicon-arrow-up-right fw-bold rtl:-rotate-90 translate-y-px"></i>
-                    </a>
-                </div>
-            </article>
-        `;
-
-        // Append the slide to the container
-        container.appendChild(slide);
-    });
+   
 
     
 
@@ -455,9 +459,9 @@ const translations = {
         hakkinda_icerik_2: "Sağlık teknolojisi sektöründeki geniş bilgi birikimimiz ve tecrübemizle, iş ortaklarımıza ve müşterilerimize en yüksek standartlarda hizmet sağlamaktayız. İleri teknolojiye olan bağlılığımız, verimli ve güvenilir çözümler üreterek hastaların ve sağlık çalışanlarının hayatlarını kolaylaştırmamıza olanak tanıyor.",
         hakkinda_icerik_3: "MEDITEM Health olarak, sağlık teknolojileri alanında fark yaratan, sektörde lider bir firma olmayı hedefliyoruz. Sağlık sektörüne olan katkılarımızla, sadece bugünü değil, geleceği de şekillendirmeye kararlıyız.",
         hakkinda_header_1: "Misyonumuz",
-        hakkinda_icerik_4: "MEDITEM Health, sağlık sektöründe kaliteli, yenilikçi ve güvenilir çözümler sunarak, sağlık hizmetlerinin verimliliğini ve hasta bakımının kalitesini sürekli olarak iyileştirmeyi hedefler. Teknolojiye dayalı çözümlerimiz, sağlık profesyonellerinin iş süreçlerini optimize ederken, aynı zamanda hasta güvenliğini ve tedavi başarısını artırmayı amaçlar. Sektördeki derin tecrübemizle, sağlık alanındaki zorluklara etkili ve sürdürülebilir çözümler sunmayı taahhüt ediyoruz.",
+        hakkinda_icerik_4: "MEDITEM Health, sağlık sektöründe kaliteli, yenilikçi ve güvenilir çözümler sunarak, sağlık hizmetlerinin verimliliğini ve hasta bakımının kalitesini sürekli olarak iyileştirmeyi hedefler. Teknolojiye dayalı çözümlerimiz, sağlık profesyonellerinin iş süreçlerini optimize ederken, aynı zamanda hasta güvenliğini ve tedavi başarısını artırmayı amaçlar.",
         hakkinda_header_2: "Vizyonumuz",
-        hakkinda_icerik_5: "MEDITEM Health, sağlık teknolojileri alanında lider bir inovasyon gücü olmayı ve sektördeki tüm paydaşlar için değer yaratmayı amaçlamaktadır. Geliştirdiğimiz çözümlerle, sağlık profesyonellerine güvenli, etkili ve verimli araçlar sunarak, hastaların yaşam kalitesini artırmayı hedefliyoruz. Sağlık hizmetlerinin dijital dönüşümünü yönlendiren bir öncü olarak, sürekli gelişen bir sektör için güçlü, sürdürülebilir ve etkili çözümler sunmayı vizyon edinmiştir.",
+        hakkinda_icerik_5: "MEDITEM Health, sağlık teknolojileri alanında lider bir inovasyon gücü olmayı ve sektördeki tüm paydaşlar için değer yaratmayı amaçlamaktadır. Geliştirdiğimiz çözümlerle, sağlık profesyonellerine güvenli, etkili ve verimli araçlar sunarak, hastaların yaşam kalitesini artırmayı hedefliyoruz.",
         hakkinda_header_3: "Değerlerimiz",
         blog_header: "Blog",
         blog_continue: "Okumaya devam edin",
