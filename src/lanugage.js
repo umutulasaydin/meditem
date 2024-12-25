@@ -77,7 +77,7 @@ function generateBlogSlides(blogs) {
                 <figure class="featured-image m-0 rounded ratio ratio-4x3 rounded-1-5 uc-transition-toggle overflow-hidden">
                     <img class="media-cover image uc-transition-scale-up uc-transition-opaque"
                         src="${blogs[blog].image}" alt="${blogs[blog].title}">
-                    <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}"></a>
+                    <a href="blog-details.html?id=${blog}" class="position-cover" data-caption="${blogs[blog].title}" alt="${blogs[blog].title}"></a>
                 </figure>
                 <div class="panel vstack gap-1">
                     <a class="text-none" href="blog-details.html?id=${blog}">
