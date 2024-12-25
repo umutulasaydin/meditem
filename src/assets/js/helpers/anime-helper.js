@@ -202,10 +202,10 @@
                 const bpSize = breakpoints[bp] || 0;
                 return `(${type}-width: ${type === 'max' ? bpSize - 1 : bpSize}px)`;
             }).join(' and ') + ')').join(' or ');
-            // console.log('media', mediaArray, mediaList, mediaText);
+            // console.debug('media', mediaArray, mediaList, mediaText);
             const media = matchMedia(mediaText);
             const update = () => {
-                // console.log('media.matches', media.matches);
+                // console.debug('media.matches', media.matches);
                 run(media.matches ? "restart" : "reset");
             };
             media.onchange = update;

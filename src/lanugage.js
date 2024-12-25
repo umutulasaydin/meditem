@@ -55,7 +55,7 @@ function generateBlogSlides(blogs) {
     const container = document.getElementById("swiper");
 
     if (!container) {
-        console.error(`Container with selector swiper not found.`);
+        console.debug(`Container with selector swiper not found.`);
         return;
     }
 
@@ -102,14 +102,14 @@ function generateBlogSlides(blogs) {
     const int_container = document.getElementById("marka_integrations");
 
     if (!int_container) {
-        console.error(`Container with selector integrations not found.`);
+        console.debug(`Container with selector integrations not found.`);
         return;
     }
 
     const int_swiper = document.getElementById("marka-swiper");
 
     if (!int_swiper) {
-        console.error(`Container with selector marka-swiper not found.`);
+        console.debug(`Container with selector marka-swiper not found.`);
         return;
     }
 
@@ -174,7 +174,7 @@ function generateBlogPages(blogs) {
     const container = document.getElementById("blog-wrapper");
 
     if (!container) {
-        console.error(`Container with selector wrapper not found.`);
+        console.debug(`Container with selector wrapper not found.`);
         return;
     }
 
@@ -283,7 +283,7 @@ function generateProducts(products) {
 
 
     if (!container) {
-        console.error(`Container with selector products not found.`);
+        console.debug(`Container with selector products not found.`);
         return;
     }
 
@@ -381,7 +381,7 @@ function generateIntegrations() {
     const container = document.getElementById("products");
 
     if (!container) {
-        console.error(`Container with selector products not found.`);
+        console.debug(`Container with selector products not found.`);
         return;
     }
 

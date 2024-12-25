@@ -4,7 +4,7 @@ import { computed, createApp, defineComponent, onMounted, reactive, ref, watch }
 import Color from 'https://cdn.jsdelivr.net/npm/color@4.2.1/index.js/+esm';
 import Picker from 'https://cdn.jsdelivr.net/npm/vanilla-picker@2.12.1/dist/vanilla-picker.mjs';
 
-console.log('Editor.js');
+console.debug('Editor.js');
 
 Object.assign(window, { Color });
 
