@@ -25,7 +25,7 @@ function changeLanguage(lang) {
         document.documentElement.setAttribute("dir", "ltr");
     }
     const currentLangElements = document.querySelectorAll(".current-lang");
-    
+
     currentLangElements.forEach((element) => {
         element.textContent = lang.charAt(0).toUpperCase() + lang.slice(1).toUpperCase();;
     });
@@ -98,7 +98,7 @@ function generateBlogSlides(blogs) {
         container.appendChild(slide);
     });
 
-    
+
     const int_container = document.getElementById("marka_integrations");
 
     if (!int_container) {
@@ -159,12 +159,12 @@ function generateBlogSlides(blogs) {
 
     // Select the container where slides will be added
 
-   
-
-    
 
 
-    
+
+
+
+
 }
 
 function generateBlogPages(blogs) {
@@ -368,9 +368,9 @@ function sendMail() {
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json'
-        }).done(function() {
+        }).done(function () {
             alert('Your request has been sent');
-        }).fail(function(error) {
+        }).fail(function (error) {
             alert('Oops... ' + JSON.stringify(error));
         });
 
@@ -964,47 +964,174 @@ Kaynaklar:
         }
     },
     en: {
+        blog_1: {
+            title: "Meditem Health and an Environmentally Conscious Future: Electric Vehicle Usage",
+content: `In today's world, environmental issues have become a primary responsibility not just for individuals but also for institutions. At Meditem Health, we consider it our duty not only to lead in the healthcare sector but also to fulfill our environmental responsibilities. In this regard, we are taking a significant step towards reducing our carbon footprint by using electric vehicles (EVs) in our corporate vehicle fleet.
 
+The impact of electric vehicles on the environment has been clearly demonstrated through various scientific studies. According to a study published in the journal *Nature Communications*, widespread adoption of electric vehicles could reduce global temperature increases by 0.5°C by 2040. This represents a vital difference for the future of our planet. At Meditem, by adopting such solutions, we aim to set an example not only in our sector but also in environmental leadership.
+
+**The Environmental Importance of Electric Vehicles**
+According to data from the World Health Organization (WHO), air pollution adversely affects millions of lives annually, with fossil fuel-powered vehicles being a major source of this pollution. Electric vehicles, operating with zero emissions, offer an innovative solution to the problem of environmental pollution. Moreover, reports from the United States Environmental Protection Agency (EPA) indicate that an electric vehicle emits, on average, 4.6 metric tons less carbon annually. At Meditem, we support these environmental benefits and aim to transition our entire corporate vehicle fleet to electric vehicles.
+
+**Electric Vehicle Usage in Turkey**
+A study aimed at improving air quality in major cities in Turkey has shown that electric vehicle usage can reduce air pollution by 30% (Boğaziçi University, 2023). These scientific findings once again highlight the importance of the steps we are taking toward a sustainable future. As a company, we aim to make a difference not only through our individual choices but also by raising environmental awareness in the industry.
+
+**Meditem’s Contribution to the Environment**
+Through our use of electric vehicles:
+   • **We reduce carbon emissions:** Our zero-emission vehicles minimize environmental harm.
+   • **We contribute to energy conservation:** By installing charging stations compatible with renewable energy sources, we support sustainability.
+   • **We ensure a clean and quiet environment:** Our electric vehicles reduce noise pollution by operating silently.
+
+**A Step Towards a Sustainable Future**
+At Meditem Health, we advocate for environmentally friendly technologies as much as we do for the healthcare solutions of the future. Our use of electric vehicles reflects this understanding. As highlighted by scientific publications such as *Nature Communications*, sustainable transportation is critically important for the future of our planet. By adopting this environmentally conscious approach, we aim to improve not just today but also the future.
+
+Meditem Health, combining technology and environmentally friendly solutions for a healthier world, continues to move forward with a strong sense of responsibility.`,
+image: "./assets/images/blog/img-01.jpg",
+date: "Dec 18, 2024",
+tag: "Electric Vehicle",
+        },
+        blog_2: {
+            title: "5 Technologies That Will Shape the Future of the Healthcare Sector",
+            content: ``,
+            image: "./assets/images/blog/img-02.jpg",
+            date: "Dec 18, 2024",
+            tag: "Technology",
+        },
+        blog_3: {
+            title: "The Role of Automation and Artificial Intelligence in the Healthcare Sector",
+            content: ``,
+            image: "./assets/images/blog/img-03.jpg",
+            date: "Dec 18, 2024",
+            tag: "Artificial Intelligence",
+        },
+        blog_4: {
+            title: "The Impact of Nanotechnology on the Healthcare Sector: Solutions Shaping the Future of Medicine",
+            content: ``,
+            image: "./assets/images/blog/img-04.jpg",
+            date: "Dec 18, 2024",
+            tag: "Nanotechnology",
+        }
     },
     de: {
-
+        blog_1: {
+            title: "Meditem Health und eine umweltbewusste Zukunft: Elektrofahrzeugnutzung",
+            content: ``,
+            image: "./assets/images/blog/img-01.jpg",
+            date: "Dec 18, 2024",
+            tag: "Elektrofahrzeug", 
+        },
+        blog_2: {
+            title: "5 Technologien, die die Zukunft des Gesundheitswesens prägen werden",
+            content: ``,
+            image: "./assets/images/blog/img-02.jpg",
+            date: "Dec 18, 2024",
+            tag: "Technologie",
+        },
+        blog_3: {
+            title: "Die Rolle der Automatisierung und Künstlichen Intelligenz im Gesundheitswesen",
+            content: ``,
+            image: "./assets/images/blog/img-03.jpg",
+            date: "Dec 18, 2024",
+            tag: "Künstliche Intelligenz",
+        },
+        blog_4: {
+            title: "Die Auswirkungen der Nanotechnologie auf den Gesundheitssektor: Lösungen, die die Zukunft der Medizin prägen",
+            content: ``,
+            image: "./assets/images/blog/img-04.jpg",
+            date: "Dec 18, 2024",
+            tag: "Nanotechnologie",
+        }
     },
     fr: {
-
+        blog_1: {
+            title: "Meditem Health et un avenir respectueux de l'environnement : Utilisation de véhicules électriques",
+            content: ``,
+            image: "./assets/images/blog/img-01.jpg",
+            date: "Dec 18, 2024",
+            tag: "Véhicule électrique",
+        },
+        blog_2: {
+            title: "5 Technologies qui façonneront l'avenir du secteur de la santé",
+            content: ``,
+            image: "./assets/images/blog/img-02.jpg",
+            date: "Dec 18, 2024",
+            tag: "Technologie",
+        },
+        blog_3: {
+            title: "Le rôle de l'automatisation et de l'intelligence artificielle dans le secteur de la santé",
+            content: ``,
+            image: "./assets/images/blog/img-03.jpg",
+            date: "Dec 18, 2024",
+            tag: "Intelligence artificielle",
+        },
+        blog_4: {
+            title: "L'impact de la nanotechnologie sur le secteur de la santé : Des solutions qui façonnent l'avenir de la médecine",
+            content: ``,
+            image: "./assets/images/blog/img-04.jpg",
+            date: "Dec 18, 2024",
+            tag: "Nanotechnologie",
+        }
     },
     ch: {
-
+        blog_1: {
+            title: "Meditem Health和环保未来：电动车使用",
+            content: ``,
+            image: "./assets/images/blog/img-01.jpg",
+            date: "Dec 18, 2024",
+            tag: "电动车",
+        },
+        blog_2: {
+            title: "5种将塑造未来医疗行业的技术",
+            content: ``,
+            image: "./assets/images/blog/img-02.jpg",
+            date: "Dec 18, 2024",
+            tag: "技术",
+        },
+        blog_3: {
+            title: "自动化和人工智能在医疗行业中的作用",
+            content: ``,
+            image: "./assets/images/blog/img-03.jpg",
+            date: "Dec 18, 2024",
+            tag: "人工智能",
+        },
+        blog_4: {
+            title: "纳米技术对医疗行业的影响：塑造未来医学的解决方案",
+            content: ``,
+            image: "./assets/images/blog/img-04.jpg",
+            date: "Dec 18, 2024",
+            tag: "纳米技术",
+        }
     },
     ar: {
-    "blog_1": {
-      "title": "مديتم هيلث ومستقبل مستدام للبيئة: استخدام السيارات الكهربائية",
-      "content": "في عالمنا الحالي، أصبحت القضايا البيئية من أولويات الأفراد والمؤسسات على حد سواء. كمديتم هيلث، نلتزم ليس فقط بالريادة في قطاع الصحة ولكن أيضًا بالوفاء بمسؤولياتنا البيئية. ومن هذا المنطلق، نعتمد السيارات الكهربائية (EVs) في أسطول سيارات الشركة كخطوة مهمة نحو تقليل بصمتنا الكربونية.\nأثبتت الدراسات العلمية تأثير السيارات الكهربائية على البيئة. وفقًا لدراسة نُشرت في مجلة Nature Communications، يمكن لاستخدام السيارات الكهربائية أن يقلل من ارتفاع درجات الحرارة العالمية بمقدار 0.5 درجة مئوية بحلول عام 2040، مما يساهم في صنع فرق حيوي لمستقبل كوكبنا. نهدف في مديتم إلى أن نكون مثالاً ليس فقط في القطاع ولكن أيضًا في القيادة البيئية.\n\n**أهمية السيارات الكهربائية للبيئة**\nوفقًا لمنظمة الصحة العالمية (WHO)، يؤثر تلوث الهواء سلبًا على ملايين الأشخاص سنويًا، وتُعتبر المركبات التي تعمل بالوقود الأحفوري أحد المصادر الرئيسية لهذا التلوث. تعمل السيارات الكهربائية بانبعاثات صفرية، مما يوفر حلاً مبتكرًا لمشكلة التلوث البيئي. بالإضافة إلى ذلك، وفقًا لتقارير وكالة حماية البيئة الأمريكية (EPA)، تقلل السيارة الكهربائية في المتوسط 4.6 طن متري من انبعاثات الكربون سنويًا. نحن في مديتم ندعم هذه الفوائد البيئية ونسعى لتحويل أسطول سياراتنا بالكامل إلى سيارات كهربائية.\n\n**استخدام السيارات الكهربائية في تركيا**\nأظهرت دراسة أجريت لتحسين جودة الهواء في المدن الكبرى في تركيا أن استخدام السيارات الكهربائية يمكن أن يقلل من تلوث الهواء بنسبة 30% (جامعة بوغازيتشي، 2023). تؤكد هذه النتائج العلمية مرة أخرى على أهمية خطواتنا نحو مستقبل مستدام. كشركة، نهدف إلى إحداث فرق ليس فقط من خلال خياراتنا الفردية ولكن أيضًا من خلال تعزيز الوعي البيئي في القطاع.\n\n**مساهمة مديتم في البيئة**\n- **تقليل الانبعاثات الكربونية:** تعمل سياراتنا بانبعاثات صفرية، مما يقلل من الأضرار البيئية إلى أدنى حد.\n- **المساهمة في توفير الطاقة:** ندعم الاستدامة من خلال إنشاء محطات شحن متوافقة مع مصادر الطاقة المتجددة.\n- **توفير بيئة نظيفة وهادئة:** تعمل سياراتنا الكهربائية بهدوء، مما يقلل من التلوث الضوضائي.\n\n**خطوة نحو مستقبل مستدام**\nكمديتم هيلث، نحن من المدافعين عن حلول الصحة المستقبلية والتقنيات الصديقة للبيئة. إن اعتمادنا على السيارات الكهربائية هو انعكاس لهذا الفهم. وكما ذكرت منشورات علمية مثل Nature Communications، فإن النقل المستدام له أهمية حيوية لمستقبل كوكبنا. نواصل التقدم بوعي بمسؤولياتنا نحو بيئة أكثر صحة وابتكارًا.",
-      "image": "./assets/images/blog/img-01.jpg",
-      "date": "18 ديسمبر 2024",
-      "tag": "السيارات الكهربائية"
-    },
-    "blog_2": {
-      "title": "5 تقنيات ستغير مستقبل قطاع الصحة",
-      "content": "يشهد قطاع الصحة تحولًا جذريًا بفضل التقدم التكنولوجي السريع. لا يقتصر الطب الحديث على علاج الأمراض فقط، بل يقدم أدوات متطورة لمنعها وجعل خدمات الصحة أكثر سهولة. تعمل التكنولوجيا على تحسين كفاءة الأنظمة الصحية وتوفير حلول مبتكرة لتحسين تجارب المرضى ودعم المهنيين الصحيين. في هذه المقالة، نستعرض خمس تقنيات لديها القدرة على إحداث ثورة في القطاع الصحي.",
-      "image": "./assets/images/blog/img-02.jpg",
-      "date": "18 ديسمبر 2024",
-      "tag": "التكنولوجيا"
-    },
-    "blog_3": {
-      "title": "دور الأتمتة والذكاء الاصطناعي في قطاع الصحة",
-      "content": "يشهد القطاع الصحي حاليًا تحولًا كبيرًا بفضل الابتكارات التكنولوجية. تلعب الأتمتة والذكاء الاصطناعي دورًا محوريًا في إعادة تعريف خدمات الصحة، بدءًا من رعاية المرضى وحتى العمليات الإدارية والتشخيص والعلاج.",
-      "image": "./assets/images/blog/img-03.jpg",
-      "date": "18 ديسمبر 2024",
-      "tag": "الذكاء الاصطناعي"
-    },
-    "blog_4": {
-      "title": "تأثيرات تقنية النانو على قطاع الصحة: حلول تشكل مستقبل الطب",
-      "content": "تقنية النانو تحدث تحولًا جذريًا في قطاع الصحة، حيث تقدم ابتكارات على مستوى الذرات والجزيئات لتحسين التشخيص والعلاج بطرق أقل غزوًا وأكثر كفاءة.",
-      "image": "./assets/images/blog/img-04.jpg",
-      "date": "18 ديسمبر 2024",
-      "tag": "تقنية النانو"
+        blog_1: {
+            title: "ميديتم هيلث ومستقبل مدرك للبيئة: استخدام المركبات الكهربائية",
+            content: ``,
+            image: "./assets/images/blog/img-01.jpg",
+            date: "Dec 18, 2024",
+            tag: "المركبة الكهربائية",
+        },
+        blog_2: {
+            title: "5 تقنيات ستشكل مستقبل قطاع الرعاية الصحية",
+            content: ``,
+            image: "./assets/images/blog/img-02.jpg",
+            date: "Dec 18, 2024",
+            tag: "التكنولوجيا",
+        },
+        blog_3: {
+            title: "دور التشغيل الآلي والذكاء الاصطناعي في قطاع الرعاية الصحية",
+            content: ``,
+            image: "./assets/images/blog/img-03.jpg",
+            date: "Dec 18, 2024",
+            tag: "الذكاء الاصطناعي",
+        },
+        blog_4: {
+            title: "تأثير التكنولوجيا النانوية على قطاع الرعاية الصحية: حلول تشكل مستقبل الطب",
+            content: ``,
+            image: "./assets/images/blog/img-04.jpg",
+            date: "Dec 18, 2024",
+            tag: "التكنولوجيا النانوية",
+        }
     }
-  }
 }
 
 const products = {
@@ -1216,20 +1343,1040 @@ const products = {
 
     },
     en: {
+        product_1: {
+            id: 1,
+            marka_id: 1,
+            title: "Trokar",
+            image: "./assets/images/common/products/trokar.png",
+        },
+        product_2: {
+            id: 2,
+            marka_id: 1,
+            title: "Hand Tools",
+            image: "./assets/images/common/products/el_aletleri.jpg",
+        },
+        product_3: {
+            id: 3,
+            marka_id: 1,
+            title: "Wound Protector Retractor",
+            image: "./assets/images/common/products/yara_koruyucu_ekartör.jpg",
+        },
+        product_4: {
+            id: 4,
+            marka_id: 1,
+            title: "Suction Irrigation System",
+            image: "./assets/images/common/products/suction.jpg",
+        },
+        product_5: {
+            id: 5,
+            marka_id: 1,
+            title: "Bipolar Blade Forceps",
+            image: "./assets/images/common/products/bipolar.jpg",
+        },
+        product_6: {
+            id: 6,
+            marka_id: 1,
+            title: "Multi-Input Port",
+            image: "./assets/images/common/products/port.jpeg",
+        },
+        product_7: {
+            id: 7,
+            marka_id: 1,
+            title: "Specimen Bag",
+            image: "./assets/images/common/products/spesimen.jpg",
+        },
+        product_8: {
+            id: 8,
+            marka_id: 2,
+            title: "Zero",
+            image: "./assets/images/common/products/zero.png",
+        },
+        product_9: {
+            id: 9,
+            marka_id: 2,
+            title: "Slim",
+            image: "./assets/images/common/products/slim.png",
+        },
+        product_10: {
+            id: 10,
+            marka_id: 2,
+            title: "Normal",
+            image: "./assets/images/common/products/normal.png",
+        },
+        product_11: {
+            id: 11,
+            marka_id: 2,
+            title: "Large",
+            image: "./assets/images/common/products/large.png",
+        },
+        product_12: {
+            id: 12,
+            marka_id: 2,
+            title: "Extra",
+            image: "./assets/images/common/products/extra.png",
+        },
+        product_13: {
+            id: 13,
+            marka_id: 1,
+            title: "Insufflator Needle",
+            image: "./assets/images/common/products/insüflatör.png",
+        },
+        product_14: {
+            id: 14,
+            marka_id: 3,
+            title: "body-jet Liposuction Device",
+            image: "./assets/images/common/products/liposuction.png",
+        },
+        product_15: {
+            id: 15,
+            marka_id: 3,
+            title: "body-jet eco Liposuction Device",
+            image: "./assets/images/common/products/liposuction_eco.png",
+        },
+        product_16: {
+            id: 16,
+            marka_id: 3,
+            title: "body-jet evo Liposuction Device",
+            image: "./assets/images/common/products/liposuction_evo.png",
+        },
+        product_17: {
+            id: 17,
+            marka_id: 4,
+            title: "Mesh Product Group",
+            image: "./assets/images/common/products/mesh.png",
+        },
+        product_18: {
+            id: 18,
+            marka_id: 5,
+            title: "ICONIC IMAGE Electrosurgery Unit",
+            image: "./assets/images/common/products/image.png",
+        },
+        product_19: {
+            id: 19,
+            marka_id: 5,
+            title: "ICONIC-IS410 Electrosurgery Unit",
+            image: "./assets/images/common/products/is410.png",
+        },
+        product_20: {
+            id: 20,
+            marka_id: 5,
+            title: "ICONIC-IS410S Electrosurgery Unit",
+            image: "./assets/images/common/products/is410s.png",
+        },
+        product_21: {
+            id: 21,
+            marka_id: 5,
+            title: "APS Argon Plasma Unit",
+            image: "./assets/images/common/products/argon.png",
+        },
+        product_22: {
+            id: 22,
+            marka_id: 5,
+            title: "MEG-1 Elektrokoter Device",
+            image: "./assets/images/common/products/meg1.png",
+        },
+        product_23: {
+            id: 23,
+            marka_id: 5,
+            title: "MEG1-E Endoskopik Elektrokoter Device",
+            image: "./assets/images/common/products/meg1e.png",
+        },
+        product_24: {
+            id: 24,
+            marka_id: 5,
+            title: "MEG1-R Radiofrequency Elektrokoter Device",
+            image: "./assets/images/common/products/meg1r.png",
+        },
+        product_25: {
+            id: 25,
+            marka_id: 5,
+            title: "MEG-2 Vein Sealing Device",
+            image: "./assets/images/common/products/meg2.png",
+        },
+        product_26: {
+            id: 26,
+            marka_id: 5,
+            title: "Wireless Foot Pedals",
+            image: "./assets/images/common/products/pedal.png",
+        },
+        product_27: {
+            id: 27,
+            marka_id: 6,
+            title: "ND12 Bedside Monitor",
+            image: "./assets/images/common/products/nd12.jpg",
+        },
+        product_28: {
+            id: 28,
+            marka_id: 6,
+            title: "Star 8000 Bedside Monitor",
+            image: "./assets/images/common/products/star8000.jpeg",
+        },
+        product_29: {
+            id: 29,
+            marka_id: 6,
+            title: "NC5 Vital Monitor",
+            image: "./assets/images/common/products/nc5.png",
+        },
+        product_30: {
+            id: 30,
+            marka_id: 6,
+            title: "NC6 Vital Monitoor",
+            image: "./assets/images/common/products/nc6.png",
+        },
+        product_31: {
+            id: 31,
+            marka_id: 6,
+            title: "NC7 Vital Monitor",
+            image: "./assets/images/common/products/nc7.webp",
+        },
+        product_32: {
+            id: 32,
+            marka_id: 6,
+            title: "H3 3 Channel ECG Device",
+            image: "./assets/images/common/products/h3.webp",
+        },
+        product_33: {
+            id: 33,
+            marka_id: 6,
+            title: "CM 1200B ECG Device",
+            image: "./assets/images/common/products/1200b.jpg",
+        },
+        product_34: {
+            id: 34,
+            marka_id: 6,
+            title: "CM 1200A ECG Device",
+            image: "./assets/images/common/products/1200a.jpg",
+        },
 
     },
     de: {
+        product_1: {
+            id: 1,
+            marka_id: 1,
+            title: "Trokar",
+            image: "./assets/images/common/products/trokar.png",
+        },
+        product_2: {
+            id: 2,
+            marka_id: 1,
+            title: "Handwerkzeuge",
+            image: "./assets/images/common/products/el_aletleri.jpg",
+        },
+        product_3: {
+            id: 3,
+            marka_id: 1,
+            title: "Wundschutzretraktor",
+            image: "./assets/images/common/products/yara_koruyucu_ekartör.jpg",
+        },
+        product_4: {
+            id: 4,
+            marka_id: 1,
+            title: "Saug-Bewässerungssystem",
+            image: "./assets/images/common/products/suction.jpg",
+        },
+        product_5: {
+            id: 5,
+            marka_id: 1,
+            title: "Bipolare Klingenpinzette",
+            image: "./assets/images/common/products/bipolar.jpg",
+        },
+        product_6: {
+            id: 6,
+            marka_id: 1,
+            title: "Multi-Input-Anschluss",
+            image: "./assets/images/common/products/port.jpeg",
+        },
+        product_7: {
+            id: 7,
+            marka_id: 1,
+            title: "Probenbeutel",
+            image: "./assets/images/common/products/spesimen.jpg",
+        },
+        product_8: {
+            id: 8,
+            marka_id: 2,
+            title: "Null",
+            image: "./assets/images/common/products/zero.png",
+        },
+        product_9: {
+            id: 9,
+            marka_id: 2,
+            title: "Schlank",
+            image: "./assets/images/common/products/slim.png",
+        },
+        product_10: {
+            id: 10,
+            marka_id: 2,
+            title: "Normal",
+            image: "./assets/images/common/products/normal.png",
+        },
+        product_11: {
+            id: 11,
+            marka_id: 2,
+            title: "Groß",
+            image: "./assets/images/common/products/large.png",
+        },
+        product_12: {
+            id: 12,
+            marka_id: 2,
+            title: "Extra",
+            image: "./assets/images/common/products/extra.png",
+        },
+        product_13: {
+            id: 13,
+            marka_id: 1,
+            title: "Insufflator-Nadel",
+            image: "./assets/images/common/products/insüflatör.png",
+        },
+        product_14: {
+            id: 14,
+            marka_id: 3,
+            title: "body-jet Liposuktion Gerät",
+            image: "./assets/images/common/products/liposuction.png",
+        },
+        product_15: {
+            id: 15,
+            marka_id: 3,
+            title: "body-jet eco Liposuktion Gerät",
+            image: "./assets/images/common/products/liposuction_eco.png",
+        },
+        product_16: {
+            id: 16,
+            marka_id: 3,
+            title: "body-jet evo Liposuktion Gerät",
+            image: "./assets/images/common/products/liposuction_evo.png",
+        },
+        product_17: {
+            id: 17,
+            marka_id: 4,
+            title: "Produktgruppe Mesh",
+            image: "./assets/images/common/products/mesh.png",
+        },
+        product_18: {
+            id: 18,
+            marka_id: 5,
+            title: "ICONIC IMAGE Elektrochirurgiegerät",
+            image: "./assets/images/common/products/image.png",
+        },
+        product_19: {
+            id: 19,
+            marka_id: 5,
+            title: "ICONIC-IS410 Elektrochirurgiegerät",
+            image: "./assets/images/common/products/is410.png",
+        },
+        product_20: {
+            id: 20,
+            marka_id: 5,
+            title: "ICONIC-IS410S Elektrochirurgiegerät",
+            image: "./assets/images/common/products/is410s.png",
+        },
+        product_21: {
+            id: 21,
+            marka_id: 5,
+            title: "APS Argon Plasma Gerät",
+            image: "./assets/images/common/products/argon.png",
+        },
+        product_22: {
+            id: 22,
+            marka_id: 5,
+            title: "MEG-1 Elektrokauterisationsgerät",
+            image: "./assets/images/common/products/meg1.png",
+        },
+        product_23: {
+            id: 23,
+            marka_id: 5,
+            title: "MEG1-E Endoskopisches Elektrokauterisationsgerät",
+            image: "./assets/images/common/products/meg1e.png",
+        },
+        product_24: {
+            id: 24,
+            marka_id: 5,
+            title: "MEG1-R Radiofrequenz-Elektrokauterisationsgerät",
+            image: "./assets/images/common/products/meg1r.png",
+        },
+        product_25: {
+            id: 25,
+            marka_id: 5,
+            title: "MEG-2 Venenversiegelungsgerät",
+            image: "./assets/images/common/products/meg2.png",
+        },
+        product_26: {
+            id: 26,
+            marka_id: 5,
+            title: "Kabellose Fußpedale",
+            image: "./assets/images/common/products/pedal.png",
+        },
+        product_27: {
+            id: 27,
+            marka_id: 6,
+            title: "ND12 Monitor am Krankenbett",
+            image: "./assets/images/common/products/nd12.jpg",
+        },
+        product_28: {
+            id: 28,
+            marka_id: 6,
+            title: "Star 8000 Monitor am Krankenbett",
+            image: "./assets/images/common/products/star8000.jpeg",
+        },
+        product_29: {
+            id: 29,
+            marka_id: 6,
+            title: "NC5 Vital Monitor",
+            image: "./assets/images/common/products/nc5.png",
+        },
+        product_30: {
+            id: 30,
+            marka_id: 6,
+            title: "NC6 Vital Monitor",
+            image: "./assets/images/common/products/nc6.png",
+        },
+        product_31: {
+            id: 31,
+            marka_id: 6,
+            title: "NC7 Vital Monitor",
+            image: "./assets/images/common/products/nc7.webp",
+        },
+        product_32: {
+            id: 32,
+            marka_id: 6,
+            title: "H3 3-Kanal-EKG-Gerät",
+            image: "./assets/images/common/products/h3.webp",
+        },
+        product_33: {
+            id: 33,
+            marka_id: 6,
+            title: "CM 1200B EKG-Gerät",
+            image: "./assets/images/common/products/1200b.jpg",
+        },
+        product_34: {
+            id: 34,
+            marka_id: 6,
+            title: "CM 1200A EKG-Gerät",
+            image: "./assets/images/common/products/1200a.jpg",
+        },
 
     },
     fr: {
+        product_1: {
+            id: 1,
+            marka_id: 1,
+            title: "Trokar",
+            image: "./assets/images/common/products/trokar.png",
+        },
+        product_2: {
+            id: 2,
+            marka_id: 1,
+            title: "Outils à main",
+            image: "./assets/images/common/products/el_aletleri.jpg",
+        },
+        product_3: {
+            id: 3,
+            marka_id: 1,
+            title: "Écarteur de protection des plaies",
+            image: "./assets/images/common/products/yara_koruyucu_ekartör.jpg",
+        },
+        product_4: {
+            id: 4,
+            marka_id: 1,
+            title: "Système d'irrigation par aspiration",
+            image: "./assets/images/common/products/suction.jpg",
+        },
+        product_5: {
+            id: 5,
+            marka_id: 1,
+            title: "Pince à lames bipolaires",
+            image: "./assets/images/common/products/bipolar.jpg",
+        },
+        product_6: {
+            id: 6,
+            marka_id: 1,
+            title: "Port à entrées multiples",
+            image: "./assets/images/common/products/port.jpeg",
+        },
+        product_7: {
+            id: 7,
+            marka_id: 1,
+            title: "Sac à spécimens",
+            image: "./assets/images/common/products/spesimen.jpg",
+        },
+        product_8: {
+            id: 8,
+            marka_id: 2,
+            title: "Zéro",
+            image: "./assets/images/common/products/zero.png",
+        },
+        product_9: {
+            id: 9,
+            marka_id: 2,
+            title: "Mince",
+            image: "./assets/images/common/products/slim.png",
+        },
+        product_10: {
+            id: 10,
+            marka_id: 2,
+            title: "Normal",
+            image: "./assets/images/common/products/normal.png",
+        },
+        product_11: {
+            id: 11,
+            marka_id: 2,
+            title: "Grandes dimensions",
+            image: "./assets/images/common/products/large.png",
+        },
+        product_12: {
+            id: 12,
+            marka_id: 2,
+            title: "Extra",
+            image: "./assets/images/common/products/extra.png",
+        },
+        product_13: {
+            id: 13,
+            marka_id: 1,
+            title: "Aiguille d'insufflateur",
+            image: "./assets/images/common/products/insüflatör.png",
+        },
+        product_14: {
+            id: 14,
+            marka_id: 3,
+            title: "body-jet Dispositif de liposuccion",
+            image: "./assets/images/common/products/liposuction.png",
+        },
+        product_15: {
+            id: 15,
+            marka_id: 3,
+            title: "body-jet eco Dispositif de liposuccion",
+            image: "./assets/images/common/products/liposuction_eco.png",
+        },
+        product_16: {
+            id: 16,
+            marka_id: 3,
+            title: "body-jet evo Dispositif de liposuccion",
+            image: "./assets/images/common/products/liposuction_evo.png",
+        },
+        product_17: {
+            id: 17,
+            marka_id: 4,
+            title: "Groupe de produits maille",
+            image: "./assets/images/common/products/mesh.png",
+        },
+        product_18: {
+            id: 18,
+            marka_id: 5,
+            title: "ICONIC IMAGE Unité d'électrochirurgie",
+            image: "./assets/images/common/products/image.png",
+        },
+        product_19: {
+            id: 19,
+            marka_id: 5,
+            title: "ICONIC-IS410 Unité d'électrochirurgie",
+            image: "./assets/images/common/products/is410.png",
+        },
+        product_20: {
+            id: 20,
+            marka_id: 5,
+            title: "ICONIC-IS410S Unité d'électrochirurgie",
+            image: "./assets/images/common/products/is410s.png",
+        },
+        product_21: {
+            id: 21,
+            marka_id: 5,
+            title: "APS Unité de plasma d'argon",
+            image: "./assets/images/common/products/argon.png",
+        },
+        product_22: {
+            id: 22,
+            marka_id: 5,
+            title: "MEG-1 Dispositif d'électrocautère",
+            image: "./assets/images/common/products/meg1.png",
+        },
+        product_23: {
+            id: 23,
+            marka_id: 5,
+            title: "MEG1-E Dispositif d'électrocautère endoscopique",
+            image: "./assets/images/common/products/meg1e.png",
+        },
+        product_24: {
+            id: 24,
+            marka_id: 5,
+            title: "MEG1-R Dispositif d'électrocautère par radiofréquence",
+            image: "./assets/images/common/products/meg1r.png",
+        },
+        product_25: {
+            id: 25,
+            marka_id: 5,
+            title: "MEG-2 Dispositif de scellement des veines",
+            image: "./assets/images/common/products/meg2.png",
+        },
+        product_26: {
+            id: 26,
+            marka_id: 5,
+            title: "Pédales sans fil",
+            image: "./assets/images/common/products/pedal.png",
+        },
+        product_27: {
+            id: 27,
+            marka_id: 6,
+            title: "ND12 Moniteur de chevet",
+            image: "./assets/images/common/products/nd12.jpg",
+        },
+        product_28: {
+            id: 28,
+            marka_id: 6,
+            title: "Star 8000 Moniteur de chevet",
+            image: "./assets/images/common/products/star8000.jpeg",
+        },
+        product_29: {
+            id: 29,
+            marka_id: 6,
+            title: "NC5 Vital Monitör",
+            image: "./assets/images/common/products/nc5.png",
+        },
+        product_30: {
+            id: 30,
+            marka_id: 6,
+            title: "NC6 Moniteur vital",
+            image: "./assets/images/common/products/nc6.png",
+        },
+        product_31: {
+            id: 31,
+            marka_id: 6,
+            title: "NC7 Moniteur vital",
+            image: "./assets/images/common/products/nc7.webp",
+        },
+        product_32: {
+            id: 32,
+            marka_id: 6,
+            title: "H3 Dispositif ECG à 3 canaux",
+            image: "./assets/images/common/products/h3.webp",
+        },
+        product_33: {
+            id: 33,
+            marka_id: 6,
+            title: "CM 1200B Dispositif ECG",
+            image: "./assets/images/common/products/1200b.jpg",
+        },
+        product_34: {
+            id: 34,
+            marka_id: 6,
+            title: "CM 1200A Dispositif ECG",
+            image: "./assets/images/common/products/1200a.jpg",
+        },
 
     },
     ch: {
+        product_1: {
+            id: 1,
+            marka_id: 1,
+            title: "特罗卡",
+            image: "./assets/images/common/products/trokar.png",
+        },
+        product_2: {
+            id: 2,
+            marka_id: 1,
+            title: "手动工具",
+            image: "./assets/images/common/products/el_aletleri.jpg",
+        },
+        product_3: {
+            id: 3,
+            marka_id: 1,
+            title: "伤口保护器牵引器",
+            image: "./assets/images/common/products/yara_koruyucu_ekartör.jpg",
+        },
+        product_4: {
+            id: 4,
+            marka_id: 1,
+            title: "抽吸灌溉系统",
+            image: "./assets/images/common/products/suction.jpg",
+        },
+        product_5: {
+            id: 5,
+            marka_id: 1,
+            title: "双极刀片镊子",
+            image: "./assets/images/common/products/bipolar.jpg",
+        },
+        product_6: {
+            id: 6,
+            marka_id: 1,
+            title: "多输入端口",
+            image: "./assets/images/common/products/port.jpeg",
+        },
+        product_7: {
+            id: 7,
+            marka_id: 1,
+            title: "样本袋",
+            image: "./assets/images/common/products/spesimen.jpg",
+        },
+        product_8: {
+            id: 8,
+            marka_id: 2,
+            title: "零",
+            image: "./assets/images/common/products/zero.png",
+        },
+        product_9: {
+            id: 9,
+            marka_id: 2,
+            title: "苗条",
+            image: "./assets/images/common/products/slim.png",
+        },
+        product_10: {
+            id: 10,
+            marka_id: 2,
+            title: "正常",
+            image: "./assets/images/common/products/normal.png",
+        },
+        product_11: {
+            id: 11,
+            marka_id: 2,
+            title: "大型",
+            image: "./assets/images/common/products/large.png",
+        },
+        product_12: {
+            id: 12,
+            marka_id: 2,
+            title: "额外",
+            image: "./assets/images/common/products/extra.png",
+        },
+        product_13: {
+            id: 13,
+            marka_id: 1,
+            title: "充气针",
+            image: "./assets/images/common/products/insüflatör.png",
+        },
+        product_14: {
+            id: 14,
+            marka_id: 3,
+            title: "喷体吸脂装置",
+            image: "./assets/images/common/products/liposuction.png",
+        },
+        product_15: {
+            id: 15,
+            marka_id: 3,
+            title: "body-jet eco Cihazı吸脂术",
+            image: "./assets/images/common/products/liposuction_eco.png",
+        },
+        product_16: {
+            id: 16,
+            marka_id: 3,
+            title: "body-jet evo 吸脂术 Cihazı",
+            image: "./assets/images/common/products/liposuction_evo.png",
+        },
+        product_17: {
+            id: 17,
+            marka_id: 4,
+            title: "网格产品组",
+            image: "./assets/images/common/products/mesh.png",
+        },
+        product_18: {
+            id: 18,
+            marka_id: 5,
+            title: "ICONIC IMAGE 电外科设备",
+            image: "./assets/images/common/products/image.png",
+        },
+        product_19: {
+            id: 19,
+            marka_id: 5,
+            title: "ICONIC-IS410 电外科设备",
+            image: "./assets/images/common/products/is410.png",
+        },
+        product_20: {
+            id: 20,
+            marka_id: 5,
+            title: "ICONIC-IS410S 电外科设备",
+            image: "./assets/images/common/products/is410s.png",
+        },
+        product_21: {
+            id: 21,
+            marka_id: 5,
+            title: "APS 氩等离子装置",
+            image: "./assets/images/common/products/argon.png",
+        },
+        product_22: {
+            id: 22,
+            marka_id: 5,
+            title: "MEG-1 电烧装置",
+            image: "./assets/images/common/products/meg1.png",
+        },
+        product_23: {
+            id: 23,
+            marka_id: 5,
+            title: "MEG1-E 内窥镜电烧装置",
+            image: "./assets/images/common/products/meg1e.png",
+        },
+        product_24: {
+            id: 24,
+            marka_id: 5,
+            title: "MEG1-R 射频电烧装置",
+            image: "./assets/images/common/products/meg1r.png",
+        },
+        product_25: {
+            id: 25,
+            marka_id: 5,
+            title: "MEG-2 静脉密封装置",
+            image: "./assets/images/common/products/meg2.png",
+        },
+        product_26: {
+            id: 26,
+            marka_id: 5,
+            title: "无线脚踏板",
+            image: "./assets/images/common/products/pedal.png",
+        },
+        product_27: {
+            id: 27,
+            marka_id: 6,
+            title: "ND12 床边监视器",
+            image: "./assets/images/common/products/nd12.jpg",
+        },
+        product_28: {
+            id: 28,
+            marka_id: 6,
+            title: "Star 8000 床旁监护仪",
+            image: "./assets/images/common/products/star8000.jpeg",
+        },
+        product_29: {
+            id: 29,
+            marka_id: 6,
+            title: "NC5 生命监测仪",
+            image: "./assets/images/common/products/nc5.png",
+        },
+        product_30: {
+            id: 30,
+            marka_id: 6,
+            title: "NC6 生命监测仪",
+            image: "./assets/images/common/products/nc6.png",
+        },
+        product_31: {
+            id: 31,
+            marka_id: 6,
+            title: "NC7 生命监测仪",
+            image: "./assets/images/common/products/nc7.webp",
+        },
+        product_32: {
+            id: 32,
+            marka_id: 6,
+            title: "H3 3 通道心电图仪",
+            image: "./assets/images/common/products/h3.webp",
+        },
+        product_33: {
+            id: 33,
+            marka_id: 6,
+            title: "CM 1200B 心电图仪",
+            image: "./assets/images/common/products/1200b.jpg",
+        },
+        product_34: {
+            id: 34,
+            marka_id: 6,
+            title: "CM 1200A 心电图仪",
+            image: "./assets/images/common/products/1200a.jpg",
+        },
 
     },
     ar: {
+        product_1: {
+            id: 1,
+            marka_id: 1,
+            title: "تروكار",
+            image: "./assets/images/common/products/trokar.png",
+        },
+        product_2: {
+            id: 2,
+            marka_id: 1,
+            title: "الأدوات اليدوية",
+            image: "./assets/images/common/products/el_aletleri.jpg",
+        },
+        product_3: {
+            id: 3,
+            marka_id: 1,
+            title: "مبعدة واقي الجروح",
+            image: "./assets/images/common/products/yara_koruyucu_ekartör.jpg",
+        },
+        product_4: {
+            id: 4,
+            marka_id: 1,
+            title: "نظام الري بالشفط",
+            image: "./assets/images/common/products/suction.jpg",
+        },
+        product_5: {
+            id: 5,
+            marka_id: 1,
+            title: "ملقط الشفرة ثنائي القطب",
+            image: "./assets/images/common/products/bipolar.jpg",
+        },
+        product_6: {
+            id: 6,
+            marka_id: 1,
+            title: "منفذ متعدد المدخلات",
+            image: "./assets/images/common/products/port.jpeg",
+        },
+        product_7: {
+            id: 7,
+            marka_id: 1,
+            title: "حقيبة العينات",
+            image: "./assets/images/common/products/spesimen.jpg",
+        },
+        product_8: {
+            id: 8,
+            marka_id: 2,
+            title: "صفر",
+            image: "./assets/images/common/products/zero.png",
+        },
+        product_9: {
+            id: 9,
+            marka_id: 2,
+            title: "نحيف",
+            image: "./assets/images/common/products/slim.png",
+        },
+        product_10: {
+            id: 10,
+            marka_id: 2,
+            title: "عادي",
+            image: "./assets/images/common/products/normal.png",
+        },
+        product_11: {
+            id: 11,
+            marka_id: 2,
+            title: "كبير",
+            image: "./assets/images/common/products/large.png",
+        },
+        product_12: {
+            id: 12,
+            marka_id: 2,
+            title: "إضافي",
+            image: "./assets/images/common/products/extra.png",
+        },
+        product_13: {
+            id: 13,
+            marka_id: 1,
+            title: "إبرة النفخ",
+            image: "./assets/images/common/products/insüflatör.png",
+        },
+        product_14: {
+            id: 14,
+            marka_id: 3,
+            title: "جهاز شفط الدهون النفاث للجسم",
+            image: "./assets/images/common/products/liposuction.png",
+        },
+        product_15: {
+            id: 15,
+            marka_id: 3,
+            title: "شفط دهون الجسم النفاثة الصديقة للبيئة Cihazı",
+            image: "./assets/images/common/products/liposuction_eco.png",
+        },
+        product_16: {
+            id: 16,
+            marka_id: 3,
+            title: "شفط الدهون من الجسم النفاث لشفط الدهون Cihazı",
+            image: "./assets/images/common/products/liposuction_evo.png",
+        },
+        product_17: {
+            id: 17,
+            marka_id: 4,
+            title: "مجموعة المنتجات الشبكية",
+            image: "./assets/images/common/products/mesh.png",
+        },
+        product_18: {
+            id: 18,
+            marka_id: 5,
+            title: "وحدة ICONIC IMAGE للجراحة الكهربائية",
+            image: "./assets/images/common/products/image.png",
+        },
+        product_19: {
+            id: 19,
+            marka_id: 5,
+            title: "وحدة ICONIC-IS410 للجراحة الكهربائية",
+            image: "./assets/images/common/products/is410.png",
+        },
+        product_20: {
+            id: 20,
+            marka_id: 5,
+            title: "وحدة الجراحة الكهربية ICONIC-IS410S",
+            image: "./assets/images/common/products/is410s.png",
+        },
+        product_21: {
+            id: 21,
+            marka_id: 5,
+            title: "APS وحدة بلازما الأرغون",
+            image: "./assets/images/common/products/argon.png",
+        },
+        product_22: {
+            id: 22,
+            marka_id: 5,
+            title: "جهاز الكي الكهربائي MEG-1",
+            image: "./assets/images/common/products/meg1.png",
+        },
+        product_23: {
+            id: 23,
+            marka_id: 5,
+            title: "جهاز الكي الكهربائي بالمنظار الداخلي MEG1-E",
+            image: "./assets/images/common/products/meg1e.png",
+        },
+        product_24: {
+            id: 24,
+            marka_id: 5,
+            title: "جهاز الكي الكهربي بالترددات الراديوية MEG1-R",
+            image: "./assets/images/common/products/meg1r.png",
+        },
+        product_25: {
+            id: 25,
+            marka_id: 5,
+            title: "جهاز ختم الوريد MEG-2",
+            image: "./assets/images/common/products/meg2.png",
+        },
+        product_26: {
+            id: 26,
+            marka_id: 5,
+            title: "دواسات قدم لاسلكية",
+            image: "./assets/images/common/products/pedal.png",
+        },
+        product_27: {
+            id: 27,
+            marka_id: 6,
+            title: "شاشة ND12 بجانب السرير",
+            image: "./assets/images/common/products/nd12.jpg",
+        },
+        product_28: {
+            id: 28,
+            marka_id: 6,
+            title: "شاشة العرض بجانب السرير Star 8000",
+            image: "./assets/images/common/products/star8000.jpeg",
+        },
+        product_29: {
+            id: 29,
+            marka_id: 6,
+            title: "المراقب الحيوي NC5",
+            image: "./assets/images/common/products/nc5.png",
+        },
+        product_30: {
+            id: 30,
+            marka_id: 6,
+            title: "المراقب الحيوي NC6",
+            image: "./assets/images/common/products/nc6.png",
+        },
+        product_31: {
+            id: 31,
+            marka_id: 6,
+            title: "المراقب الحيوي NC7",
+            image: "./assets/images/common/products/nc7.webp",
+        },
+        product_32: {
+            id: 32,
+            marka_id: 6,
+            title: "جهاز تخطيط كهربية القلب H3 3 قنوات",
+            image: "./assets/images/common/products/h3.webp",
+        },
+        product_33: {
+            id: 33,
+            marka_id: 6,
+            title: "جهاز تخطيط كهربية القلب CM 1200B",
+            image: "./assets/images/common/products/1200b.jpg",
+        },
+        product_34: {
+            id: 34,
+            marka_id: 6,
+            title: "جهاز تخطيط كهربية القلب CM 1200A",
+            image: "./assets/images/common/products/1200a.jpg",
+        },
 
-    }
+    },
 }
 
 const markas = {
