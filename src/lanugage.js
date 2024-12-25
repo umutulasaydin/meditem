@@ -205,7 +205,7 @@ function generateBlogPages(blogs) {
                     </div>
                     <div>
                         <div class="vstack items-center gap-2 lg:gap-3">
-                            <a class="post-category text-white fw-normal text-none fw-bold fs-7 bg-primary text-white py-narrow px-1 rounded">${blogs[blog].tag}</a>
+                            <div class="post-category text-white fw-normal text-none fw-bold fs-7 bg-primary text-white py-narrow px-1 rounded">${blogs[blog].tag}</div>
                             <h3 class="h4 xl:h2 m-0 text-center m-0 lg:w-500px lg:m-auto">
                                 <a class="text-none text-white" href="blog-details.html?id=${blog}">${blogs[blog].title}</a>
                             </h3>
