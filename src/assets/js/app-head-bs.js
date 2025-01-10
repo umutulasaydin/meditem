@@ -3,7 +3,7 @@ let
 ENABLE_PAGE_PRELOADER = true, 
 DEFAULT_DARK_MODE = false, 
 USE_LOCAL_STORAGE = true, 
-USE_SYSTEM_PREFERENCES = true, 
+USE_SYSTEM_PREFERENCES = false, 
 DEFAULT_BREAKPOINTS = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 };
 
 // add dom-ready class
