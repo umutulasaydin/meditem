@@ -42,6 +42,7 @@ function changeLanguage(lang) {
         }
 
     });
+    generateFooter();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -414,6 +415,23 @@ function generateIntegrations() {
     )
 }
 
+function generateFooter() {
+    const footer = document.getElementById("footer_marka");
+    if (!footer) {
+        console.debug(`Container with selector products not found.`);
+        return;
+    }
+    footer.innerHTML = "";
+    Object.keys(markas).forEach(marka => {
+        console.log(markas[marka].id)
+        product_cont = document.createElement("li");
+        product_cont.innerHTML = `<a href="products.html?id=${markas[marka].id}">${markas[marka].name}</a>`
+        footer.appendChild(product_cont);
+    });
+
+    
+}
+
 const translations = {
     tr: {
         footer_1: "Meditem © 2024, Tüm hakları saklıdır.",
@@ -450,6 +468,10 @@ const translations = {
         marka_4_icerik: "Mesh çözümleriyle cerrahi başarıyı bir adım öteye taşıyor.",
         marka_5_icerik: "Elektrokoter cihazlarında güvenilirlik ve yüksek performansın adresi.",
         marka_6_icerik: "Hasta izleme ve yaşam destek ekipmanlarında global standartlarda çözümler sunar.",
+        marka_7_icerik: "Laparoskopik cerrahi alanında yenilikçi ve güvenilir çözümler sunan global bir medikal teknoloji markasıdır.",
+        marka_8_icerik: "Ayarlanabilir mide balonu teknolojisiyle obezite tedavisinde devrim yaratan öncü bir markadır.",
+        marka_9_icerik: "İleri evre karın içi kanserlerin tedavisinde kullanılan, ısıtılmış kemoterapi ile cerrahiyi birleştiren yenilikçi bir tedavi yöntemidir.",
+        marka_10_icerik: "Ofis histeroskopi alanında konfor, hız ve hassasiyeti bir araya getiren yenilikçi bir medikal teknoloji markasıdır.",
         baslik_4: "Blog Yazılarımız",
         buton_5: "Blogu Oku",
         icerik_4: "Röportajlar, sektördeki en iyi uygulamalar ve haberler.",
@@ -523,6 +545,10 @@ const translations = {
         marka_4_icerik: "Takes surgical success a step further with mesh solutions.",
         marka_5_icerik: "The address of reliability and high performance in electrocautery devices.",
         marka_6_icerik: "Provides global standard solutions in patient monitoring and life support equipment.",
+        marka_7_icerik: "It is a global medical technology brand that offers innovative and reliable solutions in the field of laparoscopic surgery.",
+        marka_8_icerik: "It is a pioneering brand that revolutionized obesity treatment with adjustable gastric balloon technology.",
+        marka_9_icerik: "It is an innovative treatment method that combines heated chemotherapy with surgery for the treatment of advanced intra-abdominal cancers.",
+        marka_10_icerik: "It is an innovative medical technology brand that combines comfort, speed and precision in the field of office hysteroscopy.",
         baslik_4: "Our Blog Posts",
         buton_5: "Read the Blog",
         icerik_4: "Interviews, best practices in the industry, and news.",
@@ -595,6 +621,10 @@ const translations = {
         marka_4_icerik: "Steigert den chirurgischen Erfolg mit Mesh-Lösungen.",
         marka_5_icerik: "Die Adresse für Zuverlässigkeit und hohe Leistung bei Elektrokautergeräten.",
         marka_6_icerik: "Bietet Lösungen nach globalen Standards in der Patientenüberwachung und lebenserhaltenden Ausrüstung.",
+        marka_7_icerik: "Es ist eine globale Medizintechnikmarke, die innovative und zuverlässige Lösungen im Bereich der laparoskopischen Chirurgie anbietet.",
+        marka_8_icerik: "Es handelt sich um eine bahnbrechende Marke, die die Behandlung von Fettleibigkeit mit der Technologie des verstellbaren Magenballons revolutioniert hat.",
+        marka_9_icerik: "Es handelt sich um eine innovative Behandlungsmethode, bei der eine erhitzte Chemotherapie mit einem chirurgischen Eingriff zur Behandlung von fortgeschrittenen intraabdominalen Krebserkrankungen kombiniert wird.",
+        marka_10_icerik: "Sie ist eine innovative Medizintechnikmarke, die Komfort, Schnelligkeit und Präzision im Bereich der Bürohysteroskopie vereint.",
         baslik_4: "Unsere Blogbeiträge",
         buton_5: "Blog lesen",
         icerik_4: "Interviews, Best Practices in der Branche und Neuigkeiten.",
@@ -667,6 +697,10 @@ const translations = {
         marka_4_icerik: "Améliore le succès chirurgical grâce à des solutions de maille.",
         marka_5_icerik: "L'adresse de la fiabilité et de la haute performance pour les appareils électro-chirurgicaux.",
         marka_6_icerik: "Propose des solutions conformes aux normes mondiales pour le suivi des patients et les équipements de maintien en vie.",
+        marka_7_icerik: "Il s'agit d'une marque mondiale de technologie médicale qui offre des solutions innovantes et fiables dans le domaine de la chirurgie laparoscopique.",
+        marka_8_icerik: "Il s'agit d'une marque pionnière qui a révolutionné le traitement de l'obésité grâce à la technologie du ballon gastrique ajustable.",
+        marka_9_icerik: "Il s'agit d'une méthode de traitement innovante qui associe la chimiothérapie chauffée à la chirurgie pour le traitement des cancers intra-abdominaux avancés.",
+        marka_10_icerik: "Il s'agit d'une marque de technologie médicale innovante qui allie confort, rapidité et précision dans le domaine de l'hystéroscopie en cabinet.",
         baslik_4: "Nos articles de blog",
         buton_5: "Lire le blog",
         icerik_4: "Interviews, meilleures pratiques du secteur et actualités.",
@@ -739,6 +773,10 @@ const translations = {
         marka_4_icerik: "通过网片解决方案提升手术成功率。",
         marka_5_icerik: "在电外科设备中体现可靠性和高性能。",
         marka_6_icerik: "在患者监护和生命支持设备领域提供符合全球标准的解决方案。",
+        marka_7_icerik: "它是一个全球性医疗技术品牌，在腹腔镜手术领域提供创新、可靠的解决方案。",
+        marka_8_icerik: "它是一个开创性的品牌，利用可调节胃球囊技术彻底改变了肥胖症的治疗方法。",
+        marka_9_icerik: "这是一种创新的治疗方法，将加热化疗与手术相结合，用于治疗晚期腹腔内癌症。",
+        marka_10_icerik: "它是一个创新的医疗技术品牌，在诊室宫腔镜检查领域集舒适、快速和精确于一身。",
         baslik_4: "我们的博客文章",
         buton_5: "阅读博客",
         icerik_4: "访谈、行业最佳实践和新闻。",
@@ -811,6 +849,10 @@ const translations = {
         marka_4_icerik: "تأخذ نجاح العمليات الجراحية إلى مستوى جديد مع حلول الشبكات.",
         marka_5_icerik: "العنوان للموثوقية والأداء العالي في أجهزة الكي الكهربائي.",
         marka_6_icerik: "تقدم حلولًا بمعايير عالمية في مجال مراقبة المرضى وأجهزة دعم الحياة.",
+        marka_7_icerik: "إنها علامة تجارية عالمية في مجال التكنولوجيا الطبية تقدم حلولاً مبتكرة وموثوقة في مجال جراحة المناظير.",
+        marka_8_icerik: "إنها علامة تجارية رائدة أحدثت ثورة في علاج السمنة بتقنية بالون المعدة القابل للتعديل.",
+        marka_9_icerik: "وهي طريقة علاجية مبتكرة تجمع بين العلاج الكيميائي الساخن والجراحة لعلاج السرطانات المتقدمة داخل البطن.",
+        marka_10_icerik: "إنها علامة تجارية مبتكرة في مجال التكنولوجيا الطبية تجمع بين الراحة والسرعة والدقة في مجال تنظير الرحم المكتبي.",
         baslik_4: "مقالات مدونتنا",
         buton_5: "قراءة المدونة",
         icerik_4: "مقابلات، أفضل الممارسات في القطاع، والأخبار.",
@@ -1765,7 +1807,96 @@ const products = {
             title: "CM 1200A EKG Cihazı",
             image: "./assets/images/common/products/1200a.jpg",
         },
-
+        product_35: {
+            id: 35,
+            marka_id: 7,
+            title: "Trokar",
+            image: "./assets/images/common/products/kangji/trokar.jpeg",
+        },
+        product_36: {
+            id: 36,
+            marka_id: 7,
+            title: "Bipolar Bıçaklı Forseps",
+            image: "./assets/images/common/products/kangji/bipolar_bicakli_forceps.jpeg",
+        },
+        product_37: {
+            id: 37,
+            marka_id: 7,
+            title: "El Aleti",
+            image: "./assets/images/common/products/kangji/El_aleti.jpeg",
+        },
+        product_38: {
+            id: 38,
+            marka_id: 7,
+            title: "Monopolar L-Hook",
+            image: "./assets/images/common/products/kangji/Monopolar L-Hook.jpeg",
+        },
+        product_39: {
+            id: 39,
+            marka_id: 7,
+            title: "Monopolar Makas",
+            image: "./assets/images/common/products/kangji/Monopolar Makas.jpeg",
+        },
+        product_40: {
+            id: 40,
+            marka_id: 7,
+            title: "Morselatör",
+            image: "./assets/images/common/products/kangji/Morselator.jpeg",
+        },
+        product_41: {
+            id: 41,
+            marka_id: 7,
+            title: "Kartuşlu Titanyum Klip Atıcı",
+            image: "./assets/images/common/products/kangji/Kartuslu_titanyum_klip_atici.jpeg",
+        },
+        product_42: {
+            id: 42,
+            marka_id: 7,
+            title: "Polimer Klip ve Atıcısı",
+            image: "./assets/images/common/products/kangji/polimer klip ve aticisi.jpeg",
+        },
+        product_43: {
+            id: 43,
+            marka_id: 7,
+            title: "Spesimen Torbası",
+            image: "./assets/images/common/products/kangji/spesimen torbasi.jpeg",
+        },
+        product_44: {
+            id: 44,
+            marka_id: 7,
+            title: "Çok Girişli Port",
+            image: "./assets/images/common/products/kangji/cok girisli port.jpeg",
+        },
+        product_45: {
+            id: 45,
+            marka_id: 7,
+            title: "Suction İrrigasyon Sistemi",
+            image: "./assets/images/common/products/kangji/suction irrigasyon sistemi.jpeg",
+        },
+        product_46: {
+            id: 46,
+            marka_id: 8,
+            title: "Mide Balonu (6 aylık)",
+            image: "./assets/images/common/products/spatz/mide balonu (6 aylik).jpeg",
+        },
+        product_47: {
+            id: 47,
+            marka_id: 8,
+            title: "Mide Balonu (Ayarlanabilir 12 aylık)",
+            image: "./assets/images/common/products/spatz/mide balonu (ayarlanabilir 12 aylik).jpeg",
+        },
+        product_48: {
+            id: 48,
+            marka_id: 9,
+            title: "Sicak Kemoterapi (HiPec)",
+            image: "./assets/images/common/products/medica/Sicak kemoterapi (hipec).jpeg",
+        },
+        product_49: {
+            id: 49,
+            marka_id: 10,
+            title: "Ofis ve Operatif Histeskopi Sistemi",
+            image: "./assets/images/common/products/acuvu/ofis ve operatif histeskopi sistemi.jpeg",
+        }
     },
     en: {
         product_1: {
@@ -1972,6 +2103,96 @@ const products = {
             title: "CM 1200A ECG Device",
             image: "./assets/images/common/products/1200a.jpg",
         },
+        product_35: {
+            id: 35,
+            marka_id: 7,
+            title: "Trokar",
+            image: "./assets/images/common/products/kangji/trokar.jpeg",
+        },
+        product_36: {
+            id: 36,
+            marka_id: 7,
+            title: "Bipolar Blade Forceps",
+            image: "./assets/images/common/products/kangji/bipolar_bicakli_forceps.jpeg",
+        },
+        product_37: {
+            id: 37,
+            marka_id: 7,
+            title: "Hand Tools",
+            image: "./assets/images/common/products/kangji/El_aleti.jpeg",
+        },
+        product_38: {
+            id: 38,
+            marka_id: 7,
+            title: "Monopolar L-Hook",
+            image: "./assets/images/common/products/kangji/Monopolar L-Hook.jpeg",
+        },
+        product_39: {
+            id: 39,
+            marka_id: 7,
+            title: "Monopolar Scissors",
+            image: "./assets/images/common/products/kangji/Monopolar Makas.jpeg",
+        },
+        product_40: {
+            id: 40,
+            marka_id: 7,
+            title: "Morcellator",
+            image: "./assets/images/common/products/kangji/Morselator.jpeg",
+        },
+        product_41: {
+            id: 41,
+            marka_id: 7,
+            title: "Titanium Clip Shooter with Cartridge",
+            image: "./assets/images/common/products/kangji/Kartuslu_titanyum_klip_atici.jpeg",
+        },
+        product_42: {
+            id: 42,
+            marka_id: 7,
+            title: "Polymer Clip and Shooter",
+            image: "./assets/images/common/products/kangji/polimer klip ve aticisi.jpeg",
+        },
+        product_43: {
+            id: 43,
+            marka_id: 7,
+            title: "Specimen Bag",
+            image: "./assets/images/common/products/kangji/spesimen torbasi.jpeg",
+        },
+        product_44: {
+            id: 44,
+            marka_id: 7,
+            title: "Multi-Input Port",
+            image: "./assets/images/common/products/kangji/cok girisli port.jpeg",
+        },
+        product_45: {
+            id: 45,
+            marka_id: 7,
+            title: "Suction Irrigation System",
+            image: "./assets/images/common/products/kangji/suction irrigasyon sistemi.jpeg",
+        },
+        product_46: {
+            id: 46,
+            marka_id: 8,
+            title: "Gastric Balloon (6 months)",
+            image: "./assets/images/common/products/spatz/mide balonu (6 aylik).jpeg",
+        },
+        product_47: {
+            id: 47,
+            marka_id: 8,
+            title: "Gastric Balloon (Adjustable 12 months)",
+            image: "./assets/images/common/products/spatz/mide balonu (ayarlanabilir 12 aylik).jpeg",
+        },
+        product_48: {
+            id: 48,
+            marka_id: 9,
+            title: "Hot Chemotherapy (HiPec)",
+            image: "./assets/images/common/products/medica/Sicak kemoterapi (hipec).jpeg",
+        },
+        product_49: {
+            id: 49,
+            marka_id: 10,
+            title: "Office and Operative Histoscopy system",
+            image: "./assets/images/common/products/acuvu/ofis ve operatif histeskopi sistemi.jpeg",
+        }
 
     },
     de: {
@@ -2179,6 +2400,96 @@ const products = {
             title: "CM 1200A EKG-Gerät",
             image: "./assets/images/common/products/1200a.jpg",
         },
+        product_35: {
+            id: 35,
+            marka_id: 7,
+            title: "Trokar",
+            image: "./assets/images/common/products/kangji/trokar.jpeg",
+        },
+        product_36: {
+            id: 36,
+            marka_id: 7,
+            title: "Bipolare Klingenpinzette",
+            image: "./assets/images/common/products/kangji/bipolar_bicakli_forceps.jpeg",
+        },
+        product_37: {
+            id: 37,
+            marka_id: 7,
+            title: "Handwerkzeuge",
+            image: "./assets/images/common/products/kangji/El_aleti.jpeg",
+        },
+        product_38: {
+            id: 38,
+            marka_id: 7,
+            title: "Monopolarer L-Haken",
+            image: "./assets/images/common/products/kangji/Monopolar L-Hook.jpeg",
+        },
+        product_39: {
+            id: 39,
+            marka_id: 7,
+            title: "Monopolare Schere",
+            image: "./assets/images/common/products/kangji/Monopolar Makas.jpeg",
+        },
+        product_40: {
+            id: 40,
+            marka_id: 7,
+            title: "Morcellator",
+            image: "./assets/images/common/products/kangji/Morselator.jpeg",
+        },
+        product_41: {
+            id: 41,
+            marka_id: 7,
+            title: "Titanium Clip Shooter mit Patrone",
+            image: "./assets/images/common/products/kangji/Kartuslu_titanyum_klip_atici.jpeg",
+        },
+        product_42: {
+            id: 42,
+            marka_id: 7,
+            title: "Polymer Clip und Shooter",
+            image: "./assets/images/common/products/kangji/polimer klip ve aticisi.jpeg",
+        },
+        product_43: {
+            id: 43,
+            marka_id: 7,
+            title: "Probenbeutel",
+            image: "./assets/images/common/products/kangji/spesimen torbasi.jpeg",
+        },
+        product_44: {
+            id: 44,
+            marka_id: 7,
+            title: "Multi-Input-Anschluss",
+            image: "./assets/images/common/products/kangji/cok girisli port.jpeg",
+        },
+        product_45: {
+            id: 45,
+            marka_id: 7,
+            title: "Saug-Bewässerungssystem",
+            image: "./assets/images/common/products/kangji/suction irrigasyon sistemi.jpeg",
+        },
+        product_46: {
+            id: 46,
+            marka_id: 8,
+            title: "Magenballon (6 Monate)",
+            image: "./assets/images/common/products/spatz/mide balonu (6 aylik).jpeg",
+        },
+        product_47: {
+            id: 47,
+            marka_id: 8,
+            title: "Magenballon (einstellbar 12 Monate)",
+            image: "./assets/images/common/products/spatz/mide balonu (ayarlanabilir 12 aylik).jpeg",
+        },
+        product_48: {
+            id: 48,
+            marka_id: 9,
+            title: "Heiße Chemotherapie (HiPec)",
+            image: "./assets/images/common/products/medica/Sicak kemoterapi (hipec).jpeg",
+        },
+        product_49: {
+            id: 49,
+            marka_id: 10,
+            title: "System für die Histoskopie im Büro und bei Operationen",
+            image: "./assets/images/common/products/acuvu/ofis ve operatif histeskopi sistemi.jpeg",
+        }
 
     },
     fr: {
@@ -2386,7 +2697,96 @@ const products = {
             title: "CM 1200A Dispositif ECG",
             image: "./assets/images/common/products/1200a.jpg",
         },
-
+        product_35: {
+            id: 35,
+            marka_id: 7,
+            title: "Trokar",
+            image: "./assets/images/common/products/kangji/trokar.jpeg",
+        },
+        product_36: {
+            id: 36,
+            marka_id: 7,
+            title: "Pince à lame bipolaire",
+            image: "./assets/images/common/products/kangji/bipolar_bicakli_forceps.jpeg",
+        },
+        product_37: {
+            id: 37,
+            marka_id: 7,
+            title: "Outils à main",
+            image: "./assets/images/common/products/kangji/El_aleti.jpeg",
+        },
+        product_38: {
+            id: 38,
+            marka_id: 7,
+            title: "Crochet en L monopolaire",
+            image: "./assets/images/common/products/kangji/Monopolar L-Hook.jpeg",
+        },
+        product_39: {
+            id: 39,
+            marka_id: 7,
+            title: "Ciseaux monopolaires",
+            image: "./assets/images/common/products/kangji/Monopolar Makas.jpeg",
+        },
+        product_40: {
+            id: 40,
+            marka_id: 7,
+            title: "Morcellateur",
+            image: "./assets/images/common/products/kangji/Morselator.jpeg",
+        },
+        product_41: {
+            id: 41,
+            marka_id: 7,
+            title: "Tireur à clip en titane avec cartouche",
+            image: "./assets/images/common/products/kangji/Kartuslu_titanyum_klip_atici.jpeg",
+        },
+        product_42: {
+            id: 42,
+            marka_id: 7,
+            title: "Clip et tireur en polymère",
+            image: "./assets/images/common/products/kangji/polimer klip ve aticisi.jpeg",
+        },
+        product_43: {
+            id: 43,
+            marka_id: 7,
+            title: "Sac à spécimens",
+            image: "./assets/images/common/products/kangji/spesimen torbasi.jpeg",
+        },
+        product_44: {
+            id: 44,
+            marka_id: 7,
+            title: "Port à entrées multiples",
+            image: "./assets/images/common/products/kangji/cok girisli port.jpeg",
+        },
+        product_45: {
+            id: 45,
+            marka_id: 7,
+            title: "Système d'irrigation par aspiration",
+            image: "./assets/images/common/products/kangji/suction irrigasyon sistemi.jpeg",
+        },
+        product_46: {
+            id: 46,
+            marka_id: 8,
+            title: "Ballon gastrique (6 mois)",
+            image: "./assets/images/common/products/spatz/mide balonu (6 aylik).jpeg",
+        },
+        product_47: {
+            id: 47,
+            marka_id: 8,
+            title: "Ballon gastrique (ajustable 12 mois)",
+            image: "./assets/images/common/products/spatz/mide balonu (ayarlanabilir 12 aylik).jpeg",
+        },
+        product_48: {
+            id: 48,
+            marka_id: 9,
+            title: "Chimiothérapie chaude (HiPec)",
+            image: "./assets/images/common/products/medica/Sicak kemoterapi (hipec).jpeg",
+        },
+        product_49: {
+            id: 49,
+            marka_id: 10,
+            title: "Système d'histoscopie de bureau et d'histoscopie opératoire",
+            image: "./assets/images/common/products/acuvu/ofis ve operatif histeskopi sistemi.jpeg",
+        }
     },
     ch: {
         product_1: {
@@ -2593,6 +2993,96 @@ const products = {
             title: "CM 1200A 心电图仪",
             image: "./assets/images/common/products/1200a.jpg",
         },
+        product_35: {
+            id: 35,
+            marka_id: 7,
+            title: "特罗卡",
+            image: "./assets/images/common/products/kangji/trokar.jpeg",
+        },
+        product_36: {
+            id: 36,
+            marka_id: 7,
+            title: "双极刀片镊子",
+            image: "./assets/images/common/products/kangji/bipolar_bicakli_forceps.jpeg",
+        },
+        product_37: {
+            id: 37,
+            marka_id: 7,
+            title: "手动工具",
+            image: "./assets/images/common/products/kangji/El_aleti.jpeg",
+        },
+        product_38: {
+            id: 38,
+            marka_id: 7,
+            title: "单极 L 形钩",
+            image: "./assets/images/common/products/kangji/Monopolar L-Hook.jpeg",
+        },
+        product_39: {
+            id: 39,
+            marka_id: 7,
+            title: "单极剪刀",
+            image: "./assets/images/common/products/kangji/Monopolar Makas.jpeg",
+        },
+        product_40: {
+            id: 40,
+            marka_id: 7,
+            title: "切片机",
+            image: "./assets/images/common/products/kangji/Morselator.jpeg",
+        },
+        product_41: {
+            id: 41,
+            marka_id: 7,
+            title: "带弹夹的钛夹射击器",
+            image: "./assets/images/common/products/kangji/Kartuslu_titanyum_klip_atici.jpeg",
+        },
+        product_42: {
+            id: 42,
+            marka_id: 7,
+            title: "聚合物夹和射击器",
+            image: "./assets/images/common/products/kangji/polimer klip ve aticisi.jpeg",
+        },
+        product_43: {
+            id: 43,
+            marka_id: 7,
+            title: "样本袋",
+            image: "./assets/images/common/products/kangji/spesimen torbasi.jpeg",
+        },
+        product_44: {
+            id: 44,
+            marka_id: 7,
+            title: "多输入端口",
+            image: "./assets/images/common/products/kangji/cok girisli port.jpeg",
+        },
+        product_45: {
+            id: 45,
+            marka_id: 7,
+            title: "抽吸灌溉系统",
+            image: "./assets/images/common/products/kangji/suction irrigasyon sistemi.jpeg",
+        },
+        product_46: {
+            id: 46,
+            marka_id: 8,
+            title: "胃球囊（6 个月）",
+            image: "./assets/images/common/products/spatz/mide balonu (6 aylik).jpeg",
+        },
+        product_47: {
+            id: 47,
+            marka_id: 8,
+            title: "胃球囊（可调整 12 个月）",
+            image: "./assets/images/common/products/spatz/mide balonu (ayarlanabilir 12 aylik).jpeg",
+        },
+        product_48: {
+            id: 48,
+            marka_id: 9,
+            title: "热化疗（HiPec）",
+            image: "./assets/images/common/products/medica/Sicak kemoterapi (hipec).jpeg",
+        },
+        product_49: {
+            id: 49,
+            marka_id: 10,
+            title: "办公室和手术组织镜系统",
+            image: "./assets/images/common/products/acuvu/ofis ve operatif histeskopi sistemi.jpeg",
+        }
 
     },
     ar: {
@@ -2800,17 +3290,107 @@ const products = {
             title: "جهاز تخطيط كهربية القلب CM 1200A",
             image: "./assets/images/common/products/1200a.jpg",
         },
+        product_35: {
+            id: 35,
+            marka_id: 7,
+            title: "تروكار",
+            image: "./assets/images/common/products/kangji/trokar.jpeg",
+        },
+        product_36: {
+            id: 36,
+            marka_id: 7,
+            title: "ملقط الشفرة ثنائي القطب",
+            image: "./assets/images/common/products/kangji/bipolar_bicakli_forceps.jpeg",
+        },
+        product_37: {
+            id: 37,
+            marka_id: 7,
+            title: "الأدوات اليدوية",
+            image: "./assets/images/common/products/kangji/El_aleti.jpeg",
+        },
+        product_38: {
+            id: 38,
+            marka_id: 7,
+            title: "خطاف L أحادي القطب",
+            image: "./assets/images/common/products/kangji/Monopolar L-Hook.jpeg",
+        },
+        product_39: {
+            id: 39,
+            marka_id: 7,
+            title: "مقص أحادي القطب",
+            image: "./assets/images/common/products/kangji/Monopolar Makas.jpeg",
+        },
+        product_40: {
+            id: 40,
+            marka_id: 7,
+            title: "مورسيلاتور",
+            image: "./assets/images/common/products/kangji/Morselator.jpeg",
+        },
+        product_41: {
+            id: 41,
+            marka_id: 7,
+            title: "قاذف بمشبك تيتانيوم مع خرطوشة",
+            image: "./assets/images/common/products/kangji/Kartuslu_titanyum_klip_atici.jpeg",
+        },
+        product_42: {
+            id: 42,
+            marka_id: 7,
+            title: "مشبك بوليمر ومطلق النار",
+            image: "./assets/images/common/products/kangji/polimer klip ve aticisi.jpeg",
+        },
+        product_43: {
+            id: 43,
+            marka_id: 7,
+            title: "حقيبة العينات",
+            image: "./assets/images/common/products/kangji/spesimen torbasi.jpeg",
+        },
+        product_44: {
+            id: 44,
+            marka_id: 7,
+            title: "منفذ متعدد المدخلات",
+            image: "./assets/images/common/products/kangji/cok girisli port.jpeg",
+        },
+        product_45: {
+            id: 45,
+            marka_id: 7,
+            title: "نظام الري بالشفط",
+            image: "./assets/images/common/products/kangji/suction irrigasyon sistemi.jpeg",
+        },
+        product_46: {
+            id: 46,
+            marka_id: 8,
+            title: "بالون المعدة (6 أشهر)",
+            image: "./assets/images/common/products/spatz/mide balonu (6 aylik).jpeg",
+        },
+        product_47: {
+            id: 47,
+            marka_id: 8,
+            title: "بالون المعدة (بالون المعدة (قابل للتعديل لمدة 12 شهرًا)",
+            image: "./assets/images/common/products/spatz/mide balonu (ayarlanabilir 12 aylik).jpeg",
+        },
+        product_48: {
+            id: 48,
+            marka_id: 9,
+            title: "العلاج الكيميائي الساخن (HiPec)",
+            image: "./assets/images/common/products/medica/Sicak kemoterapi (hipec).jpeg",
+        },
+        product_49: {
+            id: 49,
+            marka_id: 10,
+            title: "نظام التنظير النسيجي المكتبي والجراحي",
+            image: "./assets/images/common/products/acuvu/ofis ve operatif histeskopi sistemi.jpeg",
+        }
 
     },
 }
 
 const markas = {
-    marka_1: {
-        id: 1,
-        name: "Lagis",
-        image: "./assets/images/marka_logolar/Lagis.png",
-        data_key: "marka_1_icerik"
-    },
+    //marka_1: {
+    //    id: 1,
+    //    name: "Lagis",
+    //    image: "./assets/images/marka_logolar/Lagis.png",
+    //    data_key: "marka_1_icerik"
+    //},
     marka_2: {
         id: 2,
         name: "Vathin",
@@ -2840,7 +3420,31 @@ const markas = {
         name: "Comen",
         image: "./assets/images/marka_logolar/Comen.png",
         data_key: "marka_6_icerik"
-    }
+    },
+    marka_7: {
+        id: 7,
+        name: "Kangji",
+        image: "./assets/images/marka_logolar/Kangji.jpeg",
+        data_key: "marka_7_icerik"
+    },
+    marka_8: {
+        id: 8,
+        name: "Spatz",
+        image: "./assets/images/marka_logolar/Spatz.jpeg",
+        data_key: "marka_8_icerik"
+    },
+    marka_9: {
+        id: 9,
+        name: "Medica",
+        image: "./assets/images/marka_logolar/Medica.jpeg",
+        data_key: "marka_9_icerik"
+    },
+    marka_10: {
+        id: 10,
+        name: "Acuvu",
+        image: "./assets/images/marka_logolar/Acuvu.jpeg",
+        data_key: "marka_10_icerik"
+    },
 }
 
 const pageHandlers = {
