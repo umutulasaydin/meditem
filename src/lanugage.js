@@ -3430,19 +3430,19 @@ const markas = {
     marka_8: {
         id: 8,
         name: "Spatz",
-        image: "./assets/images/marka_logolar/Spatz.jpeg",
+        image: "./assets/images/marka_logolar/spatz.jpeg",
         data_key: "marka_8_icerik"
     },
     marka_9: {
         id: 9,
         name: "Medica",
-        image: "./assets/images/marka_logolar/Medica.jpeg",
+        image: "./assets/images/marka_logolar/medica.jpeg",
         data_key: "marka_9_icerik"
     },
     marka_10: {
         id: 10,
         name: "Acuvu",
-        image: "./assets/images/marka_logolar/Acuvu.jpeg",
+        image: "./assets/images/marka_logolar/acuvu.jpeg",
         data_key: "marka_10_icerik"
     },
 }
