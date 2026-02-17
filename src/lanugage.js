@@ -3390,12 +3390,18 @@ const markas = {
     //    image: "./assets/images/marka_logolar/Lagis.png",
     //    data_key: "marka_1_icerik"
     //},
-    marka_2: {
-        id: 2,
-        name: "Vathin",
-        image: "./assets/images/marka_logolar/Vathin.png",
-        data_key: "marka_2_icerik"
+    marka_10: {
+        id: 10,
+        name: "Acuvu",
+        image: "./assets/images/marka_logolar/acuvu.png",
+        data_key: "marka_10_icerik"
     },
+    //marka_2: {
+    //    id: 2,
+    //    name: "Vathin",
+    //    image: "./assets/images/marka_logolar/Vathin.png",
+    //    data_key: "marka_2_icerik"
+    //},
     marka_3: {
         id: 3,
         name: "Human Med",
@@ -3437,13 +3443,7 @@ const markas = {
         name: "Medica",
         image: "./assets/images/marka_logolar/medica.png",
         data_key: "marka_9_icerik"
-    },
-    marka_10: {
-        id: 10,
-        name: "Acuvu",
-        image: "./assets/images/marka_logolar/acuvu.png",
-        data_key: "marka_10_icerik"
-    },
+    }
 }
 
 const pageHandlers = {
