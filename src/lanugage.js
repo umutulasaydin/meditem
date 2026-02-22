@@ -3426,12 +3426,12 @@ const markas = {
         image: "./assets/images/marka_logolar/Comen.png",
         data_key: "marka_6_icerik"
     },
-    marka_7: {
-        id: 7,
-        name: "Kangji",
-        image: "./assets/images/marka_logolar/kangji.png",
-        data_key: "marka_7_icerik"
-    },
+    //marka_7: {
+    //    id: 7,
+    //    name: "Kangji",
+    //    image: "./assets/images/marka_logolar/kangji.png",
+    //    data_key: "marka_7_icerik"
+    //},
     marka_8: {
         id: 8,
         name: "Spatz",
